@@ -13,7 +13,7 @@ const MeetTheTeam: React.FC = () => {
               alt="Team member with coffee mug"
               fill
               className="object-contain"
-            />
+            />  
           </div>
           <div className="relative w-[280px] h-[380px]">
             <Image
