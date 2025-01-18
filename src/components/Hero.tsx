@@ -24,14 +24,14 @@ const Hero = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Content */}
             <div className="px-2">
-              <span className="text-purple-700 font-medium mb-4 block">About Us</span>
-              <h1 className="text-4xl md:text-5xl font-serif mb-6">
+              <span className="text-textcolour font-heading mb-4 block">About Us</span>
+              <h1 className="text-4xl md:text-5xl font-heading mb-6">
                 Transforming mortgage origination through data-driven innovation
               </h1>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-gray-600 text-sm font-body mb-4">
                 Our mortgage origination company is committed to providing a seamless and stress-free experience for our clients. To achieve this goal, we utilize cutting-edge artificial intelligence tools at every step of the mortgage process.
               </p>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm font-body">
                 These tools help us to streamline the process and significantly reduce cycle time, allowing you to secure your mortgage quickly and efficiently. By leveraging advanced technology, we can offer a hassle-free experience that saves you time and effort.
               </p>
             </div>

@@ -16,6 +16,10 @@ export default {
         accentcolour: "#e8dccb",
         cardcolour: "#ffa787",
       },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'], // For headings
+        body: ['Nunito', 'sans-serif'], // For body text
+      },
     },
   },
   plugins: [],
