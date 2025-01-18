@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -48,10 +49,10 @@ const Navigation = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          <a href="/" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Home</a>
-          <a href="/about" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">About</a>
-          <a href="/services" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Services</a>
-          <a href="/blog" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Blog</a>
+          <Link href="/" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Home</Link>
+          <Link href="/about" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">About</Link>
+          <Link href="/services" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Services</Link>
+          <Link href="/blog" className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-green-500 after:transition-transform after:duration-300 after:ease-out hover:after:origin-bottom-left hover:after:scale-x-100">Blog</Link>
           <button className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700">
             Contact Us
           </button>
@@ -65,10 +66,10 @@ const Navigation = () => {
         } overflow-hidden`}
       >
         <div className="flex flex-col items-center gap-4 px-8 py-4">
-          <a href="/" className="w-full text-center py-2">Home</a>
-          <a href="/about" className="w-full text-center py-2">About</a>
-          <a href="/services" className="w-full text-center py-2">Services</a>
-          <a href="/blog" className="w-full text-center py-2">Blog</a>
+          <Link href="/" className="w-full text-center py-2">Home</Link>
+          <Link href="/about" className="w-full text-center py-2">About</Link>
+          <Link href="/services" className="w-full text-center py-2">Services</Link>
+          <Link href="/blog" className="w-full text-center py-2">Blog</Link>
           <button className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700">
             Contact Us
           </button>

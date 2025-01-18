@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Hero = () => {
   const stats = [
@@ -37,9 +38,11 @@ const Hero = () => {
 
             {/* Right Illustration */}
             <div className="relative px-2">
-              <img 
+              <Image 
                 src="/images/hero.png" 
                 alt="Mortgage consultation illustration"
+                width={500}
+                height={300}
                 className="w-full rounded-2xl"
               />
             </div>
