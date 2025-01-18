@@ -20,11 +20,11 @@ const Hero = () => {
   return (
     <section className="p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-4 md:p-6">
-        <div className="px-12 py-5">
+        <div className="px-2 md:px-12 py-5">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Content */}
             <div className="px-2">
-              <span className="text-textcolour font-heading mb-4 block">About Us</span>
+              <span className="text-textcolour font-heading mb-4 block text-center md:text-left">About Us</span>
               <h1 className="text-4xl md:text-5xl font-heading mb-6">
                 Transforming mortgage origination through data-driven innovation
               </h1>

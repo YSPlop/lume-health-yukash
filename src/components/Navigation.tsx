@@ -23,8 +23,8 @@ const Navigation = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300 ${
         isScrolled ? 'bg-white/75 backdrop-blur-sm' : 'bg-white'
       }`}>
-        <div className="flex items-center justify-between px-8">
-          {/* Logo */}
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between px-8">
           <div className="flex items-center">
             <Image
               src="/images/logo.png"
@@ -35,13 +35,11 @@ const Navigation = () => {
             />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-8">
             {[
               { href: '/', label: 'Home' },
               { href: '/about', label: 'About' },
               { href: '/services', label: 'Services' },
-              { href: '/contact', label: 'Contact' }
             ].map(({ href, label }) => (
               <Link 
                 key={href}
@@ -53,20 +51,50 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden focus:outline-none"
+          <Link 
+            href="/contact"
+            className="px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300"
           >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+            Contact Us
+          </Link>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Layout */}
+        <div className="md:hidden flex px-4 py-3">
+          <div className="w-1/4">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={90}
+              height={30}
+              className="object-contain"
+            />
+          </div>
+          
+          <div className="w-1/2 flex justify-center items-center">
+            <Link 
+              href="/contact"
+              className="px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm"
+            >
+              Contact Us
+            </Link>
+          </div>
+          
+          <div className="w-1/4 flex justify-end">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="focus:outline-none"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out backdrop-blur-md ${
             isOpen
@@ -78,7 +106,6 @@ const Navigation = () => {
             <Link href="/" className="block hover:text-gray-600">Home</Link>
             <Link href="/about" className="block hover:text-gray-600">About</Link>
             <Link href="/services" className="block hover:text-gray-600">Services</Link>
-            <Link href="/contact" className="block hover:text-gray-600">Contact</Link>
           </div>
         </div>
       </nav>
