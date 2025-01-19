@@ -11,9 +11,9 @@ const OurServices: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-body leading-tight mt-3">What We Offer To Our Clients</h2>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-[100px] mx-10">
           {/* Mobile Physiotherapy Card */}
-          <div className="bg-white p-6 rounded-3xl shadow-md hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
+          <div className="bg-bgcolour p-6 rounded-3xl hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
             <div className="flex flex-col items-center">
                 <h3 className="text-xl font-body font-semibold mb-2 mb-6">Mobile Physiotherapy</h3>
                 <div className = "w-32 h-32 rounded-full overflow-hidden">
@@ -35,7 +35,7 @@ const OurServices: React.FC = () => {
           </div>
 
           {/* Mobile Occupational Therapy Card */}
-          <div className="bg-white p-6 rounded-3xl shadow-md hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
+          <div className="bg-bgcolour p-6 rounded-3xl  hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
             <div className="flex flex-col items-center">
                 <h3 className="text-xl font-body font-semibold mb-2 mb-6">Mobile Occupational Therapy</h3>
                 <div className="w-32 h-32 rounded-full overflow-hidden">
