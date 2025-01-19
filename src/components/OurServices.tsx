@@ -13,7 +13,7 @@ const OurServices: React.FC = () => {
         
         <div className="grid md:grid-cols-2 gap-[100px] mx-10">
           {/* Mobile Physiotherapy Card */}
-          <div className="bg-bgcolour p-6 rounded-3xl hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
+          <div className="bg-bgcolour p-6 rounded-3xl shadow-md hover:bg-cardcolour duration-300 hover:-translate-y-2 ease-in-out">
             <div className="flex flex-col items-center">
                 <h3 className="text-xl font-body font-semibold mb-2 mb-6">Mobile Physiotherapy</h3>
                 <div className = "w-32 h-32 rounded-full overflow-hidden">
@@ -26,7 +26,7 @@ const OurServices: React.FC = () => {
                         />
                     </div>
                 </div>
-                <div className = "text-center mt-8 text-gray-600 text-base">
+                <div className = "text-center mt-8 text-gray-600 md:text-base text-xs">
                     <p>
                         {physioDescription}
                     </p>
@@ -35,7 +35,7 @@ const OurServices: React.FC = () => {
           </div>
 
           {/* Mobile Occupational Therapy Card */}
-          <div className="bg-bgcolour p-6 rounded-3xl  hover:bg-cardcolour duration-300 hover:-translate-y-5 ease-in-out">
+          <div className="bg-bgcolour p-6 rounded-3xl shadow-md hover:bg-cardcolour duration-300 hover:-translate-y-2 ease-in-out">
             <div className="flex flex-col items-center">
                 <h3 className="text-xl font-body font-semibold mb-2 mb-6">Mobile Occupational Therapy</h3>
                 <div className="w-32 h-32 rounded-full overflow-hidden">
@@ -49,7 +49,7 @@ const OurServices: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className = "text-center mt-8 text-gray-600 text-base">
+            <div className = "text-center mt-8 text-gray-600 md:text-base text-xs">
                 <p>
                     {physioDescription}
                 </p>
