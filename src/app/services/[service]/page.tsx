@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Metadata } from 'next';
 
 // Use Next.js built-in types
 type Props = {
