@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Use Next.js built-in types
+// Update the Props type to match Next.js requirements
 type Props = {
-  params: { service: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+  params: {
+    service: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
 
 interface ServiceContent {
   title: string;
