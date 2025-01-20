@@ -11,10 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        bgcolour: "#fcf9f3",
+        bgcolour: "#ffa787",
         textcolour: "#756f6d",
         accentcolour: "#e8dccb",
-        cardcolour: "#ffa787",
+        cardcolour: "#fcf9f3",
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'], // For headings

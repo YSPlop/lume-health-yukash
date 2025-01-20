@@ -2,6 +2,8 @@
 import Image from "next/image"
 
 const OurServices: React.FC = () => {
+
+    // keep the same names pelase, for components and headings!
     const physioDescription = "We make quality physiotherapy accessible to everyone by offering home-based mobile services across Melbourne. We Understand the challenges of clinic visits, especially for those with mobility issues, we bring all the equipment needed to provide effective care in the comfort of your home.";
     const otDescription = "We provide mobile occupational therapy services across Melbourne. Our therapists are trained to provide effective care in the comfort of your home.";
 
@@ -21,7 +23,7 @@ const OurServices: React.FC = () => {
     ];
 
     const ServiceCard: React.FC<typeof services[0]> = ({ title, description, imageSrc, imageAlt }) => (
-        <div className="p-6 rounded-3xl bg-cardcolour hover:bg-bgcolour hover:border hover:border-cardcolour duration-300 ease-in-out">
+        <div className="p-6 rounded-3xl bg-cardcolour border border-cardcolour hover:bg-bgcolour duration-300 ease-in-out">
             <div className="flex flex-col items-center">
                 <h3 className="text-xl font-body font-semibold mb-2 mb-6">{title}</h3>
                 <div className="w-32 h-32 rounded-full overflow-hidden">
