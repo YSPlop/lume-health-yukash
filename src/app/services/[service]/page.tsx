@@ -7,6 +7,7 @@ interface ServicePageProps {
   params: {
     service: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
 interface ServiceContent {
