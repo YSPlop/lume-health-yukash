@@ -14,7 +14,7 @@ export default {
         bgcolour: "#ffa787",
         textcolour: "#756f6d",
         accentcolour: "#e8dccb",
-        cardcolour: "#fcf9f3",
+        cardcolour: "#f5ede0",
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'], // For headings

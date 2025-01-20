@@ -14,17 +14,13 @@ const Logos: React.FC = () => {
             src: "/logos/physiotherapy-logo.png",
             alt: "PT"
         },
-        {
-            src: "/logos/speech-pathology-logo.png",
-            alt: "SP"
-        }
     ]
     return (
         <section>
-            <div className="border-t border-gray-300 my-4 mx-10"/>
+            <div className="border-t border-gray-300 my-4 "/>
                 <div className = "flex items-center flex-col md:py-10 py-6">
                     <div className = "lg:w-[1100px] md:w-[800px] w-full items-center">
-                        <div className = "grid md:grid-cols-4 md:gap-5 grid-cols-2 gap-1">
+                        <div className = "grid md:grid-cols-3 md:gap-5 grid-cols-2 gap-1">
                             {logos.map((logo) => {
                                 return (
                                     <div className = "flex items-center justify-center">
@@ -40,7 +36,7 @@ const Logos: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            <div className="border-t border-gray-300 my-4 mx-10"/>
+            <div className="border-t border-gray-300 my-4"/>
         </section>
     )
 }

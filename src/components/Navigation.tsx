@@ -23,7 +23,7 @@ const Navigation = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300 ${
-        isScrolled ? 'bg-white/75 backdrop-blur-sm' : 'bg-white'
+        isScrolled ? 'bg-white/75 backdrop-blur-sm' : 'bg-cardcolour'
       }`}>
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between px-8">
@@ -46,7 +46,7 @@ const Navigation = () => {
               <Link 
                 key={href}
                 href={href}
-                className={`relative hover:text-gray-600 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-cardcolour after:left-0 after:bottom-0 ${pathname === href ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+                className={`relative hover:text-gray-600 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === href ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
               >
                 {label}
               </Link>
@@ -55,7 +55,7 @@ const Navigation = () => {
 
           <Link 
             href="/contact"
-            className={`px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
+            className={`px-6 py-2 rounded-full bg-bgcolour text-white hover:bg-opacity-90 transition-all duration-300 ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
           >
             Contact Us
           </Link>
@@ -76,7 +76,7 @@ const Navigation = () => {
           <div className="w-1/2 flex justify-center items-center">
             <Link 
               href="/contact"
-              className={`px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
+              className={`px-6 py-2 rounded-full bg-bgcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
             >
               Contact Us
             </Link>
@@ -121,7 +121,7 @@ const Navigation = () => {
           </div>
         </div>
       </nav>
-      <div className="h-[100px]"></div>
+      <div className="h-[100px] bg-cardcolour"></div>
     </>
   );
 };

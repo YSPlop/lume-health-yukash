@@ -37,7 +37,7 @@ const MeetTheTeam: React.FC = () => {
             At fundsmate, we work hard to secure the best possible outcomes for our customers. 
             Our experienced team cooperates to guarantee that you have a top-notch experience.
           </p>
-          <button className="w-full md:w-auto bg-cardcolour text-white px-6 py-3 rounded-full hover:bg-accentcolour hover:text-black transition-colors">
+          <button className="w-full md:w-auto bg-cardcolour text-black px-6 py-3 rounded-full hover:bg-accentcolour hover:text-black transition-colors">
             Meet the team
           </button>
         </div>
