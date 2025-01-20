@@ -23,7 +23,7 @@ const Logos: React.FC = () => {
                         <div className = "grid md:grid-cols-3 md:gap-5 grid-cols-2 gap-1">
                             {logos.map((logo) => {
                                 return (
-                                    <div className = "flex items-center justify-center">
+                                    <div key={logo.src} className = "flex items-center justify-center">
                                         <Image
                                             src={logo.src}
                                             alt={logo.alt}
