@@ -1,5 +1,3 @@
-"use client";
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,6 +5,7 @@ interface ServicePageProps {
   params: {
     service: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 interface ServiceContent {
@@ -23,7 +22,7 @@ type ServiceContentMap = {
   [key: string]: ServiceContent;
 };
 
-const ServicePage = ({ params }: ServicePageProps) => {
+const ServicePage = async ({ params }: ServicePageProps) => {
   // This would ideally come from a CMS or database
   const serviceContent: ServiceContentMap = {
     'home-visits': {
