@@ -51,7 +51,7 @@ const OurServices: React.FC = () => {
                 <h2 className="text-3xl md:text-4xl font-body leading-tight mt-3">What We Offer To Our Clients</h2>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-[100px] mx-10">
+            <div className="grid md:grid-cols-2 md:gap-[100px] gap-[50px] mx-10">
                 {services.map((service, index) => (
                     <ServiceCard key={index} {...service} />
                 ))}

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ErrorPage from '@/components/ErrorPage';
 
 type Params = Promise<{ service: string }>;
 
 type Props = {
   params: Params;
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
+};  
 
 interface ServiceContent {
   title: string;
@@ -63,7 +63,7 @@ const ServicePage = async ({ params }: Props) => {
 
   const content = serviceContent[service as keyof typeof serviceContent];
 
-  if (!content) return <div>Service not found</div>;
+  if (!content) return <ErrorPage />;
 
   return (
     <div className="bg-bgcolour pt-24">

@@ -9,7 +9,7 @@ const MeetTheTeam: React.FC = () => {
         <div className="flex flex-row items-center justify-center md:justify-start">
           <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px] -mt-16 -mr-8">
             <Image
-              src="/images/han.png"
+              src="/images/Han.png"
               alt="Team member with coffee mug"
               fill
               className="object-contain"
@@ -18,7 +18,7 @@ const MeetTheTeam: React.FC = () => {
           </div>
           <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px]">
             <Image
-              src="/images/natalie.png"
+              src="/images/Natalie.png"
               alt="Team member in white blazer"
               fill
               className="object-contain"
