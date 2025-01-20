@@ -4,10 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +46,7 @@ const Navigation = () => {
               <Link 
                 key={href}
                 href={href}
-                className="relative hover:text-gray-600 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-cardcolour after:left-0 after:bottom-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
+                className={`relative hover:text-gray-600 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-cardcolour after:left-0 after:bottom-0 ${pathname === href ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
               >
                 {label}
               </Link>
@@ -53,7 +55,7 @@ const Navigation = () => {
 
           <Link 
             href="/contact"
-            className="px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300"
+            className={`px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
           >
             Contact Us
           </Link>
@@ -74,7 +76,7 @@ const Navigation = () => {
           <div className="w-1/2 flex justify-center items-center">
             <Link 
               href="/contact"
-              className="px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm"
+              className={`px-6 py-2 rounded-full bg-cardcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
             >
               Contact Us
             </Link>
@@ -103,9 +105,19 @@ const Navigation = () => {
           }`}
         >
           <div className="px-8 py-4 space-y-4">
-            <Link href="/" className="block hover:text-gray-600">Home</Link>
-            <Link href="/about" className="block hover:text-gray-600">About</Link>
-            <Link href="/services" className="block hover:text-gray-600">Services</Link>
+            {[
+              { href: '/', label: 'Home' },
+              { href: '/about', label: 'About' },
+              { href: '/services', label: 'Services' },
+            ].map(({ href, label }) => (
+              <Link 
+                key={href}
+                href={href}
+                className={`block hover:text-gray-600 ${pathname === href ? 'text-gray-600' : ''}`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       </nav>

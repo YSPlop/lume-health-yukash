@@ -29,7 +29,7 @@ const MeetTheTeam: React.FC = () => {
 
         {/* Content */}
         <div className="space-y-4 md:space-y-6 text-center md:text-left">
-          <span className="text-purple-600 font-heading text-sm md:text-base">Meet the Team</span>
+          <span className="text-textcolour font-heading text-sm md:text-base">Meet the Team</span>
           <h2 className="text-3xl md:text-4xl font-body leading-tight">
             Our Talented and Experienced Team
           </h2>
@@ -37,7 +37,7 @@ const MeetTheTeam: React.FC = () => {
             At fundsmate, we work hard to secure the best possible outcomes for our customers. 
             Our experienced team cooperates to guarantee that you have a top-notch experience.
           </p>
-          <button className="w-full md:w-auto bg-purple-500 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition-colors">
+          <button className="w-full md:w-auto bg-cardcolour text-white px-6 py-3 rounded-full hover:bg-accentcolour hover:text-black transition-colors">
             Meet the team
           </button>
         </div>

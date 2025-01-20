@@ -7,11 +7,10 @@ import ClientsWeSee from "@/components/ClientsWeSee"
 export default function Home() {
   return (
     <div className="bg-bgcolour w-full"> 
-      <Navigation />
       <Hero />
       <MeetTheTeam />
       <OurServices />
-      <ClientsWeSee />
+      {/* <ClientsWeSee /> */}
     </div>
   );
 }
