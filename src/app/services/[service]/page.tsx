@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Update the Props type to match Next.js requirements
+type Params = Promise<{ service: string }>;
+
 type Props = {
-  params: {
-    service: string;
-  };
+  params: Params;
   searchParams?: { [key: string]: string | string[] | undefined };
 };
 
@@ -24,6 +23,8 @@ type ServiceContentMap = {
 };
 
 const ServicePage = async ({ params }: Props) => {
+  const { service } = await params;
+  
   // This would ideally come from a CMS or database
   const serviceContent: ServiceContentMap = {
     'home-visits': {
@@ -60,7 +61,7 @@ const ServicePage = async ({ params }: Props) => {
     // Add other services here
   };
 
-  const content = serviceContent[params.service as keyof typeof serviceContent];
+  const content = serviceContent[service as keyof typeof serviceContent];
 
   if (!content) return <div>Service not found</div>;
 
