@@ -56,7 +56,7 @@ const ServicePage = async ({ params }: Props) => {
         "Sports Injuries",
         "Rehabilitation Programs"
       ],
-      imageSrc: "/images/home-visits.png",
+      imageSrc: "/services/home-visits.jpg",
       imageAlt: "Home visits illustration"
     },
     // Add other services here
@@ -67,24 +67,24 @@ const ServicePage = async ({ params }: Props) => {
   if (!content) return <ErrorPage />;
 
   return (
-    <div className="bg-bgcolour pt-24">
+    <div className="bg-bgcolour pt-6">
       <section className="py-8 px-4 mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-textcolour font-heading text-sm md:text-base">Our Services</span>
-          <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3">
+          <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3 text-center">
             {content.title}
           </h1>
         </div>
 
         {/* Introduction */}
         <div className="mb-16">
-          <h2 className="text-2xl font-body font-semibold mb-4">{content.intro}</h2>
+          <h2 className="text-2xl font-body font-semibold mb-4 text-center">{content.intro}</h2>
           <p className="text-gray-600 leading-relaxed">{content.description}</p>
         </div>
 
         {/* Main Image */}
-        <div className="w-full aspect-[21/9] relative mb-16 rounded-2xl overflow-hidden">
+        <div className="w-full aspect-[21/9] relative mb-16 rounded-2xl overflow-hidden animate-fade-in">
           <Image
             src={content.imageSrc}
             alt={content.imageAlt}
@@ -95,10 +95,14 @@ const ServicePage = async ({ params }: Props) => {
 
         {/* Benefits Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-body font-semibold mb-8">How We Can Help</h2>
+          <h2 className="text-2xl font-body font-semibold mb-8 text-center">How We Can Help</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {content.benefits.map((benefit, index) => (
-              <div key={index} className="p-6 rounded-3xl bg-cardcolour">
+              <div 
+                key={index} 
+                className="p-6 rounded-3xl bg-cardcolour animate-fade-in"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
                 <h3 className="text-xl font-body font-semibold mb-4">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.content}</p>
               </div>
@@ -108,10 +112,14 @@ const ServicePage = async ({ params }: Props) => {
 
         {/* Conditions Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-body font-semibold mb-8">Conditions We Treat</h2>
+          <h2 className="text-2xl font-body font-semibold mb-8 text-center">Conditions We Treat</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {content.conditions.map((condition, index) => (
-              <div key={index} className="p-4 rounded-xl bg-cardcolour text-center">
+              <div 
+                key={index} 
+                className="p-4 rounded-xl bg-cardcolour text-center animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <span className="text-sm font-body">{condition}</span>
               </div>
             ))}
