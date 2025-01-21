@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+
 interface ClientCardProps {
   title: string;
   description: string;
