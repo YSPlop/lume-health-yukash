@@ -28,8 +28,8 @@ const Navigation = () => {
   const navigationLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
+    { href: '/referral-form', label: 'Referral Form' },
     { href: '/contact', label: 'Contact' },
-    { href: '/refferal-form', label: 'Referral Form' },
   ];
 
   const Logo = () => (
