@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import MeetTheTeam from "@/components/MeetTheTeam";
 import OurServices from "@/components/OurServices";
 import Logos from "@/components/Logos";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -21,7 +22,7 @@ export default function Home() {
             entry.target.classList.remove('translate-y-10');
             
             const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
-            setIsDarkBackground(sectionIndex === 1);
+            setIsDarkBackground([1, 4].includes(sectionIndex));
           }
         });
       },
@@ -72,6 +73,14 @@ export default function Home() {
         }}
       >
         <Logos />
+      </section>
+
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[4] = el;
+        }}
+      >
+        <Footer />
       </section>
     </main>
   );

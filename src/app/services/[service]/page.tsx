@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ErrorPage from '@/components/ErrorPage';
+import Footer from '@/components/Footer';
 
 type Params = Promise<{ service: string }>;
 
@@ -129,6 +130,7 @@ const ServicePage = async ({ params }: Props) => {
           </Link>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

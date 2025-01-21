@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from '@/components/Footer';
 import { useForm } from 'react-hook-form';
 
 interface ContactFormData {
@@ -21,7 +22,7 @@ const ContactPage = () => {
   const labelClasses = "block text-sm font-semibold mb-2";
 
   return (
-    <div className="bg-bgcolour pt-24">
+    <div className="bg-bgcolour pt-8">
       <div className="max-w-4xl mx-auto p-6">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -123,6 +124,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
