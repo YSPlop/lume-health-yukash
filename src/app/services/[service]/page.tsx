@@ -123,7 +123,7 @@ const ServicePage = async ({ params }: Props) => {
           <p className="text-gray-600 mb-8">Contact us to speak directly with our physiotherapist about how we can help.</p>
           <Link 
             href="/contact"
-            className="px-8 py-3 bg-cardcolour text-white rounded-full hover:bg-accentcolour hover:text-black transition-colors"
+            className="px-8 py-3 bg-cardcolour text-black rounded-full hover:bg-accentcolour hover:text-black transition-colors"
           >
             Contact Us
           </Link>

@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         bgcolour: "#ffa787",
+        bgdarkcolour: "#ff7854",
         textcolour: "#756f6d",
         accentcolour: "#e8dccb",
         cardcolour: "#f5ede0",

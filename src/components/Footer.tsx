@@ -3,6 +3,7 @@ import Image from "next/image"
 const Footer: React.FC = () => {
   return (
     <footer className="text-black w-full">
+      <div className="border-t border-gray-300"/>
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-center py-8 md:py-12 gap-8">
@@ -57,14 +58,14 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="border-t border-gray-300 mx-4 md:mx-10"/>
+      <div className="border-t border-gray-300"/>
       <div className="container mx-auto px-4 md:px-10">
         <div className="flex flex-col sm:flex-row justify-between items-center py-4 text-sm gap-4">
           <div>
             <a className="underline underline-offset-4 hover:text-gray-700" href="/privacy-policy">Privacy Policy</a>
           </div>
           <div>
-            Designed by John Doe
+            Designed by Yukash Sivaraj
           </div>
         </div>
       </div>

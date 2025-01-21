@@ -36,7 +36,6 @@ const Logos: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            <div className="border-t border-gray-300 my-4"/>
         </section>
     )
 }
