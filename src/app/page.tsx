@@ -55,7 +55,6 @@ export default function Home() {
       >
         <Hero />
       </section>
-      <Line />
       <section 
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[1] = el;
@@ -63,7 +62,6 @@ export default function Home() {
       >
         <MeetTheTeam />
       </section>
-      <Line />
       <section 
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[2] = el;
@@ -71,7 +69,6 @@ export default function Home() {
       >
         <OurServices />
       </section>
-      <Line />
       <section 
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[3] = el;

@@ -25,14 +25,14 @@ const About = () => {
       title: "Rehabilitation",
       description: "Comprehensive rehabilitation programs for various conditions",
       link: "/services/rehabilitation",
-      imageSrc: "/images/rehabilitation.png",
+      imageSrc: "/images/dog.jpg",
       imageAlt: "Rehabilitation illustration"
     },
     {
       title: "Pain Management",
       description: "Expert techniques for chronic and acute pain relief",
       link: "/services/pain-management",
-      imageSrc: "/images/pain-management.png",
+      imageSrc: "/images/dog.jpg",
       imageAlt: "Pain management illustration"
     }
   ];
@@ -42,21 +42,21 @@ const About = () => {
       title: "Home Modifications",
       description: "Assessments and recommendations for safer living spaces",
       link: "/services/home-modifications",
-      imageSrc: "/images/home-modifications.png",
+      imageSrc: "/images/dog.jpg",
       imageAlt: "Home modifications illustration"
     },
     {
       title: "Daily Living Skills",
       description: "Support in developing independence in everyday activities",
       link: "/services/daily-living",
-      imageSrc: "/images/daily-living.png",
+      imageSrc: "/images/dog.jpg",
       imageAlt: "Daily living skills illustration"
     },
     {
       title: "Assistive Technology",
       description: "Recommendations and training for supportive equipment",
       link: "/services/assistive-tech",
-      imageSrc: "/images/assistive-tech.png",
+      imageSrc: "/images/dog.jpg",
       imageAlt: "Assistive technology illustration"
     }
   ];
