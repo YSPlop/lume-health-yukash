@@ -10,7 +10,7 @@ const MeetTheTeam: React.FC = () => {
           <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px] -mt-16 -mr-8">
             <Image
               src="/images/Han.png"
-              alt="Team member with coffee mug"
+              alt="Han"
               fill
               className="object-contain"
               priority
@@ -19,7 +19,7 @@ const MeetTheTeam: React.FC = () => {
           <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px]">
             <Image
               src="/images/Natalie.png"
-              alt="Team member in white blazer"
+              alt="Nat"
               fill
               className="object-contain"
               priority
