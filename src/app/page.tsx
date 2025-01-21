@@ -28,7 +28,7 @@ export default function Home() {
         });
       },
       {
-        threshold: 1,
+        threshold: 0.8,
       }
     );
 
