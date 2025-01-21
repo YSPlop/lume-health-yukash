@@ -49,7 +49,6 @@ export default function Home() {
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[0] = el;
         }}
-        className="opacity-0 translate-y-10 transition-all duration-1000 ease-out"
       >
         <Hero />
       </section>
@@ -57,7 +56,6 @@ export default function Home() {
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[1] = el;
         }}
-        className="opacity-0 translate-y-10 transition-all duration-1000 ease-out"
       >
         <MeetTheTeam />
       </section>
@@ -65,7 +63,6 @@ export default function Home() {
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[2] = el;
         }}
-        className="opacity-0 translate-y-10 transition-all duration-1000 ease-out"
       >
         <OurServices />
       </section>
@@ -73,7 +70,6 @@ export default function Home() {
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[3] = el;
         }}
-        className="opacity-0 translate-y-10 transition-all duration-1000 ease-out"
       >
         <Logos />
       </section>

@@ -7,7 +7,7 @@ const MeetTheTeam: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Team Images */}
         <div className="flex flex-row items-center justify-center md:justify-start">
-          <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px] -mt-16 -mr-8">
+          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px] -mt-8 sm:-mt-12 md:-mt-16 -mr-4 sm:-mr-6 md:-mr-8">
             <Image
               src="/images/han.png"
               alt="Han"
@@ -16,7 +16,7 @@ const MeetTheTeam: React.FC = () => {
               priority
             />  
           </div>
-          <div className="relative w-[200px] md:w-[280px] h-[300px] md:h-[380px]">
+          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px]">
             <Image
               src="/images/natalie.png"
               alt="Nat"
