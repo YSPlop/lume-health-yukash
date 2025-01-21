@@ -6,8 +6,8 @@ import Form from "@/components/Form";
 const ReferralFormPage = () => {
   return (
     <div>
-    <Form />
-    <Footer />
+      <Form />
+      <Footer />
     </div>
   );
 };
