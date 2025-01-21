@@ -66,7 +66,6 @@ const FormTypeButton = ({
 );
 
 const Form = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<FormData>({
     defaultValues: {
@@ -78,7 +77,6 @@ const Form = () => {
 
   const handleFormTypeChange = (type: 'private' | 'ndis') => {
     setValue('formType', type);
-    setIsOpen(false);
   };
 
   const onSubmit = async (data: FormData) => {

@@ -12,6 +12,7 @@ const MeetTheTeam: React.FC = () => {
               src="/images/han.png"
               alt="Han"
               fill
+              sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, (max-width: 1280px) 280px"
               className="object-contain"
               priority
             />  
@@ -21,6 +22,7 @@ const MeetTheTeam: React.FC = () => {
               src="/images/natalie.png"
               alt="Nat"
               fill
+              sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, (max-width: 1280px) 280px"
               className="object-contain"
               priority
             />
