@@ -5,7 +5,7 @@ const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const formTypes = ["Private", 'Home Care', 'NDIS'];
   const [type, setType] = useState<string>("");
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const {handleSubmit} = useForm();
   const [typeValidation, setTypeValidation] = useState(true)
   const [formData, setFormData] = useState({
     // Personal Info
