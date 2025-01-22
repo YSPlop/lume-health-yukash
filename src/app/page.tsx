@@ -6,19 +6,19 @@ import MeetTheTeam from "@/components/MeetTheTeam";
 import OurServices from "@/components/OurServices";
 import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
-import ClientsWeSee from "@/components/ClientsWeSee";
+import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
 
   const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FFA787]',     // Hero
-    1: 'bg-[#FFB9A3]', // MeetTheTeam
-    2: 'bg-[#FFD0C1]',    // OurServices
-    3: 'bg-[#FFE7DF]', // ClientsWeSee
-    4: 'bg-[#FFE7DF]',        // Logos
-    5: 'bg-[#FFE7DF]',     // Footer
+    0: 'bg-[#FFB9A3]',     // Hero
+    1: 'bg-[#FFD0C1]',    // MeetTheTeam
+    2: 'bg-[#FFE7DF]',    // OurServices
+    3: 'bg-[#FFE7DF]',    // ClientsWeSee
+    4: 'bg-[#FFD0C1]',    // Logos
+    5: 'bg-[#FFD0C1]',     // Footer
   };
 
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function Home() {
           if (el) sectionRefs.current[3] = el;
         }}
       >
-        <ClientsWeSee />
+        <ClientsWeSeeX />
       </section>
       <section 
         ref={(el: HTMLElement | null) => {
