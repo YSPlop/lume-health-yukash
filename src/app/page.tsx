@@ -74,7 +74,7 @@ export default function Home() {
           if (el) sectionRefs.current[3] = el;
         }}
       >
-        <ClientsWeSee />
+        <ClientsWeSeeX />
       </section>
       <section 
         ref={(el: HTMLElement | null) => {

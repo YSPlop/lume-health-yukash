@@ -2,11 +2,12 @@
 
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
+import FormSwipe from "@/components/FormSwipe";
 
 const ReferralFormPage = () => {
   return (
     <div>
-      <Form />
+      <FormSwipe />
       <Footer />
     </div>
   );
