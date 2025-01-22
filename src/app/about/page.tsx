@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef, useState, useEffect } from 'react';
 
 interface ServiceCardProps {
   title: string;
@@ -13,6 +14,42 @@ interface ServiceCardProps {
 }
 
 const About = () => {
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+
+  const sectionBackgrounds: { [key: number]: string } = {
+    0: 'bg-[#FFE7DF]',    // Header section
+    1: 'bg-[#FFE7DF]',    // Physiotherapy section
+    2: 'bg-[#FFE7DF]',    // Occupational Therapy section
+    3: 'bg-[#FFB9A3]',    // Footer
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
+            setCurrentBgColor(sectionBackgrounds[sectionIndex]);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   const physiotherapyServices = [
     {
       title: "Home Visits",
@@ -81,17 +118,28 @@ const About = () => {
   );
 
   return (
-    <div className="bg-[#FFE7DF] pt-24">
-      <section className="py-8 px-4 mx-auto max-w-7xl">
+    <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[0] = el;
+        }}
+        className="py-8 px-4 mx-auto max-w-7xl"
+      >
         <div className="text-center mb-12">
           <span className="text-textcolour font-heading text-sm md:text-base">About Our Services</span>
           <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3">
             Comprehensive NDIS Support Services
           </h1>
         </div>
+      </section>
 
-        {/* Physiotherapy Section */}
-        <div className="mb-16">
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[1] = el;
+        }}
+        className="mb-16"
+      >
+        <div className="px-4 mx-auto max-w-7xl">
           <h2 className="text-2xl font-body font-semibold mb-8">Physiotherapy Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {physiotherapyServices.map((service, index) => (
@@ -99,9 +147,15 @@ const About = () => {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Occupational Therapy Section */}
-        <div className="mb-16">
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[2] = el;
+        }}
+        className="mb-16"
+      >
+        <div className="px-4 mx-auto max-w-7xl">
           <h2 className="text-2xl font-body font-semibold mb-8">Occupational Therapy Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {occupationalTherapyServices.map((service, index) => (
@@ -110,8 +164,15 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[3] = el;
+        }}
+      >
+        <Footer />
+      </section>
+    </main>
   );
 };
 
