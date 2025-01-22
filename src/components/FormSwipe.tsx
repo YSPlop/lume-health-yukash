@@ -197,7 +197,7 @@ const FormSwipe: React.FC = () => {
                             key={index}
                             type="button"
                             onClick={() => handleFormTypeSelect(formType)}
-                            className={`px-4 py-2 rounded text-black hover:bg-[#FFE7DF] 
+                            className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
                                 ${type === formType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
                         >
                             {formType}
