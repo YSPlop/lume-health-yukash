@@ -21,6 +21,9 @@ export default {
         heading: ['Poppins', 'sans-serif'], // For headings
         body: ['Nunito', 'sans-serif'], // For body text
       },
+      fontSize: {
+        'xxs': '0.45rem', // Equivalent to 10px
+      },
     },
   },
   plugins: [],
