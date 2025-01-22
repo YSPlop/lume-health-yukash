@@ -7,6 +7,7 @@ import OurServices from "@/components/OurServices";
 import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import ClientsWeSee from "@/components/ClientsWeSee";
+import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
