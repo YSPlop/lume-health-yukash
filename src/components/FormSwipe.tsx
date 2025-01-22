@@ -143,7 +143,7 @@ const FormSwipe: React.FC = () => {
     setCurrentStep(prev => prev - 1);
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     if (validateStep()) {
       console.log({
         ...formData,
