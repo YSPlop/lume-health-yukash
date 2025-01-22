@@ -10,7 +10,16 @@ import ClientsWeSee from "@/components/ClientsWeSee";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
+
+  const sectionBackgrounds: { [key: number]: string } = {
+    0: 'bg-bgcolour',     // Hero
+    1: 'bg-bgdarkcolour', // MeetTheTeam
+    2: 'bg-slate-100',    // OurServices
+    3: 'bg-bgdarkcolour', // ClientsWeSee
+    4: 'bg-white',        // Logos
+    5: 'bg-gray-900',     // Footer
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,7 +32,7 @@ export default function Home() {
             entry.target.classList.remove('translate-y-10');
             
             const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
-            setIsDarkBackground([1, 3].includes(sectionIndex));
+            setCurrentBgColor(sectionBackgrounds[sectionIndex]);
           }
         });
       },
@@ -44,9 +53,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`w-full min-h-screen transition-colors duration-700 ${
-      isDarkBackground ? 'bg-bgdarkcolour' : 'bg-bgcolour'
-    }`}>
+    <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>
       <section 
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[0] = el;
