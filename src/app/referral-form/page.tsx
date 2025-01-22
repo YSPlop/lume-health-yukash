@@ -40,11 +40,12 @@ const ReferralFormPage = () => {
   }, []);
 
   return (
-    <main className={`min-h-screen transition-colors duration-700 ${currentBgColor}`}>
+    <main className={`min-h-screen transition-colors duration-700 pt-10 ${currentBgColor}`}>
       <section
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[0] = el;
         }}
+        className="pb-10"
       >
         <FormSwipe />
       </section>

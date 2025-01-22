@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import React from 'react';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -154,13 +155,14 @@ const FormSwipe: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl my-10">
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl">
+        {/* Progress Bar */}
         <div className="mb-8">
             <div className="flex justify-between mb-2">
                 {['Type of Form', 'Personal Information', 'Referral Information', 'Additional Information', 'Feedback', 'Review'].map((step, index) => (
                     <div key={index} className="flex flex-col items-center w-1/6">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 
-                            ${currentStep > index + 1 ? 'bg-green-500' : currentStep === index + 1 ? 'bg-blue-500' : 'bg-gray-300'}`}>
+                            ${currentStep > index + 1 ? 'bg-[#FFB9A3]' : currentStep === index + 1 ? 'bg-[#FFD0C1]' : 'bg-gray-300'}`}>
                             {currentStep > index + 1 ? (
                                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -175,12 +177,15 @@ const FormSwipe: React.FC = () => {
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 
-                    className="bg-blue-500 h-2.5 rounded-full transition-all duration-500"
+                    className="bg-[#FFB9A3] h-2.5 rounded-full transition-all duration-500"
                     style={{ width: `${(currentStep / 6) * 100}%` }}
                 ></div>
             </div>
         </div>
+
+        {/* Multi-step Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Step 1: Form Type Selection */}
             {currentStep === 1 && (
             <div className="w-full flex items-center justify-center flex-col">
                 <h2 className="text-xl">
@@ -192,8 +197,8 @@ const FormSwipe: React.FC = () => {
                             key={index}
                             type="button"
                             onClick={() => handleFormTypeSelect(formType)}
-                            className={`px-4 py-2 rounded text-white hover:bg-blue-300 
-                                ${type === formType ? 'rounded bg-blue-500' : 'bg-green-500'}`}
+                            className={`px-4 py-2 rounded text-black hover:bg-[#FFE7DF] 
+                                ${type === formType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
                         >
                             {formType}
                         </button>
@@ -203,6 +208,7 @@ const FormSwipe: React.FC = () => {
             </div>
             )}
 
+            {/* Step 2: Personal Details */}
             {currentStep === 2 && (
             <div className="w-full">
                 <h2 className="text-xl text-center mb-8">
@@ -303,6 +309,7 @@ const FormSwipe: React.FC = () => {
             </div>
             )}
 
+            {/* Step 3: Referral Information */}
             {currentStep === 3 && (
             <div>
                 <h2 className="text-2xl font-bold mb-4">Referral Information</h2>
@@ -384,6 +391,8 @@ const FormSwipe: React.FC = () => {
             </div>
 
             )}
+
+            {/* Step 4: Additional Information - Private */}
             {currentStep === 4 && type === "Private" && (
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Supporting Information</h2>
@@ -400,6 +409,8 @@ const FormSwipe: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* Step 4: Additional Information - NDIS */}
             {currentStep === 4 && type === "NDIS" && (
                 <div className="space-y-4">
                     <h2 className="text-2xl font-bold mb-4">NDIS Information</h2>
@@ -493,6 +504,8 @@ const FormSwipe: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* Step 4: Additional Information - Home Care */}
             {currentStep === 4 && type === 'Home Care' && (
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Home Care Package Details</h2>
@@ -585,6 +598,8 @@ const FormSwipe: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* Step 5: Feedback */}
             {currentStep === 5 && (
                 <div className="w-full">
                     <h2 className="text-xl text-center mb-8">
@@ -605,6 +620,7 @@ const FormSwipe: React.FC = () => {
                 </div>
             )}
 
+            {/* Step 6: Review */}
             {currentStep === 6 && (
                 <div className="w-full">
                     <h2 className="text-xl text-center mb-8">
@@ -714,11 +730,10 @@ const FormSwipe: React.FC = () => {
                 </div>
             )}
 
-            
-            
+            {/* Navigation Buttons */}
             <div className = "flex justify-end gap-2">
                 {currentStep > 1 && (
-                    <button type="button" onClick={prevStep} className="bg-gray-500 text-white px-4 py-2 rounded mt-4">
+                    <button type="button" onClick={prevStep} className="bg-[#FFD0C1] text-black px-4 py-2 rounded mt-4">
                         Previous
                     </button>
                 )}
@@ -726,14 +741,14 @@ const FormSwipe: React.FC = () => {
                     <button 
                         type="button" 
                         onClick={nextStep} 
-                        className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+                        className="bg-[#FFB9A3] text-black px-4 py-2 rounded mt-4"
                     >
                         Next
                     </button>
                 ) : (
                     <button
                         type="submit"
-                        className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+                        className="bg-[#FFB9A3] text-black px-4 py-2 rounded mt-4"
                     >
                         Submit
                     </button>
