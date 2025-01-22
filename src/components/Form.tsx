@@ -30,7 +30,7 @@ interface FormData {
   additionalComments: string;
 }
 
-const inputClasses = "w-full p-3 rounded-lg bg-white/75 md:bg-bgcolour border border-gray-300 focus:outline-none focus:border-textcolour";
+const inputClasses = "w-full p-3 rounded-lg bg-white/75 md:bg-white/75 border border-gray-300 focus:outline-none focus:border-textcolour";
 const labelClasses = "block text-sm font-semibold mb-2 md:text-gray-800 text-gray-900";
 
 const FormField = ({ label, error, children }: { label: string; error?: boolean; children: React.ReactNode }) => (

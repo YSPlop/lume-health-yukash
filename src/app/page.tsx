@@ -6,12 +6,20 @@ import MeetTheTeam from "@/components/MeetTheTeam";
 import OurServices from "@/components/OurServices";
 import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
-import ClientsWeSee from "@/components/ClientsWeSee";
 import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
+
+  const sectionBackgrounds: { [key: number]: string } = {
+    0: 'bg-[#FFB9A3]',     // Hero
+    1: 'bg-[#FFD0C1]',    // MeetTheTeam
+    2: 'bg-[#FFE7DF]',    // OurServices
+    3: 'bg-[#FFE7DF]',    // ClientsWeSee
+    4: 'bg-[#FFD0C1]',    // Logos
+    5: 'bg-[#FFD0C1]',     // Footer
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,7 +32,7 @@ export default function Home() {
             entry.target.classList.remove('translate-y-10');
             
             const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
-            setIsDarkBackground([1, 3].includes(sectionIndex));
+            setCurrentBgColor(sectionBackgrounds[sectionIndex]);
           }
         });
       },
@@ -45,9 +53,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`w-full min-h-screen transition-colors duration-700 ${
-      isDarkBackground ? 'bg-bgdarkcolour' : 'bg-bgcolour'
-    }`}>
+    <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>
       <section 
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[0] = el;

@@ -63,7 +63,7 @@ const About = () => {
 
   const ServiceCard = ({ title, description, link, imageSrc, imageAlt }: ServiceCardProps) => (
     <Link href={link}>
-      <div className="pb-6 rounded-3xl bg-cardcolour hover:bg-bgcolour hover:border hover:border-cardcolour duration-300 ease-in-out cursor-pointer h-full">
+      <div className="pb-6 rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] hover:border hover:border-cardcolour duration-300 ease-in-out cursor-pointer h-full">
         <div className="flex flex-col h-full">
           <div className="w-full aspect-[4/1.5] relative mb-4 rounded-t-2xl overflow-hidden">
             <Image
@@ -81,7 +81,7 @@ const About = () => {
   );
 
   return (
-    <div className="bg-bgcolour pt-24">
+    <div className="bg-[#FFE7DF] pt-24">
       <section className="py-8 px-4 mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <span className="text-textcolour font-heading text-sm md:text-base">About Our Services</span>

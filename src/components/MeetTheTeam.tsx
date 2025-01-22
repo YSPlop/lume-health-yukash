@@ -6,7 +6,7 @@ const MeetTheTeam: React.FC = () => {
     <section className="py-8 md:py-16 px-4 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Team Images */}
-        <div className="flex flex-row items-center justify-center md:justify-start">
+        <div className="flex flex-row items-center justify-center">
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px] -mt-8 sm:-mt-12 md:-mt-16 -mr-4 sm:-mr-6 md:-mr-8">
             <Image
               src="/images/han.png"
@@ -17,7 +17,8 @@ const MeetTheTeam: React.FC = () => {
               priority
             />  
           </div>
-          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px]">
+          {/* include more space between nat and han!!! */}
+          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px] ">
             <Image
               src="/images/natalie.png"
               alt="Nat"
