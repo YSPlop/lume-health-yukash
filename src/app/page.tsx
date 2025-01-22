@@ -13,12 +13,12 @@ export default function Home() {
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
 
   const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-bgcolour',     // Hero
-    1: 'bg-bgdarkcolour', // MeetTheTeam
-    2: 'bg-slate-100',    // OurServices
-    3: 'bg-bgdarkcolour', // ClientsWeSee
-    4: 'bg-white',        // Logos
-    5: 'bg-gray-900',     // Footer
+    0: 'bg-[#FFA787]',     // Hero
+    1: 'bg-[#FFB9A3]', // MeetTheTeam
+    2: 'bg-[#FFD0C1]',    // OurServices
+    3: 'bg-[#FFE7DF]', // ClientsWeSee
+    4: 'bg-[#FFE7DF]',        // Logos
+    5: 'bg-[#FFE7DF]',     // Footer
   };
 
   useEffect(() => {
