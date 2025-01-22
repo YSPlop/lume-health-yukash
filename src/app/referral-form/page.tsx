@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Form from "@/components/Form";
+{/*import Form from "@/components/Form";*/}
 import FormSwipe from "@/components/FormSwipe";
 import { useRef, useState, useEffect } from 'react';
 const ReferralFormPage = () => {
@@ -46,7 +46,7 @@ const ReferralFormPage = () => {
           if (el) sectionRefs.current[0] = el;
         }}
       >
-        <Form />
+        <FormSwipe />
       </section>
       
       <section
