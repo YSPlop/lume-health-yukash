@@ -5,6 +5,8 @@ import React from 'react';
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const formTypes = ["Private", 'Home Care', 'NDIS'];
+  const serviceType = ["Occupational Therapy", 'Physiotherapy', 'Both'];
+  const [service, setService] = useState<string>("");
   const [type, setType] = useState<string>("");
   const {handleSubmit} = useForm();
   const [typeValidation, setTypeValidation] = useState(true)
@@ -79,6 +81,12 @@ const FormSwipe: React.FC = () => {
 
   const handleFormTypeSelect = (formType: string) => {
     setType(formType)
+    setCurrentStep(prev => prev + 1)
+  }
+
+  const handleServiceTypeSelect = (serviceType: string) => {
+    setService(serviceType)
+    setCurrentStep(prev => prev + 1)
   }
 
   const validateStep = () => {
@@ -89,7 +97,7 @@ const FormSwipe: React.FC = () => {
           return false;
         }
         break;
-      case 2:
+      case 3:
         if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.streetAddress || !formData.gender || !formData.dob) {
           alert("Please fill in all required fields");
           return false;
@@ -99,19 +107,9 @@ const FormSwipe: React.FC = () => {
           return false;
         }
         break;
-      case 3:
-        if (!formData.referralFirstName || !formData.referralLastName || !formData.referralCompany || !formData.referralPhone || !formData.referralEmail || !formData.reasonForReferral) {
-          alert("Please fill in all required fields");
-          return false;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.referralEmail)) {
-          alert("Please enter a valid referral email address");
-          return false;
-        }
-        break;
       case 4:
         if (type === "NDIS") {
-          if (!ndisForm.ndisNumber || !ndisForm.planStartDate || !ndisForm.planEndDate || !ndisForm.fundsAvailable || !ndisForm.fundsManaged || !ndisForm.emailInvoices) {
+          if (!ndisForm.ndisNumber || !ndisForm.planStartDate || !ndisForm.planEndDate || !ndisForm.emailInvoices) {
             alert("Please fill in all required NDIS fields");
             return false;
           }
@@ -159,7 +157,7 @@ const FormSwipe: React.FC = () => {
         {/* Progress Bar */}
         <div className="mb-8">
             <div className="flex justify-between mb-2">
-                {['Type of Form', 'Personal Information', 'Referral Information', 'Additional Information', 'Feedback', 'Review'].map((step, index) => (
+                {['Form', 'Service', 'Personal Information', 'Additional Information','Referral Information', 'Feedback', 'Review'].map((step, index) => (
                     <div key={index} className="flex flex-col items-center w-1/6">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 
                             ${currentStep > index + 1 ? 'bg-[#FFB9A3]' : currentStep === index + 1 ? 'bg-[#FFD0C1]' : 'bg-gray-300'}`}>
@@ -178,7 +176,7 @@ const FormSwipe: React.FC = () => {
             <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 
                     className="bg-[#FFB9A3] h-2.5 rounded-full transition-all duration-500"
-                    style={{ width: `${(currentStep / 6) * 100}%` }}
+                    style={{ width: `${(currentStep / 7) * 100}%` }}
                 ></div>
             </div>
         </div>
@@ -191,7 +189,7 @@ const FormSwipe: React.FC = () => {
                 <h2 className="text-xl">
                     What Type Of Referral Are You Making?
                 </h2>
-                <div className="grid grid-cols-3 gap-12 py-12">
+                <div className="grid sm:grid-cols-3 grid-rows-3 sm:gap-12 gap-4 py-12">
                     {formTypes.map((formType, index) => (
                         <button 
                             key={index}
@@ -208,8 +206,32 @@ const FormSwipe: React.FC = () => {
             </div>
             )}
 
-            {/* Step 2: Personal Details */}
+            {/* Step 2: Type of Service */}
             {currentStep === 2 && (
+            <div className="w-full">
+                <h2 className="text-xl text-center mb-8">
+                    Type of Service
+                </h2>
+                <div className = "grid sm:grid-cols-3 grid-rows-3 sm:gap-12 gap-4 p-12">
+                    {serviceType.map((serviceType, index) => (
+                        <button 
+                            key={index}
+                            type="button"
+                            onClick={() => handleServiceTypeSelect(serviceType)}
+                            className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
+                                ${service === serviceType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
+                        >
+                            {serviceType}
+                        </button>
+                    ))}
+                </div>
+                <div>
+                </div>
+            </div>
+            )}
+
+            {/* Step 2: Personal Details */}
+            {currentStep === 3 && (
             <div className="w-full">
                 <h2 className="text-xl text-center mb-8">
                     Personal Details
@@ -310,7 +332,7 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 3: Referral Information */}
-            {currentStep === 3 && (
+            {currentStep === 5 && (
             <div>
                 <h2 className="text-2xl font-bold mb-4">Referral Information</h2>
                 <div className="space-y-4">
@@ -321,10 +343,8 @@ const FormSwipe: React.FC = () => {
                             name="referralFirstName"
                             value={formData.referralFirstName}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.referralFirstName && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}`}
                         />
-                        {!formData.referralFirstName && <p className={errorClasses}>Referrer first name is required</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Referral Last Name</label>
@@ -333,10 +353,8 @@ const FormSwipe: React.FC = () => {
                             name="referralLastName"
                             value={formData.referralLastName}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.referralLastName && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}`}
                         />
-                        {!formData.referralLastName && <p className={errorClasses}>Referrer last name is required</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Company</label>
@@ -345,10 +363,9 @@ const FormSwipe: React.FC = () => {
                             name="referralCompany"
                             value={formData.referralCompany}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.referralCompany && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}`}
+                
                         />
-                        {!formData.referralCompany && <p className={errorClasses}>Company is required</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Phone</label>
@@ -357,10 +374,8 @@ const FormSwipe: React.FC = () => {
                             name="referralPhone"
                             value={formData.referralPhone}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.referralPhone && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}`}
                         />
-                        {!formData.referralPhone && <p className={errorClasses}>Phone number is required</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Email</label>
@@ -369,11 +384,8 @@ const FormSwipe: React.FC = () => {
                             name="referralEmail"
                             value={formData.referralEmail}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${(!formData.referralEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.referralEmail)) && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}`}
                         />
-                        {(!formData.referralEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.referralEmail)) && 
-                          <p className={errorClasses}>Please enter a valid email address</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Reason for Referral/Details of Condition</label>
@@ -381,11 +393,9 @@ const FormSwipe: React.FC = () => {
                             name="reasonForReferral"
                             value={formData.reasonForReferral}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.reasonForReferral && 'border-red-500'}`}
+                            className={`${inputClasses}`}
                             rows={4}
-                            required
                         />
-                        {!formData.reasonForReferral && <p className={errorClasses}>Reason for referral is required</p>}
                     </div>
                 </div>
             </div>
@@ -457,10 +467,9 @@ const FormSwipe: React.FC = () => {
                             name="fundsAvailable"
                             value={ndisForm.fundsAvailable}
                             onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${!ndisForm.fundsAvailable && 'border-red-500'}`}
+                            className={`${inputClasses}`}
                             required
                         />
-                        {!ndisForm.fundsAvailable && <p className={errorClasses}>Available funds is required</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>How are your funds managed?</label>
@@ -468,15 +477,13 @@ const FormSwipe: React.FC = () => {
                             name="fundsManaged"
                             value={ndisForm.fundsManaged}
                             onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${!ndisForm.fundsManaged && 'border-red-500'}`}
-                            required
+                            className={`${inputClasses}}`}
                         >
                             <option value="">Select an option</option>
                             <option value="self">Self Managed</option>
                             <option value="plan">Plan Managed</option>
                             <option value="ndia">NDIA Managed</option>
                         </select>
-                        {!ndisForm.fundsManaged && <p className={errorClasses}>Please select how funds are managed</p>}
                     </div>
                     <div>
                         <label className={labelClasses}>Email for Invoices</label>
@@ -600,7 +607,7 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 5: Feedback */}
-            {currentStep === 5 && (
+            {currentStep === 6 && (
                 <div className="w-full">
                     <h2 className="text-xl text-center mb-8">
                         How Did You Hear About Us?
@@ -611,7 +618,7 @@ const FormSwipe: React.FC = () => {
                                 name="referralSource"
                                 value={formData.referralSource}
                                 onChange={handleInputChange}
-                                className={`${inputClasses} ${!formData.referralSource && 'border-red-500'}`}
+                                className={`${inputClasses}`}
                                 rows={4}
                                 required
                             />
@@ -621,12 +628,19 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 6: Review */}
-            {currentStep === 6 && (
+            {currentStep === 7 && (
                 <div className="w-full">
                     <h2 className="text-xl text-center mb-8">
                         Review your Information
                     </h2>
-                    <div className="space-y-6 font-semibold">
+                    <div className="space-y-6 font-semibold my-10">
+                        <h3>Service</h3>
+                        <div className = "grid grid-cols-[2fr_5fr]">
+                            <label className={labelClasses}>Type of Service:</label>
+                            <span>{service}</span>
+                        </div>
+                    </div>
+                    <div className="space-y-6 font-semibold ">
                         <h3>Personal Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
                             <label className={labelClasses}>First Name:</label>
@@ -656,25 +670,60 @@ const FormSwipe: React.FC = () => {
                         <h3>Referral Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
                             <label className={labelClasses}>First Name:</label>
-                            <span>{formData.referralFirstName}</span>
+                            {formData.referralFirstName ? (
+                                <span>{formData.referralFirstName}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Last Name:</label>
-                            <span>{formData.referralLastName}</span>
+                            {formData.referralLastName ? (
+                                <span>{formData.referralLastName}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Referral Company:</label>
-                            <span>{formData.referralCompany}</span>
+                            {formData.referralCompany ? (
+                                <span>{formData.referralCompany}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Phone Number:</label>
-                            <span>{formData.referralPhone}</span>
+                            {formData.referralPhone ? (
+                                <span>{formData.referralPhone}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Email:</label>
-                            <span>{formData.referralEmail}</span>
+                            {formData.referralEmail ? (
+                                <span>{formData.referralEmail}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Reason for Referral:</label>
-                            <span>{formData.reasonForReferral}</span>
+                            {formData.reasonForReferral ? (
+                                <span>{formData.reasonForReferral}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
 
                             <label className={labelClasses}>Referral Source:</label>
-                            <span>{formData.referralSource}</span>
+                            {formData.referralSource ? (
+                                <span>{formData.referralSource}</span>
+                            ) : (
+                                <span className = "italic">Not Entered</span>
+                            )
+                            }
                         </div>
                     </div>
 
@@ -717,10 +766,20 @@ const FormSwipe: React.FC = () => {
                                 <span>{ndisForm.planEndDate}</span>
 
                                 <label className={labelClasses}>Funds Available:</label>
-                                <span>{ndisForm.fundsAvailable}</span>
+                                {ndisForm.fundsAvailable ? (
+                                    <span>{ndisForm.fundsAvailable}</span>
+                                ) : (
+                                    <span className = "italic">Not Entered</span>
+                                )
+                                }
 
                                 <label className={labelClasses}>Funds Managed:</label>
-                                <span>{ndisForm.fundsManaged}</span>
+                                {ndisForm.fundsManaged ? (
+                                    <span>{ndisForm.fundsManaged}</span>
+                                ) : (
+                                    <span className = "italic">Not Entered</span>
+                                )
+                                }
 
                                 <label className={labelClasses}>Email for Invoices:</label>
                                 <span>{ndisForm.emailInvoices}</span>
@@ -737,7 +796,7 @@ const FormSwipe: React.FC = () => {
                         Previous
                     </button>
                 )}
-                {currentStep <= 5 ? (
+                {(currentStep <= 6 && currentStep > 2) && (
                     <button 
                         type="button" 
                         onClick={nextStep} 
@@ -745,7 +804,8 @@ const FormSwipe: React.FC = () => {
                     >
                         Next
                     </button>
-                ) : (
+                )}
+                {currentStep === 7 && (
                     <button
                         type="submit"
                         className="bg-[#FFB9A3] text-black px-4 py-2 rounded mt-4"
