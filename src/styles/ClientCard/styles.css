@@ -11,9 +11,6 @@
     position: relative;
     background-color: theme(colors.cardcolour);
     text-align: center;
-    /* Transform Propertys */
-    --rotate-animation: rotate(0);
-    --scale-animation: scale(0);
   }
  
   
@@ -23,16 +20,16 @@
     position: absolute;
     border-radius: 10px;
     padding: 10px;
-    opacity: 0; 
-    transform: scale(0);  /* Changed from scale(1) to scale(0) */
+    opacity: 0; /* Changed from scale(1) to scale(0) */
     font-family: var(--font-mulish);
-    transition: all 1000ms ease;  /* Shortened and simplified transition */
+    transition: opacity 800ms ease;  /* Shortened and simplified transition */
     z-index: 2;
+    background-color: theme(colors.cardcolour);/* Semi-transparent theme color */
+    backdrop-filter: blur(2px);
 }
 
 .card:hover .card__hover,
 .card:active .card__hover {
-    transform: scale(1);  /* Changed from scale(0) to scale(1) */
     opacity: 1;
 }
 
@@ -43,14 +40,7 @@
     overflow: hidden;
     transform: scale(1);
     opacity: 1;  /* Add opacity */
-    transition: all 1000ms ease;  /* Match timing */
     z-index: 1;
-}
-
-.card:hover .card__figure,
-.card:active .card__figure {
-    transform: scale(0);
-    opacity: 0;
 }
 
 .card__info {
@@ -60,11 +50,11 @@
     margin-top: 20px;
     font-weight: 600;
     font-size: 1.25rem;
-    transform: scale(1);  /* Changed initial state */
-    transition: transform 600ms ease 100ms;
+    opacity: 1;
+    transition: opacity 800ms ease;
 }
 
 .card:hover .card__info,
-.card:active .card__info {
-    transform: scale(0);  /* Changed hover state */
+.card:active .card__hover {
+    opacity: 0
 }

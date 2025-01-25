@@ -9,7 +9,8 @@ interface ClientCardXProps {
 
 const ClientCardX: React.FC<ClientCardXProps> = ({ name, description, imageSrc }) => {
   return (
-    <div className="card">
+    <div 
+      className="card">
         <figure className="card__figure">
             <Image src={imageSrc} alt={name} fill className="object-cover" />
         </figure>
