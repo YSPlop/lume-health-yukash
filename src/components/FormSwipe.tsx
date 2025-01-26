@@ -158,7 +158,11 @@ const FormSwipe: React.FC = () => {
         <div className="mb-8">
             <div className="flex justify-between mb-2">
                 {['Form', 'Service', 'Personal Information', 'Additional Information','Referral Information', 'Feedback', 'Review'].map((step, index) => (
-                    <div key={index} className="flex flex-col items-center w-1/6">
+                    <div 
+                        key={index} 
+                        className={`flex flex-col items-center w-1/6 ${index + 1 < currentStep ? 'cursor-pointer' : ''}`}
+                        onClick={() => index + 1 < currentStep && setCurrentStep(index + 1)}
+                    >
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 
                             ${currentStep > index + 1 ? 'bg-[#FFB9A3]' : currentStep === index + 1 ? 'bg-[#FFD0C1]' : 'bg-gray-300'}`}>
                             {currentStep > index + 1 ? (
