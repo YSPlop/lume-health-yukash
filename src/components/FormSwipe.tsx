@@ -208,24 +208,22 @@ const FormSwipe: React.FC = () => {
 
             {/* Step 2: Type of Service */}
             {currentStep === 2 && (
-            <div className="w-full">
-                <h2 className="text-xl text-center mb-8">
+            <div className="w-full flex items-center justify-center flex-col">
+                <h2 className="text-xl">
                     Type of Service
                 </h2>
-                <div className = "grid sm:grid-cols-3 grid-rows-3 sm:gap-12 gap-4 p-12">
+                <div className="grid sm:grid-cols-3 grid-rows-3 sm:gap-12 gap-4 py-12">
                     {serviceType.map((serviceType, index) => (
                         <button 
                             key={index}
                             type="button"
                             onClick={() => handleServiceTypeSelect(serviceType)}
-                            className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
+                            className={`px-4 py-2 rounded text-black text-sm hover:bg-[#FFA787] 
                                 ${service === serviceType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
                         >
                             {serviceType}
                         </button>
                     ))}
-                </div>
-                <div>
                 </div>
             </div>
             )}

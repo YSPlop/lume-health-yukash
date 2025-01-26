@@ -22,7 +22,7 @@
     padding: 10px;
     opacity: 0; /* Changed from scale(1) to scale(0) */
     font-family: var(--font-mulish);
-    transition: opacity 800ms ease;  /* Shortened and simplified transition */
+    transition: opacity 200ms ease;  /* Shortened and simplified transition */
     z-index: 2;
     background-color: theme(colors.cardcolour);/* Semi-transparent theme color */
     backdrop-filter: blur(2px);
@@ -51,7 +51,7 @@
     font-weight: 600;
     font-size: 1.25rem;
     opacity: 1;
-    transition: opacity 800ms ease;
+    transition: opacity 200ms ease;
 }
 
 .card:hover .card__info,
