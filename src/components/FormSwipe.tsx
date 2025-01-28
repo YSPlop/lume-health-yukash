@@ -222,7 +222,7 @@ const FormSwipe: React.FC = () => {
                             key={index}
                             type="button"
                             onClick={() => handleServiceTypeSelect(serviceType)}
-                            className={`px-4 py-2 rounded text-black text-sm hover:bg-[#FFA787] 
+                            className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
                                 ${service === serviceType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
                         >
                             {serviceType}
