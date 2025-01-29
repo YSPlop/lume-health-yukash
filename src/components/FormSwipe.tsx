@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -50,6 +51,19 @@ const FormSwipe: React.FC = () => {
     caseEmail: '',
     casePhone: '',
   });
+
+  const searchParams = useSearchParams();
+  const typeFromParams = searchParams.get('type');
+  
+  useEffect(() => {
+    if (typeFromParams === 'ndis') {
+      setType('NDIS');
+      setCurrentStep(2);
+    } else if (typeFromParams === 'private') {
+      setType('Private');
+      setCurrentStep(2);
+    }
+  }, [typeFromParams]);
 
   const inputClasses = "w-full p-3 rounded-lg bg-bgcolour border border-gray-300 focus:outline-none focus:border-textcolour placeholder-black";
   const labelClasses = "block text-sm font-semibold mb-2 text-textcolour";
