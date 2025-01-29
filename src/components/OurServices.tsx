@@ -4,9 +4,8 @@ import Image from "next/image"
 const OurServices: React.FC = () => {
 
     // keep the same names pelase, for components and headings!
-    const physioDescription = "We make quality physiotherapy accessible to everyone by offering home-based mobile services across Melbourne. We Understand the challenges of clinic visits, especially for those with mobility issues, we bring all the equipment needed to provide effective care in the comfort of your home.";
-    const otDescription = "We provide mobile occupational therapy services across Melbourne. Our therapists are trained to provide effective care in the comfort of your home.";
-
+    const physioDescription = "We strive to get you moving and feeling the way you want.  We believe that quality physiotherapy should be accessible to everyone. That’s why we provide home-based, mobile physiotherapy services to our clients across Melbourne. We understand the difficulty of travelling to a clinic, especially for those with mobility issues, which is why we bring all the necessary equipment and tools to you.  Get all the benefits of physiotherapy in the comfort of your own home.";
+    const otDescription = "We are passionate about supporting children’s development and well-being through occupational therapy. Understanding that every child’s needs are unique, we provide mobile paediatric occupational therapy services across Melbourne, bringing the therapy to your doorstep. Whether it's improving motor skills, sensory processing, or self-care skills, we create a supportive and engaging environment in your child’s own home. Our approach is designed to make therapy both fun and effective, allowing children to build skills at their own pace.";
     const services = [
         {
             title: "Mobile Physiotherapy",

@@ -25,6 +25,7 @@ const About = () => {
   };
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768; // MD breakpoint in Tailwind
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -35,18 +36,45 @@ const About = () => {
         });
       },
       {
-        threshold: 1,
+        threshold: isMobile ? 0.3 : 0.7, // Lower threshold for mobile, higher for desktop
       }
     );
 
+    // Add window resize listener to update observer on screen size changes
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      observer.disconnect();
+      
+      // Recreate observer with new threshold
+      const newObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
+              setCurrentBgColor(sectionBackgrounds[sectionIndex]);
+            }
+          });
+        },
+        {
+          threshold: isMobile ? 0.3 : 0.7,
+        }
+      );
+
+      sectionRefs.current.forEach((section) => {
+        if (section) newObserver.observe(section);
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Initial observation
     sectionRefs.current.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      sectionRefs.current.forEach((section) => {
-        if (section) observer.unobserve(section);
-      });
+      observer.disconnect();
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -76,22 +104,22 @@ const About = () => {
 
   const occupationalTherapyServices = [
     {
-      title: "Home Modifications",
-      description: "Assessments and recommendations for safer living spaces",
+      title: "Daily Living skills",
+      description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence and self-sufficiency in their everyday routines.",
       link: "/services/home-modifications",
       imageSrc: "/images/dog.jpg",
       imageAlt: "Home modifications illustration"
     },
     {
-      title: "Daily Living Skills",
-      description: "Support in developing independence in everyday activities",
+      title: "School Readiness",
+      description: "Our occupational therapist provides school readiness skills to prepare children for school transition and developing key skills such as fine motor development, attention, social interaction, and following instructions. We provide individualized strategies to ensure children are ready to thrive in an academic setting.",
       link: "/services/daily-living",
       imageSrc: "/images/dog.jpg",
       imageAlt: "Daily living skills illustration"
     },
     {
-      title: "Assistive Technology",
-      description: "Recommendations and training for supportive equipment",
+      title: "Sensory Processing",
+      description: "We help children manage and respond to sensory input through personalised sensory processing interventions. Our occupational therapists design strategies to help children regulate sensory experiences, improving their ability to engage in daily activities, focus at school, and participate in social environments.",
       link: "/services/assistive-tech",
       imageSrc: "/images/dog.jpg",
       imageAlt: "Assistive technology illustration"

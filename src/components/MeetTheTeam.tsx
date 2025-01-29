@@ -37,8 +37,9 @@ const MeetTheTeam: React.FC = () => {
             Our Talented and Experienced Team
           </h2>
           <p className="text-gray-600 leading-relaxed font-body text-sm md:text-base">
-            At fundsmate, we work hard to secure the best possible outcomes for our customers. 
-            Our experienced team cooperates to guarantee that you have a top-notch experience.
+            At Lume Health, our team is made up of experienced and dedicated allied health professionals passionate about providing personalised and evidence-based care. 
+            With a focus on supporting individuals across all ages and needs, we work collaboratively to deliver high-quality, mobile services that make a positive impact 
+            on your health and well-being.  
           </p>
           <button className="w-full md:w-auto bg-cardcolour text-black px-6 py-3 rounded-full hover:bg-accentcolour hover:text-black transition-colors">
             Meet the team

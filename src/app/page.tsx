@@ -11,6 +11,7 @@ import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
+  const [threshold, setThreshold] = useState<number>(0.8);
 
   const sectionBackgrounds: { [key: number]: string } = {
     0: 'bg-[#FFB9A3]',     // Hero
@@ -20,6 +21,23 @@ export default function Home() {
     4: 'bg-[#FFD0C1]',    // Logos
     5: 'bg-[#FFD0C1]',     // Footer
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Set different threshold values based on screen width
+      // Assuming mobile breakpoint is 768px
+      setThreshold(window.innerWidth < 768 ? 0.3 : 0.8);
+    };
+
+    // Set initial threshold
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +55,7 @@ export default function Home() {
         });
       },
       {
-        threshold: 0.8,
+        threshold: threshold,
       }
     );
 
@@ -50,7 +68,7 @@ export default function Home() {
         if (section) observer.unobserve(section);
       });
     };
-  }, []);
+  }, [threshold]); // Add threshold as a dependency
 
   return (
     <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>
