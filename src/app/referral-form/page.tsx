@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer";
 {/*import Form from "@/components/Form";*/}
 import FormSwipe from "@/components/FormSwipe";
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 const ReferralFormPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
@@ -47,7 +47,9 @@ const ReferralFormPage = () => {
         }}
         className="pb-10 min-h-screen"
       >
-        <FormSwipe />
+        <Suspense fallback={<div>Loading...</div>}>
+          <FormSwipe />
+        </Suspense>
       </section>
       
       <section
