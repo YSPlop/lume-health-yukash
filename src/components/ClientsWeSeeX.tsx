@@ -28,17 +28,17 @@ const ClientsWeSeeX: React.FC = () => {
     const physioClients = [
         {
           title: "NDIS Physiotherapy",
-          description: "Living with a disability is difficult enough as it is. We aim to make access to healthcare as easy as possible so our physiotherapists come to you. We provide a range of services including report writing, hydrotherapy, pain management, strengthening, AT prescription and paediatric physiotherapy.",
+          description: "We aim to make access to healthcare as easy as possible so our physiotherapists come to you. We provide a range of services including report writing, hydrotherapy, pain management, strengthening, AT prescription and paediatric physiotherapy.",
           imageSrc: "/images/dog.jpg"
         },
         {
           title: "Homecare Package",
-          description: "Getting older does not mean have to you slow down, stop moving and stop doing the things you love. At Lume Health, we will work with you to get you moving and feeling the way you want to.",
+          description: "We focus on improving mobility, strength, and overall physical function. Our team addresses your unique needs to support better movement and pain management. We design treatment plans that help clients regain independence and improve quality of life, all from the comfort of home.",
           imageSrc: "/images/dog.jpg"
         },
         {
           title: "Paediatric Physiotherapy",
-          description: "Paediatric physiotherapy services that provides expert treatments that are designed to support children with a variety of physical challenges, ensuring therapy is both effective and engaging in a comfortable, familiar environment.",
+          description: "We focus on supporting children’s physical development, including improving mobility, strength, and coordination. Our team designs individualised treatment plans to address specific challenges, helping children reach their full physical potential. We aim to create a positive and engaging environment that promotes motor skill development and overall physical well-being.",
           imageSrc: "/images/dog.jpg"
         }
       ];
@@ -46,17 +46,17 @@ const ClientsWeSeeX: React.FC = () => {
       const occupationalClients = [
         {
           title: "NDIS Occupational Therapy",
-          description: "Our occupational therapists specialize in helping individuals with disabilities achieve independence through personalized assessments, home modifications, and adaptive equipment recommendations.",
+          description: "We aim to complete comprehensive assessments and tailored interventions to support each child's individual needs. Our therapists work closely with families to support daily living skills, fine motor abilities, and social participation. Through evidence-based strategies, we aim to improve overall function and independence, helping children achieve their goals in a nurturing and supportive environment.",
           imageSrc: "/images/dog.jpg"
         },
         {
-          title: "Sensory Processing",
-          description: "We provide comprehensive sensory integration therapy and strategies for children and adults who experience difficulties processing and responding to sensory information in their daily lives.",
+          title: "School Based Support",
+          description: "We aim to help children succeed in their learning environment. Our therapists conduct detailed assessments and develop targeted interventions to address areas such as fine motor skills, sensory processing, attention, and social interaction. By collaborating with teachers and parents, we create strategies to support children’s academic performance and overall well-being to support them to thrive in school.",
           imageSrc: "/images/dog.jpg"
         },
         {
           title: "Aged Care Support",
-          description: "Our OT services help seniors maintain independence and quality of life through home assessments, equipment prescription, and practical strategies for daily living activities.",
+          description: "Our therapists work with parents to identify strategies that enhance daily functioning, promote independence, and address specific developmental needs. By focusing on practical techniques for setting up routines, we empower parents to foster consistency, manage behaviour, and enhance the overall well-being of their children. This collaborative approach helps families feel confident in supporting their child’s growth and development at home.",
           imageSrc: "/images/dog.jpg"
         }
       ];
