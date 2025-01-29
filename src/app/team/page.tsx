@@ -21,7 +21,7 @@ const Team: React.FC = () => {
     ]
 
     return (
-        <div className = "w-full h-auto flex justify-center px-24">
+        <div className = "w-full h-auto flex justify-center px-10 md:px-24">
             <div className = "py-24 grid gap-48 ">
                 <TeamCard 
                     name = {TeamMembers[0].name} 
