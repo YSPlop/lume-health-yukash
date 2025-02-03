@@ -32,11 +32,10 @@ const MeetTheTeam: React.FC = () => {
 
         {/* Content */}
         <div className="space-y-4 md:space-y-6 text-center md:text-left">
-          <span className="text-textcolour font-heading text-sm md:text-base">Meet the Team</span>
           <h2 className="text-3xl md:text-4xl font-body leading-tight">
-            Our Talented and Experienced Team
+            Meet the team
           </h2>
-          <p className="text-gray-600 leading-relaxed font-body text-sm md:text-base">
+          <p className="text-gray-600 leading-relaxed font-body text-sm md:text-base pb-5">
             At Lume Health, our team is made up of experienced and dedicated allied health professionals passionate about providing personalised and evidence-based care. 
             With a focus on supporting individuals across all ages and needs, we work collaboratively to deliver high-quality, mobile services that make a positive impact 
             on your health and well-being.  
