@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer';
 import { useForm } from 'react-hook-form';
 import { useRef, useState, useEffect } from 'react';
+import styles from '@/styles/contact.module.css';
 
 interface ContactFormData {
   name: string;
@@ -11,12 +12,92 @@ interface ContactFormData {
   message: string;
 }
 
+// New type definitions and components
+interface FormField {
+  label: string;
+  name: keyof ContactFormData;
+  type?: string;
+  placeholder: string;
+  validation?: Object;
+}
+
+// Move these constants to the top, before they're used in components
+const inputClasses = "text-black w-full p-3 rounded-lg bg-cardcolour border border-gray-300 focus:outline-none focus:border-textcolour placeholder-gray-500";
+const labelClasses = "block text-sm font-semibold mb-2";
+
+const FormInput = ({ field, register, errors }: {
+  field: FormField;
+  register: any;
+  errors: any;
+}) => (
+  <div className={styles.inputContainer}>
+    {field.type === 'textarea' ? (
+      <div className="relative">
+        <textarea
+          id={field.name}
+          {...register(field.name, field.validation)}
+          className={styles.textarea}
+          placeholder=" "
+        />
+        <label 
+          htmlFor={field.name} 
+          className={`${styles.textareaLabel} ${errors[field.name] ? 'text-red-500' : ''}`}
+        >
+          {field.label}
+        </label>
+      </div>
+    ) : (
+      <div className="relative">
+        <input
+          id={field.name}
+          {...register(field.name, field.validation)}
+          type={field.type || 'text'}
+          className={styles.input}
+          placeholder=" "
+        />
+        <label 
+          htmlFor={field.name} 
+          className={`${styles.label} ${errors[field.name] ? 'text-red-500' : ''}`}
+        >
+          {field.label}
+        </label>
+      </div>
+    )}
+    {errors[field.name] && (
+      <span className={styles.errorMessage} role="alert">
+        {errors[field.name]?.message || `${field.label} is required`}
+      </span>
+    )}
+  </div>
+);
+
+const ContactInfo = ({ title, items }: { 
+  title: string; 
+  items: { label: string; value: string; href?: string; }[] 
+}) => (
+  <div>
+    <h3 className="text-xl font-body font-semibold mb-4">{title}</h3>
+    <div className="space-y-4">
+      {items.map((item, index) => (
+        <p key={index} className="flex items-center gap-3">
+          <span className="font-semibold">{item.label}:</span>
+          {item.href ? (
+            <a href={item.href} className="hover:text-gray-600">{item.value}</a>
+          ) : (
+            <span>{item.value}</span>
+          )}
+        </p>
+      ))}
+    </div>
+  </div>
+);
+
 const ContactPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
   const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FFE7DF]',    // Form section
+    0: 'bg-[#FFCBA9]',    // Form section
     1: 'bg-[#FFB9A3]',    // Footer
   };
 
@@ -53,8 +134,52 @@ const ContactPage = () => {
     // Handle form submission here
   };
 
-  const inputClasses = "text-black w-full p-3 rounded-lg bg-bgcolour border border-gray-300 focus:outline-none focus:border-textcolour placeholder-black";
-  const labelClasses = "block text-sm font-semibold mb-2";
+  const formFields: FormField[] = [
+    {
+      label: "Name",
+      name: "name",
+      placeholder: "Your full name",
+      validation: { required: "Name is required" }
+    },
+    {
+      label: "Email",
+      name: "email",
+      type: "email",
+      placeholder: "your@email.com",
+      validation: { 
+        required: "Email is required",
+        pattern: {
+          value: /^\S+@\S+$/i,
+          message: "Please enter a valid email address"
+        }
+      }
+    },
+    {
+      label: "Phone Number",
+      name: "phone",
+      type: "tel",
+      placeholder: "Your phone number",
+      validation: { required: true }
+    },
+    {
+      label: "Message",
+      name: "message",
+      type: "textarea",
+      placeholder: "How can we help you?",
+      validation: { required: true }
+    }
+  ];
+
+  const contactInfo = [
+    { label: "Phone", value: "0478 355 242", href: "tel:0478355242" },
+    { label: "Email", value: "info@lumehealth.com.au", href: "mailto:info@lumehealth.com.au" },
+    { label: "Address", value: "305 Warrigal Road, Burwood 3125" }
+  ];
+
+  const operatingHours = [
+    { label: "Hours", value: "Monday - Friday: 8:00 AM - 6:00 PM" },
+    { label: "Weekend", value: "Closed On Weekends" }
+  ];
 
   return (
     <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>
@@ -80,51 +205,14 @@ const ContactPage = () => {
             <div className="grid md:grid-cols-2 gap-12">
               {/* Form Section */}
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label className={labelClasses}>Name</label>
-                  <input
-                    {...register("name", { required: true })}
-                    className={inputClasses}
-                    placeholder="Your full name"
+                {formFields.map((field) => (
+                  <FormInput
+                    key={field.name}
+                    field={field}
+                    register={register}
+                    errors={errors}
                   />
-                  {errors.name && <span className="text-red-500 text-sm">Name is required</span>}
-                </div>
-
-                <div>
-                  <label className={labelClasses}>Email</label>
-                  <input
-                    {...register("email", { 
-                      required: true,
-                      pattern: /^\S+@\S+$/i
-                    })}
-                    type="email"
-                    className={inputClasses}
-                    placeholder="your@email.com"
-                  />
-                  {errors.email && <span className="text-red-500 text-sm">Valid email is required</span>}
-                </div>
-
-                <div>
-                  <label className={labelClasses}>Phone Number</label>
-                  <input
-                    {...register("phone", { required: true })}
-                    type="tel"
-                    className={inputClasses}
-                    placeholder="Your phone number"
-                  />
-                  {errors.phone && <span className="text-red-500 text-sm">Phone number is required</span>}
-                </div>
-
-                <div>
-                  <label className={labelClasses}>Message</label>
-                  <textarea
-                    {...register("message", { required: true })}
-                    className={`${inputClasses} h-32`}
-                    placeholder="How can we help you?"
-                  />
-                  {errors.message && <span className="text-red-500 text-sm">Message is required</span>}
-                </div>
-
+                ))}
                 <button
                   type="submit"
                   className="w-full px-8 py-3 bg-cardcolour text-black rounded-full hover:bg-accentcolour transition-colors border border-textcolour"
@@ -135,31 +223,8 @@ const ContactPage = () => {
 
               {/* Contact Information */}
               <div className="space-y-8">
-                <div>
-                  <h3 className="text-xl font-body font-semibold mb-4">Contact Information</h3>
-                  <div className="space-y-4">
-                    <p className="flex items-center gap-3">
-                      <span className="font-semibold">Phone:</span>
-                      <a href="tel:0478355242" className="hover:text-gray-600">0478 355 242</a>
-                    </p>
-                    <p className="flex items-center gap-3">
-                      <span className="font-semibold">Email:</span>
-                      <a href="mailto:info@lumehealth.com.au" className="hover:text-gray-600">info@lumehealth.com.au</a>
-                    </p>
-                    <p className="flex items-center gap-3">
-                      <span className="font-semibold">Address:</span>
-                      <span>305 Warrigal Road, Burwood 3125</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-body font-semibold mb-4">Operating Hours</h3>
-                  <div className="space-y-2">
-                    <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p>Closed On Weekends</p>
-                  </div>
-                </div>
+                <ContactInfo title="Contact Information" items={contactInfo} />
+                <ContactInfo title="Operating Hours" items={operatingHours} />
               </div>
             </div>
           </div>

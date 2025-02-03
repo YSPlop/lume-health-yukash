@@ -4,6 +4,54 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaWheelchair, FaUserFriends } from 'react-icons/fa';
 
+const buttonStyles = {
+  contact: {
+    bgColor: 'bg-[#B18697]',
+    textColor: 'text-white',
+    hoverBgColor: 'bg-[#7D4F5E]',
+    icon: FaPhoneAlt
+  },
+  ndis: {
+    bgColor: 'bg-[#8F9F82]',
+    textColor: 'text-white',
+    hoverBgColor: 'bg-[#7A876E]',
+    icon: FaWheelchair
+  },
+  private: {
+    bgColor: 'bg-[#E4BBCB]',
+    textColor: 'text-white',
+    hoverBgColor: 'bg-[#BF7F96]',
+    icon: FaUserFriends
+  }
+};
+
+const HeroButton = ({ 
+  href, 
+  style, 
+  children 
+}: { 
+  href: string, 
+  style: keyof typeof buttonStyles, 
+  children: React.ReactNode 
+}) => {
+  const Icon = buttonStyles[style].icon;
+  return (
+    <Link href={href} className="text-center">
+      <motion.button 
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={`relative w-full px-4 md:px-8 py-3 md:py-4 ${buttonStyles[style].bgColor} ${buttonStyles[style].textColor} rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group`}
+      >
+        <span className={`absolute inset-0 ${buttonStyles[style].hoverBgColor} scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center`} />
+        <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">
+          <Icon className="text-lg md:text-xl" />
+          {children}
+        </span>
+      </motion.button>
+    </Link>
+  );
+};
+
 const Hero = () => {
   return (
     <section className="p-2 md:p-6 lg:p-8 pt-6 md:pt-10 min-h-screen">
@@ -35,45 +83,15 @@ const Hero = () => {
 
           {/* Buttons Section */}
           <div className="grid md:grid-cols-3 gap-3 md:gap-8 mt-8 md:mt-16 px-2">
-            <Link href="/contact" className="text-center">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative w-full px-4 md:px-8 py-3 md:py-4 bg-blue-100 text-blue-600 rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group"
-              >
-                <span className="absolute inset-0 bg-blue-500 scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center" />
-                <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">
-                  <FaPhoneAlt className="text-lg md:text-xl" />
-                  Contact Us
-                </span>
-              </motion.button>
-            </Link>
-            <Link href="/referral-form?type=ndis" className="text-center">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative w-full px-4 md:px-8 py-3 md:py-4 bg-green-100 text-green-600 rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group"
-              >
-                <span className="absolute inset-0 bg-green-500 scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center" />
-                <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">
-                  <FaWheelchair className="text-lg md:text-xl" />
-                  NDIS Referral
-                </span>
-              </motion.button>
-            </Link>
-            <Link href="/referral-form?type=private" className="text-center">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative w-full px-4 md:px-8 py-3 md:py-4 bg-purple-100 text-purple-600 rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group"
-              >
-                <span className="absolute inset-0 bg-purple-500 scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center" />
-                <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">
-                  <FaUserFriends className="text-lg md:text-xl" />
-                  Private Referral
-                </span>
-              </motion.button>
-            </Link>
+            <HeroButton href="/contact" style="contact">
+              Contact Us
+            </HeroButton>
+            <HeroButton href="/referral-form?type=ndis" style="ndis">
+              NDIS Referral
+            </HeroButton>
+            <HeroButton href="/referral-form?type=private" style="private">
+              Private Referral
+            </HeroButton>
           </div>
         </div>
       </div>

@@ -18,9 +18,9 @@ const About = () => {
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
   const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FFE7DF]',    // Header section
-    1: 'bg-[#FFE7DF]',    // Physiotherapy section
-    2: 'bg-[#FFE7DF]',    // Occupational Therapy section
+    0: 'bg-[#FDCFB4]',    // Header section
+    1: 'bg-[#FDCFB4]',    // Physiotherapy section
+    2: 'bg-[#FDCFB4]',    // Occupational Therapy section
     3: 'bg-[#FFB9A3]',    // Footer
   };
 

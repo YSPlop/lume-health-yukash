@@ -12,7 +12,7 @@ type Props = {
 
 const ServicePageClient = ({ content }: Props) => {
   return (
-    <div className="bg-bgcolour pt-6">
+    <div className="bg-[#FDCFB4] pt-6">
       <section className="py-8 px-4 mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">

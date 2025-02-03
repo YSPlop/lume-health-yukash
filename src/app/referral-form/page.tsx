@@ -9,7 +9,7 @@ const ReferralFormPage = () => {
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
   const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FFE7DF]',    // Form section
+    0: 'bg-[#FFCBA9]',    // Form section
     1: 'bg-[#FFB9A3]',    // Footer
   };
 

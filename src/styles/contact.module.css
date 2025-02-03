@@ -1,0 +1,60 @@
+.inputContainer {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: black;
+  background: transparent;
+  border: 1.2px solid #333;
+  outline: none;
+  border-radius: 5px;
+}
+
+.textarea {
+  composes: input;
+  min-height: 128px;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #666;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: 0.5s;
+  background: transparent;
+}
+
+.textareaLabel {
+  composes: label;
+  top: 24px;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  top: 0;
+  font-size: 12px;
+  background: white;
+  color: #333;
+}
+
+.textarea:focus ~ .textareaLabel,
+.textarea:not(:placeholder-shown) ~ .textareaLabel {
+  top: 0;
+  font-size: 12px;
+  background: #FA787;
+  color: #333;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 4px;
+}

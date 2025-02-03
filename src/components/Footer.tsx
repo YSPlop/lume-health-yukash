@@ -3,7 +3,7 @@ import Image from "next/image"
 const Footer: React.FC = () => {
   return (
     <footer className="text-black w-full">
-      <div className="border-t border-gray-300"/>
+      <div className="border-t border-gray-400"/>
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-center py-8 md:py-12 gap-8">

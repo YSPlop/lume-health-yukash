@@ -15,11 +15,11 @@ export default function Home() {
 
   const sectionBackgrounds: { [key: number]: string } = {
     0: 'bg-[#FFB9A3]',     // Hero
-    1: 'bg-[#FFD0C1]',    // MeetTheTeam
-    2: 'bg-[#FFE7DF]',    // OurServices
-    3: 'bg-[#FFE7DF]',    // ClientsWeSee
-    4: 'bg-[#FFD0C1]',    // Logos
-    5: 'bg-[#FFD0C1]',     // Footer
+    1: 'bg-[#FFCBA9]',     // MeetTheTeam
+    2: 'bg-[#FFCBA9]',     // OurServices
+    3: 'bg-[#FFCBA9]',     // ClientsWeSee
+    4: 'bg-[#FDCFB4]',     // Logos (warmer)
+    5: 'bg-[#FDCFB4]',     // Footer (warmer)
   };
 
   useEffect(() => {

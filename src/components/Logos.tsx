@@ -17,7 +17,7 @@ const Logos: React.FC = () => {
     ]
     return (
         <section>
-            <div className="border-t border-gray-300 my-4 "/>
+            <div className="border-t border-gray-400 my-4 "/>
                 <div className = "flex items-center flex-col md:py-10 py-6">
                     <div className = "lg:w-[1100px] md:w-[800px] w-full items-center">
                         <div className = "grid md:grid-cols-3 md:gap-5 grid-cols-1 gap-1">

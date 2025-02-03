@@ -54,7 +54,7 @@ const Navigation = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300 ${
-        isScrolled ? 'bg-white/75 backdrop-blur-sm' : 'bg-cardcolour'
+        isScrolled ? 'bg-white/75 backdrop-blur-sm' : 'bg-[cardcolour]'
       }`}>
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between px-8">
