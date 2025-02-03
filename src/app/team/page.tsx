@@ -5,7 +5,7 @@ const Team: React.FC = () => {
             name: "Han",
             qualifications: ["Masters of Physiotherapy"],
             role: "Physiotherapist",
-            interests: ["Sports Physiotherapy", "Neurological Physiotherapy"],
+            interests: ["Sports Physiotherapy"],
             description: "Han graduated from La Trobe University with a Masters of Physiotherapy Practice and has over 5 years experience in the disability field. Han is passionate about creating a personalised care plan for his clients and helping them to achieve their goals. He is committed to delivering high quality care and personalised treatment. His expertise lies in developing holistic and individualised intervention plans, addressing the unique needs of each client and helping clients achieve their full potential. Passionate about making a positive impact, Han continuously strives for professional development to ensure the highest standards in physiotherapy practice. Han is a believer in practicing what he preaches. He is a regular at his local gym and also enjoys taking his dog Stitch out for trail walks. Han also regularly catches up with friends and is an avid foodie, believing that the best way to experience any culture is through",
             image: "/images/han.png"
         },

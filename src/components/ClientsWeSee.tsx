@@ -26,10 +26,10 @@ const ClientCard: React.FC<ClientCardProps> = ({ title, description, imageSrc })
       <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4 transition-opacity duration-300 group-hover:opacity-0">
         <h3 className="text-white text-xl font-semibold">{title}</h3>
       </div>
-      <div className="absolute inset-0 bg-cardcolour/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="p-6 h-full flex flex-col justify-center">
+      <div className="absolute inset-0 bg-cardcolour/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-auto">
+        <div className="p-6 h-full flex flex-col justify-center overflow-auto">
           <h3 className="text-black text-xl font-semibold mb-3">{title}</h3>
-          <p className="text-black text-sm">{description}</p>
+          <p className="text-black text-sm max-h-32 overflow-auto">{description}</p>
         </div>
       </div>
     </motion.div>

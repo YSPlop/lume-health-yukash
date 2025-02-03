@@ -17,7 +17,7 @@ const ClientCardX: React.FC<ClientCardXProps> = ({ name, description, imageSrc }
         <div className="card__info">
             <h1>{name}</h1>
         </div>
-        <div className = "card__hover">
+        <div className = "card__hover overflow-auto">
             <span className = "relative">{description}</span>
         </div>
     </div>
