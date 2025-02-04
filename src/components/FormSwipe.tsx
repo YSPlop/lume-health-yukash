@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const formTypes = ["Private", 'Home Care', 'NDIS'];
+  const formTypes = ["Private", 'HCP', 'NDIS'];
   const serviceType = ["Occupational Therapy", 'Physiotherapy', 'Both'];
   const [service, setService] = useState<string>("");
   const [type, setType] = useState<string>("");
@@ -131,7 +131,7 @@ const FormSwipe: React.FC = () => {
             alert("Please enter a valid invoice email address");
             return false;
           }
-        } else if (type === "Home Care") {
+        } else if (type === "HCP") {
           if (!homeCareForm.hcpOrganisation || !homeCareForm.hcpPhone || !homeCareForm.emailInvoice || !homeCareForm.caseName || !homeCareForm.caseEmail || !homeCareForm.casePhone) {
             alert("Please fill in all required Home Care fields");
             return false;
@@ -156,13 +156,28 @@ const FormSwipe: React.FC = () => {
     setCurrentStep(prev => prev - 1);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (validateStep()) {
-      console.log({
-        ...formData,
-        ...(type === 'NDIS' ? ndisForm : {}),
-        ...(type === 'Home Care' ? homeCareForm : {})
-      });
+        try {
+            console.log(formData)
+            const res = await fetch("/api/sheets", {
+                method: "POST", 
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    formType: type,
+                    valueInputOption: "USER_ENTERED",
+                    serviceType: service,
+                    ...formData,
+                    ...(type === "NDIS" ? ndisForm : {}),
+                    ...(type === "HCP" ? homeCareForm : {}),
+                }),
+            })
+            const data = await res.json(); // Convert response to JSON
+            console.log("Server response:", data);
+        }
+        catch (error) {
+            console.error("Error submitting data:", error);
+        }
     }
   };
 
@@ -529,7 +544,7 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 4: Additional Information - Home Care */}
-            {currentStep === 4 && type === 'Home Care' && (
+            {currentStep === 4 && type === 'HCP' && (
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Home Care Package Details</h2>
                     <div className="space-y-4">
@@ -743,7 +758,7 @@ const FormSwipe: React.FC = () => {
                         </div>
                     </div>
 
-                    {type === 'Home Care' && (
+                    {type === 'HCP' && (
                         <div className="space-y-6 font-semibold my-10">
                             <h3>Home Care Package Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
