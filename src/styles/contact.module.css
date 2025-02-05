@@ -37,19 +37,25 @@
   top: 24px;
 }
 
-.input:focus,
-.input:not(:placeholder-shown) {
+/* Only show border color when input is focused */
+.input:focus {
   border-width: 2px;
   border-color: #333;
 }
 
-.textarea:focus,
-.textarea:not(:placeholder-shown) {
+.textarea:focus {
   border-width: 2px;
   border-color: #333;
 }
 
-/* When input is focused or has content */
+/* When input has content but is not focused */
+.input:not(:placeholder-shown):not(:focus),
+.textarea:not(:placeholder-shown):not(:focus) {
+  border-width: 1.2px;
+  border-color: #333;
+}
+
+/* Label animation only when focused or has content */
 .input:focus ~ .label,
 .input:not(:placeholder-shown) ~ .label {
   top: 0;
@@ -58,7 +64,6 @@
   color: #333;
 }
 
-/* When textarea is focused or has content */
 .textarea:focus ~ .textareaLabel,
 .textarea:not(:placeholder-shown) ~ .textareaLabel {
   top: 0;
