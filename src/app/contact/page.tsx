@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from '@/components/Footer';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm, UseFormRegister } from 'react-hook-form';
 import { useRef, useState, useEffect } from 'react';
 import styles from '@/styles/contact.module.css';
 
@@ -18,14 +18,14 @@ interface FormField {
   name: keyof ContactFormData;
   type?: string;
   placeholder: string;
-  validation?: Object;
+  validation?: object;
 }
 
 
 const FormInput = ({ field, register, errors }: {
   field: FormField;
-  register: any;
-  errors: any;
+  register: UseFormRegister<ContactFormData>;
+  errors: FieldErrors<ContactFormData>;
 }) => (
   <div className={styles.inputContainer}>
     {field.type === 'textarea' ? (
