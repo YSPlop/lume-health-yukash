@@ -161,9 +161,8 @@ const About = () => {
         className="py-8 px-4 mx-auto max-w-7xl"
       >
         <div className="text-center mb-12">
-          <span className="text-textcolour font-heading text-sm md:text-base">About Our Services</span>
           <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3">
-            Comprehensive NDIS Support Services
+            About our Services
           </h1>
         </div>
       </section>
