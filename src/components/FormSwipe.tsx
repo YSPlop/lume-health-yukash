@@ -219,7 +219,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 1: Form Type Selection */}
             {currentStep === 1 && (
             <div className="w-full flex items-center justify-center flex-col">
-                <h2 className="text-xl">
+                <h2 className="text-xl font-heading">
                     What Type Of Referral Are You Making?
                 </h2>
                 <div className="grid sm:grid-cols-3 grid-rows-3 sm:gap-12 gap-4 py-12">
@@ -264,7 +264,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 2: Personal Details */}
             {currentStep === 3 && (
             <div className="w-full">
-                <h2 className="text-xl text-center mb-8">
+                <h2 className="text-xl font-heading text-center mb-8">
                     Personal Details
                 </h2>
                 <div className="space-y-6">
@@ -365,7 +365,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 3: Referral Information */}
             {currentStep === 5 && (
             <div>
-                <h2 className="text-2xl font-bold mb-4">Referral Information</h2>
+                <h2 className="text-2xl font-heading font-bold mb-4">Referral Information</h2>
                 <div className="space-y-4">
                     <div>
                         <label className={labelClasses}>Referral First Name</label>
@@ -436,7 +436,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 4: Additional Information - Private */}
             {currentStep === 4 && type === "Private" && (
                 <div>
-                    <h2 className="text-2xl font-bold mb-4">Supporting Information</h2>
+                    <h2 className="text-2xl font-heading font-bold mb-4">Supporting Information</h2>
                     <div>
                         <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
                         <input
@@ -454,7 +454,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 4: Additional Information - NDIS */}
             {currentStep === 4 && type === "NDIS" && (
                 <div className="space-y-4">
-                    <h2 className="text-2xl font-bold mb-4">NDIS Information</h2>
+                    <h2 className="text-2xl font-heading font-bold mb-4">NDIS Information</h2>
                     <div>
                         <label className={labelClasses}>NDIS Number</label>
                         <input
@@ -546,7 +546,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 4: Additional Information - Home Care */}
             {currentStep === 4 && type === 'HCP' && (
                 <div>
-                    <h2 className="text-2xl font-bold mb-4">Home Care Package Details</h2>
+                    <h2 className="text-2xl font-heading font-bold mb-4">Home Care Package Details</h2>
                     <div className="space-y-4">
                         <div>
                             <label className={labelClasses}>Home Care Package Organisation</label>
@@ -640,7 +640,7 @@ const FormSwipe: React.FC = () => {
             {/* Step 5: Feedback */}
             {currentStep === 6 && (
                 <div className="w-full">
-                    <h2 className="text-xl text-center mb-8">
+                    <h2 className="text-xl font-heading text-center mb-8">
                         How Did You Hear About Us?
                     </h2>
                     <div className="space-y-6">
@@ -661,18 +661,18 @@ const FormSwipe: React.FC = () => {
             {/* Step 6: Review */}
             {currentStep === 7 && (
                 <div className="w-full">
-                    <h2 className="text-xl text-center mb-8">
+                    <h2 className="text-xl font-heading text-center mb-8">
                         Review your Information
                     </h2>
                     <div className="space-y-6 font-semibold my-10">
-                        <h3>Service</h3>
+                        <h3 className="font-heading">Service</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
                             <label className={labelClasses}>Type of Service:</label>
                             <span>{service}</span>
                         </div>
                     </div>
                     <div className="space-y-6 font-semibold ">
-                        <h3>Personal Information</h3>
+                        <h3 className="font-heading">Personal Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
                             <label className={labelClasses}>First Name:</label>
                             <span>{formData.firstName}</span>
@@ -698,7 +698,7 @@ const FormSwipe: React.FC = () => {
                     </div>
 
                     <div className="space-y-6 font-semibold my-10">
-                        <h3>Referral Information</h3>
+                        <h3 className="font-heading">Referral Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
                             <label className={labelClasses}>First Name:</label>
                             {formData.referralFirstName ? (
@@ -760,7 +760,7 @@ const FormSwipe: React.FC = () => {
 
                     {type === 'HCP' && (
                         <div className="space-y-6 font-semibold my-10">
-                            <h3>Home Care Package Details</h3>
+                            <h3 className="font-heading">Home Care Package Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
                                 <label className={labelClasses}>HCP Organisation:</label>
                                 <span>{homeCareForm.hcpOrganisation}</span>
@@ -785,7 +785,7 @@ const FormSwipe: React.FC = () => {
 
                     {type === 'NDIS' && (
                         <div className="space-y-6 font-semibold my-10">
-                            <h3>NDIS Details</h3>
+                            <h3 className="font-heading">NDIS Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
                                 <label className={labelClasses}>NDIS Number:</label>
                                 <span>{ndisForm.ndisNumber}</span>

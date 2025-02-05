@@ -73,7 +73,7 @@ const ContactInfo = ({ title, items }: {
   items: { label: string; value: string; href?: string; }[] 
 }) => (
   <div>
-    <h3 className="text-xl font-body font-semibold mb-4">{title}</h3>
+    <h3 className="text-xl font-heading font-semibold mb-4">{title}</h3>
     <div className="space-y-4">
       {items.map((item, index) => (
         <p key={index} className="flex items-center gap-3">
@@ -189,7 +189,7 @@ const ContactPage = () => {
           {/* Header Section */}
           <div className="text-center mb-12">
             <span className="text-textcolour font-heading text-sm md:text-base">Contact Us</span>
-            <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3">
+            <h1 className="text-3xl md:text-4xl font-heading leading-tight mt-3">
               Get in Touch With Us
             </h1>
             <p className="text-gray-600 mt-4">

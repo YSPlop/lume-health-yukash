@@ -64,12 +64,11 @@ const ClientsWeSeeX: React.FC = () => {
   return (
     <section className="py-8 md:py-16 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-8">
-            <span className="text-textcolour font-heading text-sm md:text-base ">Clients We See</span>
-            <h2 className="text-3xl md:text-4xl font-body leading-tight mt-3">We Offer Services To A Wide Range Of Clients</h2>
+            <h2 className="text-3xl md:text-4xl font-heading leading-tight mt-3">Clients We See</h2>
         </div>
         <div className = "w-full flex items-center justify-center lg:flex-col md:flex-row flex-col gap-[80px]">
             <div className = "w-full flex items-center justify-center flex-col">
-                <header className = "text-2xl font-bold">Physiotherapy</header>
+                <header className = "text-2xl font-heading">Physiotherapy</header>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 p-4">
                 {physioClients.map((client, index) => (
                     <div className = "flex justify-center items-center" key = {index}>
@@ -84,7 +83,7 @@ const ClientsWeSeeX: React.FC = () => {
                 </div>
             </div>
             <div className = "w-full flex items-center justify-center flex-col">
-                <header className = "text-2xl font-bold">Occupational Therapy</header>
+                <header className = "text-2xl font-heading">Occupational Therapy</header>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 p-4">
                 {occupationalClients.map((client, index) => (
                     <div className = "flex justify-center items-center" key = {index}>

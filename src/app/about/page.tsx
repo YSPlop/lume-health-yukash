@@ -128,9 +128,9 @@ const About = () => {
 
   const ServiceCard = ({ title, description, link, imageSrc, imageAlt }: ServiceCardProps) => (
     <Link href={link}>
-      <div className="pb-6 rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] hover:border hover:border-cardcolour duration-300 ease-in-out cursor-pointer h-full">
-        <div className="flex flex-col h-full">
-          <div className="w-full aspect-[4/1.5] relative mb-4 rounded-t-2xl overflow-hidden">
+      <div className="relative rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] duration-300 ease-in-out cursor-pointer group">
+        <div className="w-full h-full">
+          <div className="w-full aspect-[4/1.5] relative rounded-t-2xl overflow-hidden">
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -138,8 +138,15 @@ const About = () => {
               className="object-cover"
             />
           </div>
-          <h3 className="text-xl font-body font-semibold mb-4 text-center px-6">{title}</h3>
-          <p className="text-gray-600 text-sm text-center px-6">{description}</p>
+          {/* Regular view */}
+          <div className="card__info p-6">
+            <h3 className="text-xl font-body font-semibold text-center">{title}</h3>
+          </div>
+          {/* Hover view */}
+          <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-center">
+            <h3 className="text-xl font-body font-semibold mb-4 text-center">{title}</h3>
+            <p className="text-gray-600 text-sm text-center">{description}</p>
+          </div>
         </div>
       </div>
     </Link>
