@@ -21,9 +21,6 @@ interface FormField {
   validation?: Object;
 }
 
-// Move these constants to the top, before they're used in components
-const inputClasses = "text-black w-full p-3 rounded-lg bg-cardcolour border border-gray-300 focus:outline-none focus:border-textcolour placeholder-gray-500";
-const labelClasses = "block text-sm font-semibold mb-2";
 
 const FormInput = ({ field, register, errors }: {
   field: FormField;
