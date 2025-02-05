@@ -29,7 +29,7 @@
   padding: 0 5px;
   pointer-events: none;
   transition: 0.5s;
-  background: transparent;
+  background: #f5ede0;
 }
 
 .textareaLabel {
@@ -37,19 +37,33 @@
   top: 24px;
 }
 
+.input:focus,
+.input:not(:placeholder-shown) {
+  border-width: 2px;
+  border-color: #333;
+}
+
+.textarea:focus,
+.textarea:not(:placeholder-shown) {
+  border-width: 2px;
+  border-color: #333;
+}
+
+/* When input is focused or has content */
 .input:focus ~ .label,
 .input:not(:placeholder-shown) ~ .label {
   top: 0;
   font-size: 12px;
-  background: white;
+  background: #f5ede0;
   color: #333;
 }
 
+/* When textarea is focused or has content */
 .textarea:focus ~ .textareaLabel,
 .textarea:not(:placeholder-shown) ~ .textareaLabel {
   top: 0;
   font-size: 12px;
-  background: #FA787;
+  background: #f5ede0;
   color: #333;
 }
 
