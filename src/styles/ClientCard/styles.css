@@ -1,8 +1,8 @@
 /* From Uiverse.io by ProgramaConPid */ 
 /* Card Styles */
 .card {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     padding: 15px;
     border-radius: 10px;
     display: flex;
@@ -15,17 +15,21 @@
  
   
   .card__hover {
-    width: 90%;
-    height: 80%;
+    width: 95%;
+    height: 90%;
     position: absolute;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     opacity: 0; /* Changed from scale(1) to scale(0) */
     font-family: var(--font-mulish);
     transition: opacity 200ms ease;  /* Shortened and simplified transition */
     z-index: 2;
     background-color: theme(colors.cardcolour);/* Semi-transparent theme color */
     backdrop-filter: blur(2px);
+
+    display: flex;  /* Enable flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
 }
 
 .card:hover .card__hover,

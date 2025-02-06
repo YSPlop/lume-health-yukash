@@ -9,15 +9,17 @@ interface ClientCardXProps {
 
 const ClientCardX: React.FC<ClientCardXProps> = ({ name, description, imageSrc }) => {
   return (
-    <div 
-      className="card">
+    <div className="card">
         <figure className="card__figure">
             <Image src={imageSrc} alt={name} fill className="object-cover" />
         </figure>
-        <div className="card__info">
-            <h1>{name}</h1>
+        <div className = "flex-1 w-full flex justify-center items-center">
+          <h1 className = "font-semibold text-xl">{name}</h1>
         </div>
-        <div className = "card__hover overflow-auto">
+        {/* <div className="card__info">
+            <h1>{name}</h1>
+        </div> */}
+        <div className = "card__hover">
             <span className = "relative">{description}</span>
         </div>
     </div>
