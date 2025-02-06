@@ -26,6 +26,8 @@ export async function POST(request) {
         const sheets = google.sheets({ version: 'v4', auth: client });
 
         const {formType, valueInputOption, ...valuesAll } = await request.json();
+        const updatedFormType = formType === "Home Care Package" ? "HCP" : formType;
+
         console.log(valuesAll)
 
         // Turn the values into an array
@@ -34,8 +36,8 @@ export async function POST(request) {
         console.log(formattedValues)
 
         // Last available cell
-        const lastCell = await getAvailableRow(sheets, formType)
-        const range = `${formType}!A${lastCell}:H${lastCell}`
+        const lastCell = await getAvailableRow(sheets, updatedFormType)
+        const range = `${updatedFormType}!A${lastCell}:H${lastCell}`
 
         const response = await sheets.spreadsheets.values.update({
             spreadsheetId,

@@ -6,7 +6,7 @@ import styles from '@/styles/formswipe.module.css';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const formTypes = ["Private", 'HCP', 'NDIS'];
+  const formTypes = ["Private", 'Home Care Package', 'NDIS'];
   const serviceType = ["Occupational Therapy", 'Physiotherapy', 'Both'];
   const [service, setService] = useState<string>("");
   const [type, setType] = useState<string>("");
@@ -130,7 +130,7 @@ const FormSwipe: React.FC = () => {
             alert("Please enter a valid invoice email address");
             return false;
           }
-        } else if (type === "HCP") {
+        } else if (type === "Home Care Package") {
           if (!homeCareForm.hcpOrganisation || !homeCareForm.hcpPhone || !homeCareForm.emailInvoice || !homeCareForm.caseName || !homeCareForm.caseEmail || !homeCareForm.casePhone) {
             alert("Please fill in all required Home Care fields");
             return false;
@@ -168,7 +168,7 @@ const FormSwipe: React.FC = () => {
                     serviceType: service,
                     ...formData,
                     ...(type === "NDIS" ? ndisForm : {}),
-                    ...(type === "HCP" ? homeCareForm : {}),
+                    ...(type === "Home Care Package" ? homeCareForm : {}),
                 }),
             })
             const data = await res.json(); // Convert response to JSON
@@ -543,7 +543,7 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 4: Home Care Package Details */}
-            {currentStep === 4 && type === 'HCP' && (
+            {currentStep === 4 && type === 'Home Care Package' && (
                 <div>
                     <h2 className="text-2xl font-heading font-bold mb-4">Home Care Package Details</h2>
                     <div className="space-y-4">
@@ -752,7 +752,7 @@ const FormSwipe: React.FC = () => {
                         </div>
                     </div>
 
-                    {type === 'HCP' && (
+                    {type === 'Home Care Package' && (
                         <div className="space-y-6 font-semibold my-10">
                             <h3 className="font-heading">Home Care Package Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
