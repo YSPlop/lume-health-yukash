@@ -41,7 +41,7 @@
 
 .textareaLabel {
   composes: label;
-  top: 34%;
+  top: 15%;
   transform: none;
 }
 
