@@ -35,7 +35,7 @@ const TeamCard = ({
             className="max-w-[1200px] mx-auto bg-cardcolour p-8 flex flex-col lg:flex-row gap-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300"
         >
             <motion.div 
-                className={`lg:w-1/3 flex justify-center items-center ${switchCard ? "lg:order-2" : "lg:order-1"}`}
+                className={`lg:w-1/3 flex justify-center items-center ${switchCard ? "lg:order-1" : "lg:order-1"}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
             >
