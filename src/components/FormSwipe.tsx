@@ -661,32 +661,32 @@ const FormSwipe: React.FC = () => {
                     <div className="space-y-6 font-semibold my-10">
                         <h3 className="font-heading">Service</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={styles.label}>Type of Service:</label>
+                            <label className={styles.summaryLabel}>Type of Service:</label>
                             <span>{service}</span>
                         </div>
                     </div>
                     <div className="space-y-6 font-semibold ">
                         <h3 className="font-heading">Personal Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={styles.label}>First Name:</label>
+                            <label className={styles.summaryLabel}>First Name:</label>
                             <span>{formData.firstName}</span>
 
-                            <label className={styles.label}>Last Name:</label>
+                            <label className={styles.summaryLabel}>Last Name:</label>
                             <span>{formData.lastName}</span>
 
-                            <label className={styles.label}>Email:</label>
+                            <label className={styles.summaryLabel}>Email:</label>
                             <span>{formData.email}</span>
 
-                            <label className={styles.label}>Phone Number:</label>
+                            <label className={styles.summaryLabel}>Phone Number:</label>
                             <span>{formData.phone}</span>
 
-                            <label className={styles.label}>Date of Birth:</label>
+                            <label className={styles.summaryLabel}>Date of Birth:</label>
                             <span>{formData.dob}</span>
 
-                            <label className={styles.label}>Gender:</label>
+                            <label className={styles.summaryLabel}>Gender:</label>
                             <span>{formData.gender}</span>
 
-                            <label className={styles.label}>Address:</label>
+                            <label className={styles.summaryLabel}>Address:</label>
                             <span>{formData.streetAddress}</span>
                         </div>
                     </div>
@@ -694,7 +694,7 @@ const FormSwipe: React.FC = () => {
                     <div className="space-y-6 font-semibold my-10">
                         <h3 className="font-heading">Referral Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={styles.label}>First Name:</label>
+                            <label className={styles.summaryLabel}>First Name:</label>
                             {formData.referralFirstName ? (
                                 <span>{formData.referralFirstName}</span>
                             ) : (
@@ -702,7 +702,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Last Name:</label>
+                            <label className={styles.summaryLabel}>Last Name:</label>
                             {formData.referralLastName ? (
                                 <span>{formData.referralLastName}</span>
                             ) : (
@@ -710,7 +710,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Referral Company:</label>
+                            <label className={styles.summaryLabel}>Referral Company:</label>
                             {formData.referralCompany ? (
                                 <span>{formData.referralCompany}</span>
                             ) : (
@@ -718,7 +718,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Phone Number:</label>
+                            <label className={styles.summaryLabel}>Phone Number:</label>
                             {formData.referralPhone ? (
                                 <span>{formData.referralPhone}</span>
                             ) : (
@@ -726,7 +726,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Email:</label>
+                            <label className={styles.summaryLabel}>Email:</label>
                             {formData.referralEmail ? (
                                 <span>{formData.referralEmail}</span>
                             ) : (
@@ -734,7 +734,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Reason for Referral:</label>
+                            <label className={styles.summaryLabel}>Reason for Referral:</label>
                             {formData.reasonForReferral ? (
                                 <span>{formData.reasonForReferral}</span>
                             ) : (
@@ -742,7 +742,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={styles.label}>Referral Source:</label>
+                            <label className={styles.summaryLabel}>Referral Source:</label>
                             {formData.referralSource ? (
                                 <span>{formData.referralSource}</span>
                             ) : (
@@ -756,22 +756,22 @@ const FormSwipe: React.FC = () => {
                         <div className="space-y-6 font-semibold my-10">
                             <h3 className="font-heading">Home Care Package Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
-                                <label className={styles.label}>HCP Organisation:</label>
+                                <label className={styles.summaryLabel}>HCP Organisation:</label>
                                 <span>{homeCareForm.hcpOrganisation}</span>
 
-                                <label className={styles.label}>HCP Telephone:</label>
+                                <label className={styles.summaryLabel}>HCP Telephone:</label>
                                 <span>{homeCareForm.hcpPhone}</span>
 
-                                <label className={styles.label}>Email for Invoices:</label>
+                                <label className={styles.summaryLabel}>Email for Invoices:</label>
                                 <span>{homeCareForm.emailInvoice}</span>
 
-                                <label className={styles.label}>Case Manager Name:</label>
+                                <label className={styles.summaryLabel}>Case Manager Name:</label>
                                 <span>{homeCareForm.caseName}</span>
 
-                                <label className={styles.label}>Case Manager Email:</label>
+                                <label className={styles.summaryLabel}>Case Manager Email:</label>
                                 <span>{homeCareForm.caseEmail}</span>
 
-                                <label className={styles.label}>Case Manager Phone:</label>
+                                <label className={styles.summaryLabel}>Case Manager Phone:</label>
                                 <span>{homeCareForm.casePhone}</span>
                             </div>
                         </div>
@@ -781,16 +781,16 @@ const FormSwipe: React.FC = () => {
                         <div className="space-y-6 font-semibold my-10">
                             <h3 className="font-heading">NDIS Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
-                                <label className={styles.label}>NDIS Number:</label>
+                                <label className={styles.summaryLabel}>NDIS Number:</label>
                                 <span>{ndisForm.ndisNumber}</span>
 
-                                <label className={styles.label}>Plan Start Date:</label>
+                                <label className={styles.summaryLabel}>Plan Start Date:</label>
                                 <span>{ndisForm.planStartDate}</span>
 
-                                <label className={styles.label}>Plan End Date:</label>
+                                <label className={styles.summaryLabel}>Plan End Date:</label>
                                 <span>{ndisForm.planEndDate}</span>
 
-                                <label className={styles.label}>Funds Available:</label>
+                                <label className={styles.summaryLabel}>Funds Available:</label>
                                 {ndisForm.fundsAvailable ? (
                                     <span>{ndisForm.fundsAvailable}</span>
                                 ) : (
@@ -798,7 +798,7 @@ const FormSwipe: React.FC = () => {
                                 )
                                 }
 
-                                <label className={styles.label}>Funds Managed:</label>
+                                <label className={styles.summaryLabel}>Funds Managed:</label>
                                 {ndisForm.fundsManaged ? (
                                     <span>{ndisForm.fundsManaged}</span>
                                 ) : (
@@ -806,7 +806,7 @@ const FormSwipe: React.FC = () => {
                                 )
                                 }
 
-                                <label className={styles.label}>Email for Invoices:</label>
+                                <label className={styles.summaryLabel}>Email for Invoices:</label>
                                 <span>{ndisForm.emailInvoices}</span>
                             </div>
                         </div>
