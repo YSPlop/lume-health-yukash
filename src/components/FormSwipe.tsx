@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
+import styles from '@/styles/formswipe.module.css';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -65,8 +66,6 @@ const FormSwipe: React.FC = () => {
     }
   }, [typeFromParams]);
 
-  const inputClasses = "w-full p-3 rounded-lg bg-bgcolour border border-gray-300 focus:outline-none focus:border-textcolour placeholder-black";
-  const labelClasses = "block text-sm font-semibold mb-2 text-textcolour";
   const errorClasses = "text-red-500 text-sm mt-1";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -261,82 +260,84 @@ const FormSwipe: React.FC = () => {
             </div>
             )}
 
-            {/* Step 2: Personal Details */}
+            {/* Step 3: Personal Details */}
             {currentStep === 3 && (
             <div className="w-full">
-                <h2 className="text-xl font-heading text-center mb-8">
+                <h2 className="text-2xl font-heading font-bold mb-4">
                     Personal Details
                 </h2>
-                <div className="space-y-6">
-                    <div>
-                        <label className={labelClasses}>First Name</label>
+                <div className="space-y-4">
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.firstName && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {!formData.firstName && <p className={errorClasses}>First name is required</p>}
+                        <label htmlFor="firstName" className={styles.label}>
+                            First Name
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Last Name</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.lastName && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {!formData.lastName && <p className={errorClasses}>Last name is required</p>}
+                        <label htmlFor="lastName" className={styles.label}>
+                            Last Name
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Email</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${(!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {(!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) && 
-                          <p className={errorClasses}>Please enter a valid email address</p>}
+                        <label htmlFor="email" className={styles.label}>
+                            Email
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Contact Number</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="tel"
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.phone && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {!formData.phone && <p className={errorClasses}>Phone number is required</p>}
+                        <label htmlFor="phone" className={styles.label}>
+                            Contact Number
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Address</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="streetAddress"
                             value={formData.streetAddress}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.streetAddress && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {!formData.streetAddress && <p className={errorClasses}>Address is required</p>}
+                        <label htmlFor="streetAddress" className={styles.label}>
+                            Address
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Gender</label>
+                    <div className={styles.inputContainer}>
                         <select
                             name="gender"
                             value={formData.gender}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.gender && 'border-red-500'}`}
-                            required
+                            className={styles.input}
                         >
                             <option value="">Select gender...</option>
                             <option value="male">Male</option>
@@ -344,295 +345,286 @@ const FormSwipe: React.FC = () => {
                             <option value="other">Other</option>
                             <option value="prefer-not-to-say">Prefer not to say</option>
                         </select>
-                        {!formData.gender && <p className={errorClasses}>Please select a gender</p>}
+                        <label htmlFor="gender" className={styles.label}>
+                            Gender
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Date of Birth</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="date"
                             name="dob"
                             value={formData.dob}
                             onChange={handleInputChange}
-                            className={`${inputClasses} ${!formData.dob && 'border-red-500'}`}
-                            required
+                            className={styles.input}
+                            placeholder=" "
                         />
-                        {!formData.dob && <p className={errorClasses}>Date of birth is required</p>}
+                        <label htmlFor="dob" className={styles.label}>
+                            Date of Birth
+                        </label>
                     </div>
                 </div>
             </div>
             )}
 
-            {/* Step 3: Referral Information */}
+            {/* Step 4: Referral Information */}
             {currentStep === 5 && (
             <div>
                 <h2 className="text-2xl font-heading font-bold mb-4">Referral Information</h2>
                 <div className="space-y-4">
-                    <div>
-                        <label className={labelClasses}>Referral First Name</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="referralFirstName"
                             value={formData.referralFirstName}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
+                            className={styles.input}
+                            placeholder=" "
                         />
+                        <label htmlFor="referralFirstName" className={styles.label}>
+                            Referral First Name
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Referral Last Name</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="referralLastName"
                             value={formData.referralLastName}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
+                            className={styles.input}
+                            placeholder=" "
                         />
+                        <label htmlFor="referralLastName" className={styles.label}>
+                            Referral Last Name
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Company</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="text"
                             name="referralCompany"
                             value={formData.referralCompany}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
-                
+                            className={styles.input}
+                            placeholder=" "
                         />
+                        <label htmlFor="referralCompany" className={styles.label}>
+                            Company
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Phone</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="tel"
                             name="referralPhone"
                             value={formData.referralPhone}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
+                            className={styles.input}
+                            placeholder=" "
                         />
+                        <label htmlFor="referralPhone" className={styles.label}>
+                            Phone
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Email</label>
+                    <div className={styles.inputContainer}>
                         <input
                             type="email"
                             name="referralEmail"
                             value={formData.referralEmail}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
+                            className={styles.input}
+                            placeholder=" "
                         />
+                        <label htmlFor="referralEmail" className={styles.label}>
+                            Email
+                        </label>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Reason for Referral/Details of Condition</label>
+                    <div className={styles.inputContainer}>
                         <textarea
                             name="reasonForReferral"
                             value={formData.reasonForReferral}
                             onChange={handleInputChange}
-                            className={`${inputClasses}`}
-                            rows={4}
+                            className={styles.textarea}
+                            placeholder=" "
                         />
+                        <label htmlFor="reasonForReferral" className={styles.textareaLabel}>
+                            Reason for Referral/Details of Condition
+                        </label>
                     </div>
                 </div>
             </div>
-
             )}
 
-            {/* Step 4: Additional Information - Private */}
-            {/* {currentStep === 4 && type === "Private" && (
-                <div>
-                    <h2 className="text-2xl font-heading font-bold mb-4">Supporting Information</h2>
-                    <div>
-                        <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
-                        <input
-                            type="file"
-                            name="supportingDocs"
-                            onChange={handleInputChange}
-                            className={inputClasses}
-                            multiple
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                        />
-                    </div>
-                </div>
-            )} */}
-
-            {/* Step 4: Additional Information - NDIS */}
+            {/* Step 4: NDIS Information */}
             {currentStep === 4 && type === "NDIS" && (
-                <div className="space-y-4">
+                <div>
                     <h2 className="text-2xl font-heading font-bold mb-4">NDIS Information</h2>
-                    <div>
-                        <label className={labelClasses}>NDIS Number</label>
-                        <input
-                            type="text"
-                            name="ndisNumber"
-                            value={ndisForm.ndisNumber}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${!ndisForm.ndisNumber && 'border-red-500'}`}
-                            required
-                        />
-                        {!ndisForm.ndisNumber && <p className={errorClasses}>NDIS number is required</p>}
+                    <div className="space-y-4">
+                        <div className={styles.inputContainer}>
+                            <input
+                                type="text"
+                                name="ndisNumber"
+                                value={ndisForm.ndisNumber}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                                placeholder=" "
+                            />
+                            <label htmlFor="ndisNumber" className={styles.label}>
+                                NDIS Number
+                            </label>
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <input
+                                type="date"
+                                name="planStartDate"
+                                value={ndisForm.planStartDate}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                                placeholder=" "
+                            />
+                            <label htmlFor="planStartDate" className={styles.label}>
+                                Plan Start Date
+                            </label>
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <input
+                                type="date"
+                                name="planEndDate"
+                                value={ndisForm.planEndDate}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                                placeholder=" "
+                            />
+                            <label htmlFor="planEndDate" className={styles.label}>
+                                Plan End Date
+                            </label>
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <input
+                                type="number"
+                                name="fundsAvailable"
+                                value={ndisForm.fundsAvailable}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                                placeholder=" "
+                            />
+                            <label htmlFor="fundsAvailable" className={styles.label}>
+                                Funds Available
+                            </label>
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <select
+                                name="fundsManaged"
+                                value={ndisForm.fundsManaged}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                            >
+                                <option value="">Select an option</option>
+                                <option value="self">Self Managed</option>
+                                <option value="plan">Plan Managed</option>
+                                <option value="ndia">NDIA Managed</option>
+                            </select>
+                            <label htmlFor="fundsManaged" className={styles.label}>
+                                How are your funds managed?
+                            </label>
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <input
+                                type="email"
+                                name="emailInvoices"
+                                value={ndisForm.emailInvoices}
+                                onChange={handleNdisInputChange}
+                                className={styles.input}
+                                placeholder=" "
+                            />
+                            <label htmlFor="emailInvoices" className={styles.label}>
+                                Email for Invoices
+                            </label>
+                        </div>
                     </div>
-                    <div>
-                        <label className={labelClasses}>Plan Start Date</label>
-                        <input
-                            type="date"
-                            name="planStartDate"
-                            value={ndisForm.planStartDate}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${!ndisForm.planStartDate && 'border-red-500'}`}
-                            required
-                        />
-                        {!ndisForm.planStartDate && <p className={errorClasses}>Plan start date is required</p>}
-                    </div>
-                    <div>
-                        <label className={labelClasses}>Plan End Date</label>
-                        <input
-                            type="date"
-                            name="planEndDate"
-                            value={ndisForm.planEndDate}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${!ndisForm.planEndDate && 'border-red-500'}`}
-                            required
-                        />
-                        {!ndisForm.planEndDate && <p className={errorClasses}>Plan end date is required</p>}
-                    </div>
-                    <div>
-                        <label className={labelClasses}>Funds Available</label>
-                        <input
-                            type="number"
-                            name="fundsAvailable"
-                            value={ndisForm.fundsAvailable}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses}`}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label className={labelClasses}>How are your funds managed?</label>
-                        <select
-                            name="fundsManaged"
-                            value={ndisForm.fundsManaged}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses}}`}
-                        >
-                            <option value="">Select an option</option>
-                            <option value="self">Self Managed</option>
-                            <option value="plan">Plan Managed</option>
-                            <option value="ndia">NDIA Managed</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label className={labelClasses}>Email for Invoices</label>
-                        <input
-                            type="email"
-                            name="emailInvoices"
-                            value={ndisForm.emailInvoices}
-                            onChange={handleNdisInputChange}
-                            className={`${inputClasses} ${(!ndisForm.emailInvoices || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ndisForm.emailInvoices)) && 'border-red-500'}`}
-                            required
-                        />
-                        {(!ndisForm.emailInvoices || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ndisForm.emailInvoices)) && 
-                          <p className={errorClasses}>Please enter a valid email address</p>}
-                    </div>
-                    {/* <div>
-                        <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
-                        <input
-                            type="file"
-                            name="supportingDocs"
-                            onChange={handleInputChange}
-                            className={inputClasses}
-                            multiple
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                        />
-                    </div> */}
                 </div>
             )}
 
-            {/* Step 4: Additional Information - Home Care */}
+            {/* Step 4: Home Care Package Details */}
             {currentStep === 4 && type === 'HCP' && (
                 <div>
                     <h2 className="text-2xl font-heading font-bold mb-4">Home Care Package Details</h2>
                     <div className="space-y-4">
-                        <div>
-                            <label className={labelClasses}>Home Care Package Organisation</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="text"
                                 name="hcpOrganisation"
                                 value={homeCareForm.hcpOrganisation}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${!homeCareForm.hcpOrganisation && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {!homeCareForm.hcpOrganisation && <p className={errorClasses}>Organisation name is required</p>}
+                            <label htmlFor="hcpOrganisation" className={styles.label}>
+                                Home Care Package Organisation
+                            </label>
                         </div>
-                        <div>
-                            <label className={labelClasses}>Home Care Package Phone Number</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="tel"
                                 name="hcpPhone"
                                 value={homeCareForm.hcpPhone}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${!homeCareForm.hcpPhone && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {!homeCareForm.hcpPhone && <p className={errorClasses}>Phone number is required</p>}
+                            <label htmlFor="hcpPhone" className={styles.label}>
+                                Home Care Package Phone Number
+                            </label>
                         </div>
-                        <div>
-                            <label className={labelClasses}>Email for Invoices</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="email"
                                 name="emailInvoice"
                                 value={homeCareForm.emailInvoice}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${(!homeCareForm.emailInvoice || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.emailInvoice)) && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {(!homeCareForm.emailInvoice || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.emailInvoice)) && 
-                              <p className={errorClasses}>Please enter a valid email address</p>}
+                            <label htmlFor="emailInvoice" className={styles.label}>
+                                Email for Invoices
+                            </label>
                         </div>
-                        <div>
-                            <label className={labelClasses}>Case Manager Name</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="text"
                                 name="caseName"
                                 value={homeCareForm.caseName}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${!homeCareForm.caseName && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {!homeCareForm.caseName && <p className={errorClasses}>Case manager name is required</p>}
+                            <label htmlFor="caseName" className={styles.label}>
+                                Case Manager Name
+                            </label>
                         </div>
-                        <div>
-                            <label className={labelClasses}>Case Manager Email</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="email"
                                 name="caseEmail"
                                 value={homeCareForm.caseEmail}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${(!homeCareForm.caseEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.caseEmail)) && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {(!homeCareForm.caseEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.caseEmail)) && 
-                              <p className={errorClasses}>Please enter a valid email address</p>}
+                            <label htmlFor="caseEmail" className={styles.label}>
+                                Case Manager Email
+                            </label>
                         </div>
-                        <div>
-                            <label className={labelClasses}>Case Manager Phone</label>
+                        <div className={styles.inputContainer}>
                             <input
                                 type="tel"
                                 name="casePhone"
                                 value={homeCareForm.casePhone}
                                 onChange={handleHomeCareInputChange}
-                                className={`${inputClasses} ${!homeCareForm.casePhone && 'border-red-500'}`}
-                                required
+                                className={styles.input}
+                                placeholder=" "
                             />
-                            {!homeCareForm.casePhone && <p className={errorClasses}>Case manager phone is required</p>}
+                            <label htmlFor="casePhone" className={styles.label}>
+                                Case Manager Phone
+                            </label>
                         </div>
-                        {/* <div>
-                            <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
-                            <input
-                                type="file"
-                                name="supportingDocs"
-                                onChange={handleInputChange}
-                                className={inputClasses}
-                                multiple
-                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                            />
-                        </div> */}
                     </div>
                 </div>
             )}
@@ -640,19 +632,21 @@ const FormSwipe: React.FC = () => {
             {/* Step 5: Feedback */}
             {currentStep === 6 && (
                 <div className="w-full">
-                    <h2 className="text-xl font-heading text-center mb-8">
+                    <h2 className="text-2xl font-heading font-bold mb-4">
                         How Did You Hear About Us?
                     </h2>
-                    <div className="space-y-6">
-                        <div>
+                    <div className="space-y-4">
+                        <div className={styles.inputContainer}>
                             <textarea
                                 name="referralSource"
                                 value={formData.referralSource}
                                 onChange={handleInputChange}
-                                className={`${inputClasses}`}
-                                rows={4}
-                                required
+                                className={styles.textarea}
+                                placeholder=" "
                             />
+                            <label htmlFor="referralSource" className={styles.textareaLabel}>
+                                Referral Source
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -667,32 +661,32 @@ const FormSwipe: React.FC = () => {
                     <div className="space-y-6 font-semibold my-10">
                         <h3 className="font-heading">Service</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={labelClasses}>Type of Service:</label>
+                            <label className={styles.label}>Type of Service:</label>
                             <span>{service}</span>
                         </div>
                     </div>
                     <div className="space-y-6 font-semibold ">
                         <h3 className="font-heading">Personal Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={labelClasses}>First Name:</label>
+                            <label className={styles.label}>First Name:</label>
                             <span>{formData.firstName}</span>
 
-                            <label className={labelClasses}>Last Name:</label>
+                            <label className={styles.label}>Last Name:</label>
                             <span>{formData.lastName}</span>
 
-                            <label className={labelClasses}>Email:</label>
+                            <label className={styles.label}>Email:</label>
                             <span>{formData.email}</span>
 
-                            <label className={labelClasses}>Phone Number:</label>
+                            <label className={styles.label}>Phone Number:</label>
                             <span>{formData.phone}</span>
 
-                            <label className={labelClasses}>Date of Birth:</label>
+                            <label className={styles.label}>Date of Birth:</label>
                             <span>{formData.dob}</span>
 
-                            <label className={labelClasses}>Gender:</label>
+                            <label className={styles.label}>Gender:</label>
                             <span>{formData.gender}</span>
 
-                            <label className={labelClasses}>Address:</label>
+                            <label className={styles.label}>Address:</label>
                             <span>{formData.streetAddress}</span>
                         </div>
                     </div>
@@ -700,7 +694,7 @@ const FormSwipe: React.FC = () => {
                     <div className="space-y-6 font-semibold my-10">
                         <h3 className="font-heading">Referral Information</h3>
                         <div className = "grid grid-cols-[2fr_5fr]">
-                            <label className={labelClasses}>First Name:</label>
+                            <label className={styles.label}>First Name:</label>
                             {formData.referralFirstName ? (
                                 <span>{formData.referralFirstName}</span>
                             ) : (
@@ -708,7 +702,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Last Name:</label>
+                            <label className={styles.label}>Last Name:</label>
                             {formData.referralLastName ? (
                                 <span>{formData.referralLastName}</span>
                             ) : (
@@ -716,7 +710,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Referral Company:</label>
+                            <label className={styles.label}>Referral Company:</label>
                             {formData.referralCompany ? (
                                 <span>{formData.referralCompany}</span>
                             ) : (
@@ -724,7 +718,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Phone Number:</label>
+                            <label className={styles.label}>Phone Number:</label>
                             {formData.referralPhone ? (
                                 <span>{formData.referralPhone}</span>
                             ) : (
@@ -732,7 +726,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Email:</label>
+                            <label className={styles.label}>Email:</label>
                             {formData.referralEmail ? (
                                 <span>{formData.referralEmail}</span>
                             ) : (
@@ -740,7 +734,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Reason for Referral:</label>
+                            <label className={styles.label}>Reason for Referral:</label>
                             {formData.reasonForReferral ? (
                                 <span>{formData.reasonForReferral}</span>
                             ) : (
@@ -748,7 +742,7 @@ const FormSwipe: React.FC = () => {
                             )
                             }
 
-                            <label className={labelClasses}>Referral Source:</label>
+                            <label className={styles.label}>Referral Source:</label>
                             {formData.referralSource ? (
                                 <span>{formData.referralSource}</span>
                             ) : (
@@ -762,22 +756,22 @@ const FormSwipe: React.FC = () => {
                         <div className="space-y-6 font-semibold my-10">
                             <h3 className="font-heading">Home Care Package Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
-                                <label className={labelClasses}>HCP Organisation:</label>
+                                <label className={styles.label}>HCP Organisation:</label>
                                 <span>{homeCareForm.hcpOrganisation}</span>
 
-                                <label className={labelClasses}>HCP Telephone:</label>
+                                <label className={styles.label}>HCP Telephone:</label>
                                 <span>{homeCareForm.hcpPhone}</span>
 
-                                <label className={labelClasses}>Email for Invoices:</label>
+                                <label className={styles.label}>Email for Invoices:</label>
                                 <span>{homeCareForm.emailInvoice}</span>
 
-                                <label className={labelClasses}>Case Manager Name:</label>
+                                <label className={styles.label}>Case Manager Name:</label>
                                 <span>{homeCareForm.caseName}</span>
 
-                                <label className={labelClasses}>Case Manager Email:</label>
+                                <label className={styles.label}>Case Manager Email:</label>
                                 <span>{homeCareForm.caseEmail}</span>
 
-                                <label className={labelClasses}>Case Manager Phone:</label>
+                                <label className={styles.label}>Case Manager Phone:</label>
                                 <span>{homeCareForm.casePhone}</span>
                             </div>
                         </div>
@@ -787,16 +781,16 @@ const FormSwipe: React.FC = () => {
                         <div className="space-y-6 font-semibold my-10">
                             <h3 className="font-heading">NDIS Details</h3>
                             <div className = "grid grid-cols-[2fr_5fr]">
-                                <label className={labelClasses}>NDIS Number:</label>
+                                <label className={styles.label}>NDIS Number:</label>
                                 <span>{ndisForm.ndisNumber}</span>
 
-                                <label className={labelClasses}>Plan Start Date:</label>
+                                <label className={styles.label}>Plan Start Date:</label>
                                 <span>{ndisForm.planStartDate}</span>
 
-                                <label className={labelClasses}>Plan End Date:</label>
+                                <label className={styles.label}>Plan End Date:</label>
                                 <span>{ndisForm.planEndDate}</span>
 
-                                <label className={labelClasses}>Funds Available:</label>
+                                <label className={styles.label}>Funds Available:</label>
                                 {ndisForm.fundsAvailable ? (
                                     <span>{ndisForm.fundsAvailable}</span>
                                 ) : (
@@ -804,7 +798,7 @@ const FormSwipe: React.FC = () => {
                                 )
                                 }
 
-                                <label className={labelClasses}>Funds Managed:</label>
+                                <label className={styles.label}>Funds Managed:</label>
                                 {ndisForm.fundsManaged ? (
                                     <span>{ndisForm.fundsManaged}</span>
                                 ) : (
@@ -812,7 +806,7 @@ const FormSwipe: React.FC = () => {
                                 )
                                 }
 
-                                <label className={labelClasses}>Email for Invoices:</label>
+                                <label className={styles.label}>Email for Invoices:</label>
                                 <span>{ndisForm.emailInvoices}</span>
                             </div>
                         </div>
