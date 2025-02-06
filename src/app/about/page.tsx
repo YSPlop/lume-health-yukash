@@ -144,7 +144,7 @@ const About = () => {
           </div>
           {/* Hover view */}
           <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-center">
-            <h3 className="text-xl font-body font-semibold mb-4 text-center">{title}</h3>
+            {/* <h3 className="text-xl font-body font-semibold mb-4 text-center">{title}</h3> */}
             <p className="text-gray-600 text-sm text-center">{description}</p>
           </div>
         </div>
