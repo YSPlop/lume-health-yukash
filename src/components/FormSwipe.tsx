@@ -434,7 +434,7 @@ const FormSwipe: React.FC = () => {
             )}
 
             {/* Step 4: Additional Information - Private */}
-            {currentStep === 4 && type === "Private" && (
+            {/* {currentStep === 4 && type === "Private" && (
                 <div>
                     <h2 className="text-2xl font-heading font-bold mb-4">Supporting Information</h2>
                     <div>
@@ -449,7 +449,7 @@ const FormSwipe: React.FC = () => {
                         />
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Step 4: Additional Information - NDIS */}
             {currentStep === 4 && type === "NDIS" && (
@@ -529,7 +529,7 @@ const FormSwipe: React.FC = () => {
                         {(!ndisForm.emailInvoices || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ndisForm.emailInvoices)) && 
                           <p className={errorClasses}>Please enter a valid email address</p>}
                     </div>
-                    <div>
+                    {/* <div>
                         <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
                         <input
                             type="file"
@@ -539,7 +539,7 @@ const FormSwipe: React.FC = () => {
                             multiple
                             accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                         />
-                    </div>
+                    </div> */}
                 </div>
             )}
 
@@ -622,7 +622,7 @@ const FormSwipe: React.FC = () => {
                             />
                             {!homeCareForm.casePhone && <p className={errorClasses}>Case manager phone is required</p>}
                         </div>
-                        <div>
+                        {/* <div>
                             <label className={labelClasses}>Supporting documentation eg. scans, medical history (optional)</label>
                             <input
                                 type="file"
@@ -632,7 +632,7 @@ const FormSwipe: React.FC = () => {
                                 multiple
                                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )}
