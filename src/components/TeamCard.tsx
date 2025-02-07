@@ -39,7 +39,7 @@ const TeamCard = ({
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className="w-full aspect-square relative rounded-2xl overflow-hidden">
+                <div className="w-full relative rounded-2xl overflow-hidden">
                     <Image 
                         src={image}
                         alt={name}
