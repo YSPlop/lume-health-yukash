@@ -3,7 +3,7 @@ import TeamCard from "@/components/TeamCard";
 const Team: React.FC = () => {
     const TeamMembers = [
         {
-            name: "Han",
+            name: "Physiotherapist Han",
             qualifications: ["Masters of Physiotherapy"],
             role: "Physiotherapist",
             interests: ["Sports Physiotherapy", "Disability Support", "Holistic Care"],
@@ -14,7 +14,7 @@ const Team: React.FC = () => {
             image: "/images/han-team-image.jpg"
         },
         {
-            name: "Natalie Chan",
+            name: "Occupational Therapist Natalie",
             qualifications: ["Masters of Occupational Therapy Practice"],
             role: "Paediatric Occupational Therapist",
             interests: ["Paediatric Care", "Trauma-Informed Practice", "Family-Centered Care"],

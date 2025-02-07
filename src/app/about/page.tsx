@@ -80,25 +80,39 @@ const About = () => {
 
   const physiotherapyServices = [
     {
-      title: "Home Visits",
-      description: "Personalized physiotherapy care in the comfort of your home",
+      title: "Aged Care Physiotherapy",
+      description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalized care. We treat conditions like arthritis, stroke, Parkinson’s, and mobility decline to support active aging.",
       link: "/services/home-visits",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Home visits illustration"
+      imageSrc: "/images/about/physio/aged-care.png",
+      imageAlt: "Aged Care Physiotherapy illustration"
     },
     {
-      title: "Rehabilitation",
-      description: "Comprehensive rehabilitation programs for various conditions",
+      title: "Neuro Physiotherapy",
+      description: "Neurological physiotherapy enhances mobility, function, and quality of life for those with neurological conditions. Lume Health provides home-based therapy, ensuring safe, tailored care in familiar environments while involving family support. We treat conditions like stroke, spinal cord injury, MS, and Parkinson’s disease.",
       link: "/services/rehabilitation",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Rehabilitation illustration"
+      imageSrc: "/images/about/physio/neuro.png",
+      imageAlt: "Neuro Physiotherapy illustration"
     },
     {
-      title: "Pain Management",
-      description: "Expert techniques for chronic and acute pain relief",
+      title: "Hydrotherapy",
+      description: "Hydrotherapy uses warm water to support movement, reduce joint stress, and aid rehabilitation. Lume Health offers tailored aquatic therapy to improve mobility, strength, and pain management, especially for those struggling with land-based exercises. Ideal for conditions like arthritis, post-surgery recovery, neurological disorders, and spinal cord injuries.",
       link: "/services/pain-management",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Pain management illustration"
+      imageSrc: "/images/about/physio/hydro.png",
+      imageAlt: "Hydrotherapy illustration"
+    },
+    {
+      title: "Pediatric Physiotherapy",
+      description: "Paediatric physiotherapy supports children’s movement, strength, and development through early intervention. Lume Health offers home-based therapy for comfort, real-life skill-building, and family involvement. We treat conditions like cerebral palsy, developmental delays, muscular dystrophy, and coordination disorders, helping children reach their full potential.",
+      link: "/services/pediatric",
+      imageSrc: "/images/about/physio/paediatric.png",
+      imageAlt: "Pediatric Physiotherapy illustration"
+    },
+    {
+      title: "Post Hospital Rehabilitation",
+      description: "Post-hospital rehab restores strength, mobility, and independence after surgery, illness, or injury. Lume Health provides home-based therapy for comfort, tailored recovery, and family involvement. We treat conditions like joint replacements, stroke, cardiac issues, and major trauma to support a safe, effective return to daily life.",
+      link: "/services/post-hospital",
+      imageSrc: "/images/about/physio/post-hospital.png", 
+      imageAlt: "Post Hospital Rehabilitation illustration"
     }
   ];
 
@@ -107,30 +121,30 @@ const About = () => {
       title: "Daily Living skills",
       description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence and self-sufficiency in their everyday routines.",
       link: "/services/home-modifications",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Home modifications illustration"
+      imageSrc: "/images/about/occupational-therapy/daily-living-skills.png",
+      imageAlt: "Daily living skills illustration"
     },
     {
       title: "School Readiness",
       description: "Our occupational therapist provides school readiness skills to prepare children for school transition and developing key skills such as fine motor development, attention, social interaction, and following instructions. We provide individualized strategies to ensure children are ready to thrive in an academic setting.",
       link: "/services/daily-living",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Daily living skills illustration"
+      imageSrc: "/images/about/occupational-therapy/school-readiness.png",
+      imageAlt: "School readiness illustration"
     },
     {
       title: "Sensory Processing",
       description: "We help children manage and respond to sensory input through personalised sensory processing interventions. Our occupational therapists design strategies to help children regulate sensory experiences, improving their ability to engage in daily activities, focus at school, and participate in social environments.",
       link: "/services/assistive-tech",
-      imageSrc: "/images/dog.jpg",
-      imageAlt: "Assistive technology illustration"
+      imageSrc: "/images/about/occupational-therapy/sensory-processing.png",
+      imageAlt: "Sensory processing illustration"
     }
   ];
 
   const ServiceCard = ({ title, description, link, imageSrc, imageAlt }: ServiceCardProps) => (
     <Link href={link}>
-      <div className="relative rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] duration-300 ease-in-out cursor-pointer group">
+      <div className="relative rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] duration-300 ease-in-out cursor-pointer group border border-gray-400">
         <div className="w-full h-full">
-          <div className="w-full aspect-[4/1.5] relative rounded-t-2xl overflow-hidden">
+          <div className="w-full h-full aspect-[4/3] relative rounded-t-2xl overflow-hidden">
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -145,7 +159,7 @@ const About = () => {
           {/* Hover view */}
           <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-center">
             {/* <h3 className="text-xl font-body font-semibold mb-4 text-center">{title}</h3> */}
-            <p className="text-gray-600 text-sm text-center">{description}</p>
+            <p className="text-gray-600 text-lg lg:text-lg text-center">{description}</p>
           </div>
         </div>
       </div>
