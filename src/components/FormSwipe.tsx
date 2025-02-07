@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import React from 'react';
@@ -41,13 +42,13 @@ const FormSwipe: React.FC = () => {
     planEndDate: '',
     fundsAvailable: '',
     fundsManaged: '',
-    emailInvoices: '',
+    ndisEmailInvoice: '',
   });
 
   const [homeCareForm, setHomeCareForm] = useState({
     hcpOrganisation: '',
     hcpPhone: '',
-    emailInvoice: '',
+    hcpEmailInvoice: '',
     caseName: '',
     caseEmail: '',
     casePhone: '',
@@ -122,20 +123,20 @@ const FormSwipe: React.FC = () => {
         break;
       case 4:
         if (type === "NDIS") {
-          if (!ndisForm.ndisNumber || !ndisForm.planStartDate || !ndisForm.planEndDate || !ndisForm.emailInvoices) {
+          if (!ndisForm.ndisNumber || !ndisForm.planStartDate || !ndisForm.planEndDate || !ndisForm.ndisEmailInvoice) {
             alert("Please fill in all required NDIS fields");
             return false;
           }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ndisForm.emailInvoices)) {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ndisForm.ndisEmailInvoice)) {
             alert("Please enter a valid invoice email address");
             return false;
           }
         } else if (type === "Home Care Package") {
-          if (!homeCareForm.hcpOrganisation || !homeCareForm.hcpPhone || !homeCareForm.emailInvoice || !homeCareForm.caseName || !homeCareForm.caseEmail || !homeCareForm.casePhone) {
+          if (!homeCareForm.hcpOrganisation || !homeCareForm.hcpPhone || !homeCareForm.hcpEmailInvoice || !homeCareForm.caseName || !homeCareForm.caseEmail || !homeCareForm.casePhone) {
             alert("Please fill in all required Home Care fields");
             return false;
           }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.emailInvoice)) {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(homeCareForm.hcpEmailInvoice)) {
             alert("Please enter a valid invoice email address");
             return false;
           }
@@ -158,14 +159,15 @@ const FormSwipe: React.FC = () => {
   const onSubmit = async () => {
     if (validateStep()) {
         try {
-            console.log(formData)
             const res = await fetch("/api/sheets", {
                 method: "POST", 
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    formType: type,
                     valueInputOption: "USER_ENTERED",
+                    type: type,
                     serviceType: service,
+                    fullName: formData.firstName.concat(" ", (formData.lastName)),
+                    referralFullName: formData.referralFirstName.concat(" ", (formData.referralLastName)),
                     ...formData,
                     ...(type === "NDIS" ? ndisForm : {}),
                     ...(type === "Home Care Package" ? homeCareForm : {}),
@@ -528,13 +530,13 @@ const FormSwipe: React.FC = () => {
                         <div className={styles.inputContainer}>
                             <input
                                 type="email"
-                                name="emailInvoices"
-                                value={ndisForm.emailInvoices}
+                                name="ndisEmailInvoice"
+                                value={ndisForm.ndisEmailInvoice}
                                 onChange={handleNdisInputChange}
                                 className={styles.input}
                                 placeholder=" "
                             />
-                            <label htmlFor="emailInvoices" className={styles.label}>
+                            <label htmlFor="ndisEmailInvoice" className={styles.label}>
                                 Email for Invoices
                             </label>
                         </div>
@@ -576,13 +578,13 @@ const FormSwipe: React.FC = () => {
                         <div className={styles.inputContainer}>
                             <input
                                 type="email"
-                                name="emailInvoice"
-                                value={homeCareForm.emailInvoice}
+                                name="hcpEmailInvoice"
+                                value={homeCareForm.hcpEmailInvoice}
                                 onChange={handleHomeCareInputChange}
                                 className={styles.input}
                                 placeholder=" "
                             />
-                            <label htmlFor="emailInvoice" className={styles.label}>
+                            <label htmlFor="hcpEmailInvoice" className={styles.label}>
                                 Email for Invoices
                             </label>
                         </div>
@@ -763,7 +765,7 @@ const FormSwipe: React.FC = () => {
                                 <span>{homeCareForm.hcpPhone}</span>
 
                                 <label className={styles.summaryLabel}>Email for Invoices:</label>
-                                <span>{homeCareForm.emailInvoice}</span>
+                                <span>{homeCareForm.hcpEmailInvoice}</span>
 
                                 <label className={styles.summaryLabel}>Case Manager Name:</label>
                                 <span>{homeCareForm.caseName}</span>
@@ -807,7 +809,7 @@ const FormSwipe: React.FC = () => {
                                 }
 
                                 <label className={styles.summaryLabel}>Email for Invoices:</label>
-                                <span>{ndisForm.emailInvoices}</span>
+                                <span>{ndisForm.ndisEmailInvoice}</span>
                             </div>
                         </div>
                     )}
