@@ -20,6 +20,7 @@ export default {
       fontFamily: {
         heading: ['Poppins', 'sans-serif'], // For headings
         body: ['Nunito', 'sans-serif'], // For body text
+        section: ['Merriweather', 'serif'] // For sections
       },
       fontSize: {
         'xxs': '0.45rem', // Equivalent to 10px

@@ -25,11 +25,8 @@ const OurServices: React.FC = () => {
 
     const ServiceCard: React.FC<typeof services[0]> = ({ title, description, imageSrc, imageAlt, imagePosition }) => (
         <div className="relative rounded-3xl bg-cardcolour hover:bg-[#FFB9A3] duration-300 ease-in-out cursor-pointer group border border-gray-400">
-            <div className="w-full h-full">
-                <div className="w-full h-full aspect-[4/3] relative rounded-t-2xl overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 p-6 z-10">
-                        <h3 className="text-xl font-heading font-semibold text-center">{title}</h3>
-                    </div>
+            <div className="h-full flex flex-col">
+                <div className="w-full aspect-[4/3] relative rounded-t-2xl overflow-hidden">
                     <Image
                         src={imageSrc}
                         alt={imageAlt}
@@ -37,9 +34,13 @@ const OurServices: React.FC = () => {
                         className={`object-cover ${imagePosition}`}
                     />
                 </div>
+                <div className="p-4 group-hover:opacity-0 transition-opacity duration-200">
+                    <h3 className="text-xl font-heading font-semibold text-center">{title}</h3>
+                </div>
                 {/* Hover view */}
-                <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-center">
-                    <p className="text-black text-lg lg:text-lg text-center">{description}</p>
+                <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 md:p-6 flex flex-col justify-center items-center">
+                    <h3 className="text-xl font-heading font-semibold text-center mb-4">{title}</h3>
+                    <p className="text-black text-base lg:text-lg text-center">{description}</p>
                 </div>
             </div>
         </div>
@@ -48,7 +49,7 @@ const OurServices: React.FC = () => {
     return (
         <section className="py-8 md:py-16 px-4 md:px-4 max-w-7xl mx-auto">
             <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-body leading-tight mt-3">Our Services</h2>
+                <h2 className="text-3xl md:text-[3.5rem] font-section leading-tight mt-3">Our Services</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[100px]">
