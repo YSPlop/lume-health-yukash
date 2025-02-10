@@ -18,7 +18,7 @@ export default {
         cardcolour: "#f5ede0",
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'], // For headings
+        heading: ['Merriweather', 'serif'], // For headings
         body: ['Nunito', 'sans-serif'], // For body text
         section: ['Merriweather', 'serif'] // For sections
       },
