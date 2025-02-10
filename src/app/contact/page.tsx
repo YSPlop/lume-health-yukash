@@ -188,7 +188,6 @@ const ContactPage = () => {
         <div className="max-w-4xl mx-auto p-6">
           {/* Header Section */}
           <div className="text-center mb-12">
-            <span className="text-textcolour font-heading text-sm md:text-base">Contact Us</span>
             <h1 className="text-3xl md:text-4xl font-heading leading-tight mt-3">
               Get in Touch With Us
             </h1>

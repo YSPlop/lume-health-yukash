@@ -12,14 +12,14 @@ const OurServices: React.FC = () => {
             description: physioDescription,
             imageSrc: "/images/physio.png",
             imageAlt: "Physiotherapy",
-            imagePosition: "translate-y-8"
+            imagePosition: "translate-y-8 md:translate-x-0 translate-x-4"
         },
         {
             title: "Mobile Occupational Therapy", 
             description: otDescription,
             imageSrc: "/images/ot.png",
             imageAlt: "Occupational Therapy",
-            imagePosition: "translate-y-16 translate-x-8"
+            imagePosition: "translate-y-16 md:translate-x-8 translate-x-4"
         }
     ];
 
@@ -46,13 +46,12 @@ const OurServices: React.FC = () => {
     );
 
     return (
-        <section className="py-8 md:py-16 px-0 md:px-4 max-w-[70%] mx-auto">
-        
+        <section className="py-8 md:py-16 px-4 md:px-4 max-w-7xl mx-auto">
             <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-body leading-tight mt-3">Our Services</h2>
             </div>
             
-            <div className="grid md:grid-cols-2 md:gap-[100px] gap-[50px] mx-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[100px]">
                 {services.map((service, index) => (
                     <ServiceCard key={index} {...service} />
                 ))}
