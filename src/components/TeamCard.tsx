@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaHeart, FaBriefcase } from "react-icons/fa";
+import Link from "next/link";
 
 interface TeamProps {
     name: string;
@@ -83,13 +84,17 @@ const TeamCard = ({
                     </div>
                 </div>
 
-                <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#FFB9A3] text-black px-8 py-3 rounded-full hover:bg-[#FFA787] transition-colors w-fit font-body border border-textcolour"
-                >
-                    Book Appointment
-                </motion.button>
+                <div className="w-full flex justify-start">
+                    <Link href="/referral-form">
+                        <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-[#FFB9A3] text-black px-8 py-3 rounded-full hover:bg-[#FFA787] transition-colors font-body border border-textcolour"
+                        >
+                            Book Appointment
+                        </motion.button>
+                    </Link>
+                </div>
             </div>
         </motion.div>
     )
