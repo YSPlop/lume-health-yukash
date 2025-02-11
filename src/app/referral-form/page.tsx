@@ -28,16 +28,19 @@ const ReferralFormPage = () => {
       }
     );
 
-    sectionRefs.current.forEach((section) => {
+    // Store refs in a variable to use in cleanup
+    const currentRefs = sectionRefs.current;
+
+    currentRefs.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      sectionRefs.current.forEach((section) => {
+      currentRefs.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
-  }, []);
+  }, [sectionBackgrounds]);
 
   return (
     <main className={`transition-colors duration-700 pt-10 ${currentBgColor}`}>

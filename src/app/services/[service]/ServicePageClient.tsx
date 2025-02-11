@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
-import WhyChooseUs from '@/components/WhyChooseUs';
+// import WhyChooseUs from '@/components/WhyChooseUs';
 import { ServiceContent } from './types';
 
 type Props = {
