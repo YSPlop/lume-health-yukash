@@ -2,7 +2,7 @@
 
 import Footer from '@/components/Footer';
 import { FieldErrors, useForm, UseFormRegister } from 'react-hook-form';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import styles from '@/styles/contact.module.css';
 
 interface ContactFormData {
@@ -93,17 +93,18 @@ const ContactPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
-  const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FFCBA9]',    // Form section
+  const sectionBackgrounds: Record<number, string> = useMemo(() => ({
+    0: 'bg-[#FFCBA9]',    // Contact section
     1: 'bg-[#FFB9A3]',    // Footer
-  };
+  }), []);
 
   useEffect(() => {
+    const currentRefs = sectionRefs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
+            const sectionIndex = currentRefs.findIndex(ref => ref === entry.target);
             setCurrentBgColor(sectionBackgrounds[sectionIndex]);
           }
         });
@@ -113,16 +114,16 @@ const ContactPage = () => {
       }
     );
 
-    sectionRefs.current.forEach((section) => {
+    currentRefs.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      sectionRefs.current.forEach((section) => {
+      currentRefs.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
-  }, []);
+  }, [sectionBackgrounds]);
 
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
 

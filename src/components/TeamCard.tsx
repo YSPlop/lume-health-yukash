@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaHeart, FaBriefcase } from "react-icons/fa";
+import { FaHeart, FaBriefcase } from "react-icons/fa";
 import Link from "next/link";
 
 interface TeamProps {
     name: string;
-    qualifications: string[];
     role: string;
     interests: string[];
     description: {
@@ -18,15 +17,7 @@ interface TeamProps {
     switchCard: boolean;
 }
 
-const TeamCard = ({
-    name, 
-    qualifications, 
-    role, 
-    interests, 
-    description, 
-    image, 
-    switchCard
-}: TeamProps) => {
+const TeamCard: React.FC<TeamProps> = ({ name, role, interests, description, image, switchCard }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}

@@ -3,7 +3,7 @@
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 
 interface ServiceCardProps {
   title: string;
@@ -17,40 +17,21 @@ const About = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
-  const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FDCFB4]',    // Header section
-    1: 'bg-[#FDCFB4]',    // Physiotherapy section
-    2: 'bg-[#FDCFB4]',    // Occupational Therapy section
-    3: 'bg-[#FFB9A3]',    // Footer
-  };
+  const sectionBackgrounds: Record<number, string> = useMemo(() => ({
+    0: 'bg-[#FFCBA9]',    // About section
+    1: 'bg-[#FFB9A3]',    // Footer
+  }), []);
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 768; // MD breakpoint in Tailwind
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
-            setCurrentBgColor(sectionBackgrounds[sectionIndex]);
-          }
-        });
-      },
-      {
-        threshold: isMobile ? 0.3 : 0.7, // Lower threshold for mobile, higher for desktop
-      }
-    );
-
-    // Add window resize listener to update observer on screen size changes
-    const handleResize = () => {
-      const isMobile = window.innerWidth < 768;
-      observer.disconnect();
-      
-      // Recreate observer with new threshold
-      const newObserver = new IntersectionObserver(
+    const currentRefs = sectionRefs.current;
+    const isMobile = window.innerWidth < 768;
+    
+    const createObserver = (isMobile: boolean) => {
+      return new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
+              const sectionIndex = currentRefs.findIndex(ref => ref === entry.target);
               setCurrentBgColor(sectionBackgrounds[sectionIndex]);
             }
           });
@@ -59,16 +40,22 @@ const About = () => {
           threshold: isMobile ? 0.3 : 0.7,
         }
       );
+    };
 
-      sectionRefs.current.forEach((section) => {
-        if (section) newObserver.observe(section);
+    let observer = createObserver(isMobile);
+
+    const handleResize = () => {
+      const newIsMobile = window.innerWidth < 768;
+      observer.disconnect();
+      observer = createObserver(newIsMobile);
+      currentRefs.forEach((section) => {
+        if (section) observer.observe(section);
       });
     };
 
     window.addEventListener('resize', handleResize);
     
-    // Initial observation
-    sectionRefs.current.forEach((section) => {
+    currentRefs.forEach((section) => {
       if (section) observer.observe(section);
     });
 
@@ -76,19 +63,19 @@ const About = () => {
       observer.disconnect();
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [sectionBackgrounds]);
 
   const physiotherapyServices = [
     {
       title: "Aged Care Physiotherapy",
-      description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalized care. We treat conditions like arthritis, stroke, Parkinson’s, and mobility decline to support active aging.",
+      description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalized care. We treat conditions like arthritis, stroke, Parkinson's, and mobility decline to support active aging.",
       link: "/services/home-visits",
       imageSrc: "/images/about/physio/aged-care.png",
       imageAlt: "Aged Care Physiotherapy illustration"
     },
     {
       title: "Neuro Physiotherapy",
-      description: "Neurological physiotherapy enhances mobility, function, and quality of life for those with neurological conditions. Lume Health provides home-based therapy, ensuring safe, tailored care in familiar environments while involving family support. We treat conditions like stroke, spinal cord injury, MS, and Parkinson’s disease.",
+      description: "Neurological physiotherapy enhances mobility, function, and quality of life for those with neurological conditions. Lume Health provides home-based therapy, ensuring safe, tailored care in familiar environments while involving family support. We treat conditions like stroke, spinal cord injury, MS, and Parkinson's disease.",
       link: "/services/rehabilitation",
       imageSrc: "/images/about/physio/neuro.png",
       imageAlt: "Neuro Physiotherapy illustration"
@@ -102,7 +89,7 @@ const About = () => {
     },
     {
       title: "Paediatric Physiotherapy",
-      description: "Paediatric physiotherapy supports children’s movement, strength, and development through early intervention. Lume Health offers home-based therapy for comfort, real-life skill-building, and family involvement. We treat conditions like cerebral palsy, developmental delays, muscular dystrophy, and coordination disorders, helping children reach their full potential.",
+      description: "Paediatric physiotherapy supports children's movement, strength, and development through early intervention. Lume Health offers home-based therapy for comfort, real-life skill-building, and family involvement. We treat conditions like cerebral palsy, developmental delays, muscular dystrophy, and coordination disorders, helping children reach their full potential.",
       link: "/services/paediatric-physiotherapy",
       imageSrc: "/images/about/physio/paediatric.png",
       imageAlt: "Pediatric Physiotherapy illustration"
