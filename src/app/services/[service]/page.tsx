@@ -44,6 +44,33 @@ const ServicePage = async ({ params }: Props) => {
       imageSrc: "/services/home-visits.jpg",
       imageAlt: "Home visits illustration"
     },
+    'sensory-modulation': {
+      title: "Sensory Modulation",
+      intro: "What is Sensory Modulation?",
+      description: "Sensory modulation refers to the ability to regulate responses to sensory input in a way that is appropriate for the situation. Some children may over-respond to sensory input, becoming easily overwhelmed by noise, touch, or movement, while others may under-respond, seeming unaware of their surroundings or seeking intense sensory experiences. At Lume Health, our occupational therapists assess how a child processes sensory input and develop individualised strategies to help support them to regulate for learning, play, and daily routines.",
+      benefits: [
+        {
+          title: "Supporting Sensory Regulation",
+          content: "When a child has difficulties with sensory modulation, they may have difficulty adjusting their responses to everyday stimuli. Some children may react strongly to sensory input, avoiding certain textures, sounds, or movements, while others may seek out intense input through rough play, constant movement, or loud vocalisations. Our therapy helps children find the right level of sensory input to feel calm, focused, and engaged."
+        },
+        {
+          title: "Improving Attention and Emotional Control",
+          content: "Difficulties with sensory modulation can impact emotional regulation, making it harder for children to manage frustration, anxiety, or transitions between activities. We use sensory-based strategies, movement breaks, and environmental modifications to support a child's ability to stay engaged in tasks, shift attention smoothly, and participate in everyday routines."
+        },
+        {
+          title: "Enhancing Daily Functioning and Participation",
+          content: "Sensory modulation challenges can affect dressing, eating, sleep, and social interactions. Our therapists work with families to develop practical strategies that help children manage sensory input more effectively, whether it's adapting their morning routine, improving tolerance for different textures, or creating sensory-friendly spaces for learning and play."
+        }
+      ],
+      conditions: [
+        "Self-regulation and emotional control",
+        "Sensory sensitivities and sensory-seeking behaviors",
+        "Attention and focus in daily tasks",
+        "Social interaction and participation in group activities",
+      ],
+      imageSrc: "/images/about/occupational-therapy/sensory-modulation.png",
+      imageAlt: "Child engaging in sensory activities"
+    },
     // Add other services here
   };
 

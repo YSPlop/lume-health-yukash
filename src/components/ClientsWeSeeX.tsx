@@ -32,17 +32,17 @@ const ClientsWeSeeX: React.FC = () => {
         {
           title: "NDIS Physiotherapy",
           description: "We aim to make access to healthcare as easy as possible so our physiotherapists come to you. We provide a range of services including report writing, hydrotherapy, pain management, strengthening, AT prescription and paediatric physiotherapy.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/ndis-physiotherapy.png"
         },
         {
           title: "Homecare Package",
           description: "We focus on improving mobility, strength, and overall physical function. Our team addresses your unique needs to support better movement and pain management. We design treatment plans that help clients regain independence and improve quality of life, all from the comfort of home.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/homecare-package.png"
         },
         {
           title: "Paediatric Physiotherapy",
           description: "We focus on supporting children’s physical development, including improving mobility, strength, and coordination. Our team designs individualised treatment plans to address specific challenges, helping children reach their full physical potential. We aim to create a positive and engaging environment that promotes motor skill development and overall physical well-being.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/paediatric-physio.png"
         }
       ];
     
@@ -50,17 +50,17 @@ const ClientsWeSeeX: React.FC = () => {
         {
           title: "NDIS Occupational Therapy",
           description: "We aim to complete comprehensive assessments and tailored interventions to support each child's individual needs. Our therapists work closely with families to support daily living skills, fine motor abilities, and social participation. Through evidence-based strategies, we aim to improve overall function and independence, helping children achieve their goals in a nurturing and supportive environment.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/ndis-occupational-therapy.png"
         },
         {
           title: "School Based Support",
           description: "We aim to help children succeed in their learning environment. Our therapists conduct detailed assessments and develop targeted interventions to address areas such as fine motor skills, sensory processing, attention, and social interaction. By collaborating with teachers and parents, we create strategies to support children’s academic performance and overall well-being to support them to thrive in school.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/school-based-support.png"
         },
         {
-          title: "Aged Care Support",
+          title: "Carer Education and Support",
           description: "Our therapists work with parents to identify strategies that enhance daily functioning, promote independence, and address specific developmental needs. By focusing on practical techniques for setting up routines, we empower parents to foster consistency, manage behaviour, and enhance the overall well-being of their children. This collaborative approach helps families feel confident in supporting their child’s growth and development at home.",
-          imageSrc: "/images/dog.jpg"
+          imageSrc: "/images/clients-we-see/parent-education-and-support.png"
         }
       ];
 

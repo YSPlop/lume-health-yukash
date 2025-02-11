@@ -120,22 +120,22 @@ const About = () => {
     {
       title: "Daily Living skills",
       description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence and self-sufficiency in their everyday routines.",
-      link: "/services/home-modifications",
+      link: "/services/daily-living",
       imageSrc: "/images/about/occupational-therapy/daily-living-skills.png",
       imageAlt: "Daily living skills illustration"
     },
     {
       title: "School Readiness",
       description: "Our occupational therapist provides school readiness skills to prepare children for school transition and developing key skills such as fine motor development, attention, social interaction, and following instructions. We provide individualized strategies to ensure children are ready to thrive in an academic setting.",
-      link: "/services/daily-living",
+      link: "/services/school-readiness",
       imageSrc: "/images/about/occupational-therapy/school-readiness.png",
       imageAlt: "School readiness illustration"
     },
     {
-      title: "Sensory Processing",
+      title: "Sensory Modulation",
       description: "We help children manage and respond to sensory input through personalised sensory processing interventions. Our occupational therapists design strategies to help children regulate sensory experiences, improving their ability to engage in daily activities, focus at school, and participate in social environments.",
-      link: "/services/assistive-tech",
-      imageSrc: "/images/about/occupational-therapy/sensory-processing.png",
+      link: "/services/sensory-modulation",
+      imageSrc: "/images/about/occupational-therapy/sensory-modulation.png",
       imageAlt: "Sensory processing illustration"
     }
   ];
