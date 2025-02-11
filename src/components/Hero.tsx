@@ -55,7 +55,7 @@ const HeroButton = ({
 const Hero = () => {
   return (
     <section className="p-2 md:p-6 lg:p-8 pt-6 md:pt-10 min-h-screen">
-      <div className="max-w-7xl mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6 min-h-[75vh] flex flex-col">
+      <div className="max-w-7xl mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6 flex flex-col">
         <div className="px-2 md:px-12 py-3 md:py-5 flex flex-col justify-between h-full">
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
             {/* Left Content */}

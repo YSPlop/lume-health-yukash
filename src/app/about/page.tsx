@@ -17,10 +17,12 @@ const About = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
-  const sectionBackgrounds: Record<number, string> = useMemo(() => ({
-    0: 'bg-[#FFCBA9]',    // About section
-    1: 'bg-[#FFB9A3]',    // Footer
-  }), []);
+  const sectionBackgrounds: { [key: number]: string } = {
+    0: 'bg-[#FDCFB4]',    // Header section
+    1: 'bg-[#FDCFB4]',    // Physiotherapy section
+    2: 'bg-[#FDCFB4]',    // Occupational Therapy section
+    3: 'bg-bgcolour',    // Footer
+  };
 
   useEffect(() => {
     const currentRefs = sectionRefs.current;
