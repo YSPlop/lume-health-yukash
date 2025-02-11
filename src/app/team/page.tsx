@@ -28,7 +28,7 @@ const Team: React.FC = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#FDCFB4] py-24 px-6 md:px-24">
-            <div className="max-w-7xl mx-auto space-y-48">
+            <div className="max-w-7xl mx-auto space-y-24">
                 {TeamMembers.map((member, index) => (
                     <TeamCard 
                         key={member.name}
