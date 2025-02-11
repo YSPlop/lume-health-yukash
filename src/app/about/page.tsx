@@ -96,21 +96,21 @@ const About = () => {
     {
       title: "Hydrotherapy",
       description: "Hydrotherapy uses warm water to support movement, reduce joint stress, and aid rehabilitation. Lume Health offers tailored aquatic therapy to improve mobility, strength, and pain management, especially for those struggling with land-based exercises. Ideal for conditions like arthritis, post-surgery recovery, neurological disorders, and spinal cord injuries.",
-      link: "/services/pain-management",
+      link: "/services/hydrotherapy",
       imageSrc: "/images/about/physio/hydro.png",
       imageAlt: "Hydrotherapy illustration"
     },
     {
-      title: "Pediatric Physiotherapy",
+      title: "Paediatric Physiotherapy",
       description: "Paediatric physiotherapy supports children’s movement, strength, and development through early intervention. Lume Health offers home-based therapy for comfort, real-life skill-building, and family involvement. We treat conditions like cerebral palsy, developmental delays, muscular dystrophy, and coordination disorders, helping children reach their full potential.",
-      link: "/services/pediatric",
+      link: "/services/paediatric-physiotherapy",
       imageSrc: "/images/about/physio/paediatric.png",
       imageAlt: "Pediatric Physiotherapy illustration"
     },
     {
       title: "Post Hospital Rehabilitation",
       description: "Post-hospital rehab restores strength, mobility, and independence after surgery, illness, or injury. Lume Health provides home-based therapy for comfort, tailored recovery, and family involvement. We treat conditions like joint replacements, stroke, cardiac issues, and major trauma to support a safe, effective return to daily life.",
-      link: "/services/post-hospital",
+      link: "/services/post-hospital-rehab",
       imageSrc: "/images/about/physio/post-hospital.png", 
       imageAlt: "Post Hospital Rehabilitation illustration"
     }

@@ -6,6 +6,11 @@ export interface ServiceContent {
   conditions: string[];
   imageSrc: string;
   imageAlt: string;
+  contactSection: {
+    title: string;
+    description: string;
+    buttonText: string;
+  };
 }
 
 export type ServiceContentMap = {

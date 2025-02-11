@@ -88,13 +88,13 @@ const ServicePageClient = ({ content }: Props) => {
 
         {/* Contact Section */}
         <div className="text-center">
-          <h2 className="text-2xl font-body font-semibold mb-4">Get Started Today</h2>
-          <p className="text-black mb-8">Contact us to speak directly with our physiotherapist about how we can help.</p>
+          <h2 className="text-2xl font-body font-semibold mb-4">{content.contactSection.title}</h2>
+          <p className="text-black mb-8">{content.contactSection.description}</p>
           <Link 
             href="/contact"
             className="px-8 py-3 bg-cardcolour text-black rounded-full hover:bg-accentcolour hover:text-black transition-colors"
           >
-            Contact Us
+            {content.contactSection.buttonText}
           </Link>
         </div>
       </section>
