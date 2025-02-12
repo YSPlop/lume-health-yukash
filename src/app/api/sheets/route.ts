@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { JWT } from 'google-auth-library';
 import { formatForSheet, ServiceData } from "@/utils/sheets";
 import { emailTo } from "@/utils/email";
+import nodemailer from "nodemailer";
 
 const spreadsheetId = process.env.SPREADSHEET_ID;
 
@@ -14,8 +15,6 @@ const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
-
-const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
     service: "Gmail",

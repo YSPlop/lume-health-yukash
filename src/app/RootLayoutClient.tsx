@@ -17,7 +17,7 @@ export default function RootLayoutClient({
 
   return (
     <>
-      {isHomePage}
+      {isHomePage && <VideoIntro />}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

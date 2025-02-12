@@ -849,12 +849,14 @@ const FormSwipe: React.FC = () => {
                     </button>
                 )}
                 {currentStep === 7 && (
-                    <button
-                        type="submit"
-                        className="bg-[#FFB9A3] text-black px-4 py-2 rounded mt-4"
-                    >
-                        Submit
-                    </button>
+                    <div>
+                        <button
+                            type="submit"
+                            className="bg-[#FFB9A3] text-black px-4 py-2 rounded mt-4"
+                        >
+                            Submit
+                        </button>
+                    </div>
                 )}
             </div>
             {isDialogOpen && (
