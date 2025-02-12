@@ -9,7 +9,6 @@ import { usePathname } from 'next/navigation';
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isAboutOpen, setIsAboutOpen] = React.useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = React.useState(false);
   const pathname = usePathname();
   const aboutDropdownRef = React.useRef<HTMLDivElement>(null);
@@ -21,7 +20,7 @@ const Navigation = () => {
 
     const handleClickOutside = (event: MouseEvent) => {
       if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
-        setIsAboutOpen(false);
+        // Remove the setIsAboutOpen line since we don't use it anymore
       }
     };
 
@@ -37,14 +36,8 @@ const Navigation = () => {
   // Close mobile menu when route changes
   React.useEffect(() => {
     setIsOpen(false);
-    setIsAboutOpen(false);
+    // Remove the setIsAboutOpen line
   }, [pathname]);
-
-  const navigationLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/referral-form', label: 'Referral Form' },
-    { href: '/contact', label: 'Contact' },
-  ];
 
   const aboutServices = {
     physiotherapy: [
@@ -100,40 +93,37 @@ const Navigation = () => {
             </Link>
 
             {/* About Dropdown */}
-            <div ref={aboutDropdownRef} className="relative">
+            <div ref={aboutDropdownRef} className="relative group">
               <Link
                 href="/about"
-                onClick={() => setIsAboutOpen(!isAboutOpen)}
                 className={`flex items-center gap-1 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname.startsWith('/about') ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
               >
                 About
-                <ChevronDown className={`h-4 w-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform group-hover:rotate-180`} />
               </Link>
               
-              {isAboutOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-cardcolour rounded-lg shadow-lg py-2 z-50">
-                  <div className="px-4 py-2 font-bold text-sm text-black">Physiotherapy</div>
-                  {aboutServices.physiotherapy.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      {service.label}
-                    </Link>
-                  ))}
-                  <div className="px-4 py-2 font-bold text-sm text-black">Occupational Therapy</div>
-                  {aboutServices.occupationalTherapy.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      {service.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-cardcolour rounded-lg shadow-lg py-2 z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="px-4 py-2 font-bold text-sm text-black">Physiotherapy</div>
+                {aboutServices.physiotherapy.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    {service.label}
+                  </Link>
+                ))}
+                <div className="px-4 py-2 font-bold text-sm text-black">Occupational Therapy</div>
+                {aboutServices.occupationalTherapy.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    {service.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Other navigation links */}

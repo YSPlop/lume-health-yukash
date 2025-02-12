@@ -3,7 +3,7 @@
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 
 interface ServiceCardProps {
   title: string;
@@ -13,57 +13,49 @@ interface ServiceCardProps {
   imageAlt: string;
 }
 
+// Define an interface for the section backgrounds
+interface SectionBackgrounds {
+  [key: number]: string;
+}
+
 const About = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
 
-  const sectionBackgrounds: { [key: number]: string } = {
-    0: 'bg-[#FDCFB4]',    // Header section
-    1: 'bg-[#FDCFB4]',    // Physiotherapy section
-    2: 'bg-[#FDCFB4]',    // Occupational Therapy section
-    3: 'bg-bgcolour',    // Footer
-  };
+  // Type the sectionBackgrounds object
+  const sectionBackgrounds = useMemo<SectionBackgrounds>(() => ({
+    0: 'bg-[#FFCBA9]',    // Hero section
+    1: 'bg-[#FFB9A3]',    // Services section
+    2: 'bg-[#FFE7DF]',    // Footer section
+  }), []);
 
   useEffect(() => {
     const currentRefs = sectionRefs.current;
-    const isMobile = window.innerWidth < 768;
-    
-    const createObserver = (isMobile: boolean) => {
-      return new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const sectionIndex = currentRefs.findIndex(ref => ref === entry.target);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = currentRefs.findIndex(ref => ref === entry.target);
+            // Add a check to ensure the index exists
+            if (sectionBackgrounds[sectionIndex]) {
               setCurrentBgColor(sectionBackgrounds[sectionIndex]);
             }
-          });
-        },
-        {
-          threshold: isMobile ? 0.3 : 0.7,
-        }
-      );
-    };
+          }
+        });
+      },
+      {
+        threshold: 0.8,
+      }
+    );
 
-    let observer = createObserver(isMobile);
-
-    const handleResize = () => {
-      const newIsMobile = window.innerWidth < 768;
-      observer.disconnect();
-      observer = createObserver(newIsMobile);
-      currentRefs.forEach((section) => {
-        if (section) observer.observe(section);
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-    
     currentRefs.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener('resize', handleResize);
+      currentRefs.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
     };
   }, [sectionBackgrounds]);
 
