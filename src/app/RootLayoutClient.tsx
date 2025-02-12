@@ -21,7 +21,8 @@ export default function RootLayoutClient({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: isHomePage ? 4 : 0, duration: 1 }}
+        transition={{ delay: isHomePage ? 2 : 0, duration: 5 }}
+        className="relative z-50 bg-[#FFE7DF]"
       >
         <Navigation />
         <PageTransitionProvider>

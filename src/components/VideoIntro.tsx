@@ -2,41 +2,61 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const VideoIntro = () => {
   const [isVideoFinished, setIsVideoFinished] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    // Reset video state when pathname changes
+    setIsVideoFinished(true);
+  }, [pathname]);
+
+  useEffect(() => {
+    // Add event listener for page unload
+    const handleUnload = () => {
+      localStorage.removeItem('hasSeenVideo');
+    };
+
+    window.addEventListener('beforeunload', handleUnload);
+
     // Check if user has already seen the video
     const hasSeenVideo = localStorage.getItem('hasSeenVideo');
+    const referrer = document.referrer;
+    const isExternalReferrer = referrer && !referrer.includes(window.location.origin);
     
-    if (hasSeenVideo) {
+    if (hasSeenVideo || !isExternalReferrer) {
       setIsVideoFinished(true);
     } else {
       const timer = setTimeout(() => {
         setIsVideoFinished(true);
-        // Set flag in localStorage after video finishes
         localStorage.setItem('hasSeenVideo', 'true');
-      }, 4000); // Adjust this time to match your video duration
+      }, 5000); // Changed to 5000ms (5 seconds)
 
       return () => clearTimeout(timer);
     }
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload);
+    };
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {!isVideoFinished && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="fixed inset-0 w-full h-full z-50 bg-cardcolour flex justify-center items-center"
+          transition={{ duration: 5 }}
+          className="fixed inset-0 w-full h-full z-40 flex justify-center items-center bg-[#FFE7DF]"
         >
           <video
             autoPlay
             muted
             playsInline
-            className="w-[80vw] h-[80vh] object-contain"
+            className="w-screen h-screen object-cover"
             onEnded={() => {
               setIsVideoFinished(true);
               localStorage.setItem('hasSeenVideo', 'true');

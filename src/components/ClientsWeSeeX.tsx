@@ -69,12 +69,12 @@ const ClientsWeSeeX: React.FC = () => {
         <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-heading leading-tight mt-3">Clients We See</h2>
         </div>
-        <div className = "w-full flex items-center justify-center lg:flex-col md:flex-row flex-col gap-[80px]">
-            <div className = "w-full flex items-start justify-center flex-col">
+        <div className = "w-full flex items-center justify-center flex-col gap-[80px]">
+            <div className = "w-full flex items-center justify-center flex-col">
                 <header className = "text-2xl font-heading md:text-left ml-5">Physiotherapy</header>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 p-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 p-4">
                 {physioClients.map((client, index) => (
-                    <div className = "flex justify-center items-center" key = {index}>
+                    <div className = "flex justify-center items-center" key={index}>
                         <ClientCardX
                         key={index}
                         name={client.title}
@@ -85,9 +85,9 @@ const ClientsWeSeeX: React.FC = () => {
                 ))}
                 </div>
             </div>
-            <div className = "w-full flex items-start justify-center flex-col">
+            <div className = "w-full flex items-center justify-center flex-col">
                 <header className = "text-2xl font-heading md:text-left ml-5">Occupational Therapy</header>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 p-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 p-4">
                 {occupationalClients.map((client, index) => (
                     <div className = "flex justify-center items-center" key = {index}>
                         <ClientCardX

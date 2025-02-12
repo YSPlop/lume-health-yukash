@@ -55,7 +55,7 @@ const HeroButton = ({
 
 const Hero = () => {
   return (
-    <section className="p-2 md:p-6 lg:p-8 pt-6 md:pt-10 min-h-screen">
+    <section className="p-2 md:p-6 lg:p-8 pt-6 md:pt-10 2xl:min-h-screen">
       <div className="mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6 flex flex-col md:max-h-[85vw] md:max-w-[70vw] ">
         <div className="px-4 lg:px-8 py-3 md:py-5 flex flex-col justify-between">
           <div className="grid md:grid-cols-2 gap-4 md:gap-0">
