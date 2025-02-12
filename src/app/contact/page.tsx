@@ -91,7 +91,7 @@ const ContactInfo = ({ title, items }: {
 
 const ContactPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFCBA9]');
   const [displayDialog, setDisplayDialog] = useState<boolean>(false);
 
   const sectionBackgrounds: Record<number, string> = useMemo(() => ({

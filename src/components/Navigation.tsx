@@ -146,7 +146,7 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden flex px-4 py-3">
+        <div className="md:hidden flex px-4 pt-3">
           <div className="w-1/4">
             <Logo />
           </div>
@@ -178,11 +178,11 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`md:hidden absolute w-full bg-white/95 transition-all duration-300 ease-in-out backdrop-blur-md ${
+          className={`md:hidden absolute w-full bg-cardcolour transition-all duration-300 ease-in-out backdrop-blur-md ${
             isOpen
-              ? 'max-h-[800px] opacity-100 visible'
-              : 'max-h-0 opacity-0 invisible'
-          } overflow-hidden`}
+              ? 'translate-y-0 opacity-100 visible'
+              : 'translate-y-[-10px] opacity-0 invisible'
+          }`}
         >
           <div className="px-8 py-4 space-y-4">
             <Link 
@@ -206,7 +206,7 @@ const Navigation = () => {
               </button>
               
               <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ${
-                isMobileAboutOpen ? 'max-h-[500px] mt-2' : 'max-h-0'
+                isMobileAboutOpen ? 'max-h-[500px]' : 'max-h-0'
               }`}>
                 <Link
                   href="/about"
