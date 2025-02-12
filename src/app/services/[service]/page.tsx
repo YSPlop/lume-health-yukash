@@ -78,7 +78,7 @@ const ServicePage = async ({ params }: Props) => {
         "Sports Injuries",
         "Peripheral Neuropathy",
         "Balance Disorders",
-        "Pediatric Conditions"
+        "Paediatric Conditions"
       ],
       imageSrc: "/images/about-us/hydro.jpg",
       imageAlt: "Hydrotherapy session",

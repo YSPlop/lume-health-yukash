@@ -7,11 +7,20 @@ const VideoIntro = () => {
   const [isVideoFinished, setIsVideoFinished] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Check if user has already seen the video
+    const hasSeenVideo = localStorage.getItem('hasSeenVideo');
+    
+    if (hasSeenVideo) {
       setIsVideoFinished(true);
-    }, 4000); // Adjust this time to match your video duration
+    } else {
+      const timer = setTimeout(() => {
+        setIsVideoFinished(true);
+        // Set flag in localStorage after video finishes
+        localStorage.setItem('hasSeenVideo', 'true');
+      }, 4000); // Adjust this time to match your video duration
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -28,7 +37,10 @@ const VideoIntro = () => {
             muted
             playsInline
             className="w-[80vw] h-[80vh] object-contain"
-            onEnded={() => setIsVideoFinished(true)}
+            onEnded={() => {
+              setIsVideoFinished(true);
+              localStorage.setItem('hasSeenVideo', 'true');
+            }}
           >
             <source src="/Intro.mp4" type="video/mp4" />
           </video>
