@@ -2,6 +2,7 @@ import { google, sheets_v4 } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
 import { JWT } from 'google-auth-library';
 import { formatForSheet, ServiceData } from "@/utils/sheets";
+import { emailTo } from "@/utils/email";
 
 const spreadsheetId = process.env.SPREADSHEET_ID;
 
@@ -12,6 +13,19 @@ const credentials = process.env.GOOGLE_CREDENTIALS
 const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+        user: process.env.PERSONAL_USERNAME,
+        pass: process.env.PERSONAL_PASSWORD,
+    },
   });
 
 
@@ -37,7 +51,39 @@ export async function POST(request: NextRequest):Promise<NextResponse> {
 
         const serviceData: ServiceData = valuesAll as ServiceData
         const rowValues = [formatForSheet(serviceData)];
+        const emailContents = emailTo(serviceData);
+        if (valuesAll.emailConsent) {
+            const info_patient = await transporter.sendMail({
+                from: `"Lume Health" <${process.env.PERSONAL_USERNAME}`, // sender address
+                to: valuesAll.email, // list of receivers
+                subject: "Your Details with Lume Health", // Subject line
+                text: "emailContents", // plain text body
+                html: `<div style="font-family: Arial, sans-serif; color: #333;">
+                        <h1>Here are all your details that were submitted to Lume Health:</h1>
+                        ${emailContents}
+                        <br>
+                        <h3>Thank you for registering with Lume Health! We will get back to you as soon as possible.</h3>
+                        <h3>Kind Regards,</h3>
+                        <h3><strong>Han Lai and Nat Chan</strong></h3>
+                    </div>`, // html body
+            });
+            console.log("Message sent: %s", info_patient.messageId);
+        }
 
+        const info_self = await transporter.sendMail({
+            from: `"Lume Health" <${process.env.PERSONAL_USERNAME}`, // sender address
+            to: process.env.PERSONAL_USERNAME, // list of receivers
+            subject: "Your Details with Lume Health", // Subject line
+            text: "emailContents", // plain text body
+            html:`<div style="font-family: Arial, sans-serif; color: #333;">
+                    <h1>New User Details Coming Through!</h1>
+                    ${emailContents}
+                    <br>
+                </div>`, // html body
+        });
+        
+        
+        console.log("Message sent: %s", info_self.messageId);
         // Last available cell
         const lastCell = await getAvailableRow(sheets, updatedFormType)
         const range = `${updatedFormType}!A${lastCell}:T${lastCell}`

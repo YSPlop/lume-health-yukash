@@ -7,12 +7,14 @@ import styles from '@/styles/formswipe.module.css';
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const formTypes = ["Private", 'Home Care Package', 'NDIS'];
   const serviceType = ["Occupational Therapy", 'Physiotherapy', 'Both'];
   const [service, setService] = useState<string>("");
   const [type, setType] = useState<string>("");
   const {handleSubmit} = useForm();
-  const [typeValidation, setTypeValidation] = useState(true)
+  const [typeValidation, setTypeValidation] = useState(true);
+  const [emailConsent, setEmailConsent] = useState(false)
   const [formData, setFormData] = useState({
     // Personal Info
     firstName: '',
@@ -165,6 +167,7 @@ const FormSwipe: React.FC = () => {
                 body: JSON.stringify({
                     valueInputOption: "USER_ENTERED",
                     type: type,
+                    emailConsent: emailConsent,
                     serviceType: service,
                     fullName: formData.firstName.concat(" ", (formData.lastName)),
                     referralFullName: formData.referralFirstName.concat(" ", (formData.referralLastName)),
@@ -175,6 +178,10 @@ const FormSwipe: React.FC = () => {
             })
             const data = await res.json(); // Convert response to JSON
             console.log("Server response:", data);
+            setIsDialogOpen(true)
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
         }
         catch (error) {
             console.error("Error submitting data:", error);
@@ -651,6 +658,15 @@ const FormSwipe: React.FC = () => {
                             </label>
                         </div>
                     </div>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            className = "accent-[#FFA787] mr-[5px] w-[17px] h-[17px]"
+                            checked = {emailConsent}
+                            onChange = {() => setEmailConsent(!emailConsent)}/>
+                            By ticking this box, I consent to receive an email confirming my details sent to Lume Health
+                    </label>
+
                 </div>
             )}
 
@@ -841,6 +857,25 @@ const FormSwipe: React.FC = () => {
                     </button>
                 )}
             </div>
+            {isDialogOpen && (
+                <div className="fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-5 rounded shadow-lg">
+                        <div className = "w-full h-[15px] flex justify-end">
+                            <button 
+                                className = "h-full"
+                                onClick = {() => {setIsDialogOpen(!isDialogOpen)}}>
+                                <img 
+                                    src = "/icons/close-icon.png"
+                                    alt="Close"
+                                    className="h-full w-auto">
+                                </img>
+                            </button>
+                        </div>
+                        <h2 className="text-lg font-semibold">Thank you!</h2>
+                        <p>We have received your details. The page will refresh shortly.</p>
+                    </div>
+                </div>
+            )}
         </form>
     </div>
   );
