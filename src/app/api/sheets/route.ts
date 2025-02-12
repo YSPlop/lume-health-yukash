@@ -63,8 +63,11 @@ export async function POST(request: NextRequest):Promise<NextResponse> {
                         ${emailContents}
                         <br>
                         <h3>Thank you for registering with Lume Health! We will get back to you as soon as possible.</h3>
-                        <h3>Kind Regards,</h3>
-                        <h3><strong>Han Lai and Nat Chan</strong></h3>
+                        <p>Kind Regards,</p>
+                        <p><strong>Han Lai and Nat Chan</strong></p>
+                        <p><strong>Mobile: </strong>0478 355 242</p>
+                        <p><strong>Email: </strong>info@lumehealth.com.au</p>
+                        <p><strong>Address: </strong>305 Warrigal Road, Burwood 3125</p>
                     </div>`, // html body
             });
             console.log("Message sent: %s", info_patient.messageId);

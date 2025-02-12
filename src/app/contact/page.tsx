@@ -92,6 +92,7 @@ const ContactInfo = ({ title, items }: {
 const ContactPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+  const [displayDialog, setDisplayDialog] = useState<boolean>(false);
 
   const sectionBackgrounds: Record<number, string> = useMemo(() => ({
     0: 'bg-[#FFCBA9]',    // Contact section
@@ -129,6 +130,24 @@ const ContactPage = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     console.log(data);
+    try{
+      const res = await fetch("/api/contact",{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: data
+        })
+      })
+      const response = await res.json()
+      console.log("Server response:", response);
+      setDisplayDialog(true)
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+      
+    } catch (error) {
+        console.error("Error submitting data:", error);
+    }
     // Handle form submission here
   };
 
@@ -225,6 +244,25 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
+          {displayDialog && (
+                <div className="fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-5 rounded shadow-lg">
+                        <div className = "w-full h-[15px] flex justify-end">
+                            <button 
+                                className = "h-full"
+                                onClick = {() => {setDisplayDialog(!displayDialog)}}>
+                                <img 
+                                    src = "/icons/close-icon.png"
+                                    alt="Close"
+                                    className="h-full w-auto">
+                                </img>
+                            </button>
+                        </div>
+                        <h2 className="text-lg font-semibold">Thank you!</h2>
+                        <p>We have received your details. The page will refresh shortly.</p>
+                    </div>
+                </div>
+            )}
         </div>
       </section>
 
