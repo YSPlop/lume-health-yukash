@@ -11,15 +11,16 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        bgcolour: "#ffa787",
+        bgcolour: "#FFB9A3",
         bgdarkcolour: "#ff7854",
         textcolour: "#756f6d",
         accentcolour: "#e8dccb",
         cardcolour: "#f5ede0",
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'], // For headings
+        heading: ['Merriweather', 'serif'], // For headings
         body: ['Nunito', 'sans-serif'], // For body text
+        section: ['Merriweather', 'serif'] // For sections
       },
       fontSize: {
         'xxs': '0.45rem', // Equivalent to 10px

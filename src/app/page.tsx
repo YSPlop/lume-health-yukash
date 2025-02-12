@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Hero from "@/components/Hero";
 import MeetTheTeam from "@/components/MeetTheTeam";
 import OurServices from "@/components/OurServices";
@@ -10,17 +10,17 @@ import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-bgcolour');
-  const [threshold, setThreshold] = useState<number>(0.8);
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+  const [threshold, setThreshold] = useState(0.8);
 
-  const sectionBackgrounds: { [key: number]: string } = {
+  const sectionBackgrounds: Record<number, string> = useMemo(() => ({
     0: 'bg-[#FFB9A3]',     // Hero
     1: 'bg-[#FFCBA9]',     // MeetTheTeam
     2: 'bg-[#FFCBA9]',     // OurServices
     3: 'bg-[#FFCBA9]',     // ClientsWeSee
     4: 'bg-[#FDCFB4]',     // Logos (warmer)
     5: 'bg-[#FDCFB4]',     // Footer (warmer)
-  };
+  }), []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,16 +40,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const currentRefs = sectionRefs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100');
-            entry.target.classList.remove('opacity-0');
-            entry.target.classList.add('translate-y-0');
-            entry.target.classList.remove('translate-y-10');
-            
-            const sectionIndex = sectionRefs.current.findIndex(ref => ref === entry.target);
+            const sectionIndex = currentRefs.findIndex(ref => ref === entry.target);
             setCurrentBgColor(sectionBackgrounds[sectionIndex]);
           }
         });
@@ -59,16 +55,16 @@ export default function Home() {
       }
     );
 
-    sectionRefs.current.forEach((section) => {
+    currentRefs.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      sectionRefs.current.forEach((section) => {
+      currentRefs.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
-  }, [threshold]); // Add threshold as a dependency
+  }, [threshold, sectionBackgrounds]);
 
   return (
     <main className={`w-full min-h-screen transition-colors duration-700 ${currentBgColor}`}>

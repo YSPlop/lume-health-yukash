@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
-import WhyChooseUs from '@/components/WhyChooseUs';
+// import WhyChooseUs from '@/components/WhyChooseUs';
 import { ServiceContent } from './types';
 
 type Props = {
@@ -16,8 +16,7 @@ const ServicePageClient = ({ content }: Props) => {
       <section className="py-8 px-4 mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-textcolour font-heading text-sm md:text-base">Our Services</span>
-          <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3 text-center">
+          <h1 className="text-3xl md:text-4xl font-heading leading-tight mt-3 text-center">
             {content.title}
           </h1>
         </div>
@@ -25,7 +24,9 @@ const ServicePageClient = ({ content }: Props) => {
         {/* Introduction */}
         <div className="mb-16">
           <h2 className="text-2xl font-body font-semibold mb-4 text-center">{content.intro}</h2>
-          <p className="text-gray-600 leading-relaxed">{content.description}</p>
+          <div className="p-6 rounded-3xl bg-cardcolour">
+            <p className="leading-relaxed text-center text-black">{content.description}</p>
+          </div>
         </div>
 
         {/* Main Image */}
@@ -57,8 +58,8 @@ const ServicePageClient = ({ content }: Props) => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="p-6 rounded-3xl bg-cardcolour"
               >
-                <h3 className="text-xl font-body font-semibold mb-4">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.content}</p>
+                <h3 className="text-xl font-body text-center font-semibold mb-4">{benefit.title}</h3>
+                <p className="text-black text-sm">{benefit.content}</p>
               </motion.div>
             ))}
           </div>
@@ -83,17 +84,17 @@ const ServicePageClient = ({ content }: Props) => {
           </div>
         </div>
 
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
 
         {/* Contact Section */}
         <div className="text-center">
-          <h2 className="text-2xl font-body font-semibold mb-4">Get Started Today</h2>
-          <p className="text-gray-600 mb-8">Contact us to speak directly with our physiotherapist about how we can help.</p>
+          <h2 className="text-2xl font-body font-semibold mb-4">{content.contactSection.title}</h2>
+          <p className="text-black mb-8">{content.contactSection.description}</p>
           <Link 
             href="/contact"
             className="px-8 py-3 bg-cardcolour text-black rounded-full hover:bg-accentcolour hover:text-black transition-colors"
           >
-            Contact Us
+            {content.contactSection.buttonText}
           </Link>
         </div>
       </section>

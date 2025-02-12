@@ -45,7 +45,7 @@ const Navigation = () => {
   const ContactButton = () => (
     <Link 
       href="/contact"
-      className={`px-6 py-2 rounded-full bg-bgcolour text-white hover:bg-opacity-90 transition-all duration-300 ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
+      className={`px-6 py-2 rounded-full bg-bgcolour text-black hover:bg-opacity-90 transition-all duration-300 ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
     >
       Contact Us
     </Link>

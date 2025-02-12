@@ -190,7 +190,7 @@ const FormSwipe: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl">
+    <div className="max-w-2xl mx-auto p-6 bg-cardcolour rounded-xl">
         {/* Progress Bar */}
         <div className="mb-8">
             <div className="flex justify-between mb-2">
@@ -201,7 +201,7 @@ const FormSwipe: React.FC = () => {
                         onClick={() => index + 1 < currentStep && setCurrentStep(index + 1)}
                     >
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 
-                            ${currentStep > index + 1 ? 'bg-[#FFB9A3]' : currentStep === index + 1 ? 'bg-[#FFD0C1]' : 'bg-gray-300'}`}>
+                            ${currentStep > index + 1 ? 'bg-[#FFB9A3]' : currentStep === index + 1 ? 'bg-bgcolour' : 'bg-gray-300'}`}>
                             {currentStep > index + 1 ? (
                                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -216,7 +216,7 @@ const FormSwipe: React.FC = () => {
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 
-                    className="bg-[#FFB9A3] h-2.5 rounded-full transition-all duration-500"
+                    className="bg-bgcolour h-2.5 rounded-full transition-all duration-500"
                     style={{ width: `${(currentStep / 7) * 100}%` }}
                 ></div>
             </div>
@@ -237,7 +237,7 @@ const FormSwipe: React.FC = () => {
                             type="button"
                             onClick={() => handleFormTypeSelect(formType)}
                             className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
-                                ${type === formType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
+                                ${type === formType ? 'rounded bg-[#FFA787]' : 'bg-bgcolour'}`}
                         >
                             {formType}
                         </button>
@@ -260,7 +260,7 @@ const FormSwipe: React.FC = () => {
                             type="button"
                             onClick={() => handleServiceTypeSelect(serviceType)}
                             className={`px-4 py-2 rounded text-black hover:bg-[#FFA787] 
-                                ${service === serviceType ? 'rounded bg-[#FFA787]' : 'bg-[#FFD0C1]'}`}
+                                ${service === serviceType ? 'rounded bg-[#FFA787]' : 'bg-bgcolour'}`}
                         >
                             {serviceType}
                         </button>
