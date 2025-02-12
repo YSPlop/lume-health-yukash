@@ -3,34 +3,63 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isAboutOpen, setIsAboutOpen] = React.useState(false);
+  const [isMobileAboutOpen, setIsMobileAboutOpen] = React.useState(false);
   const pathname = usePathname();
+  const aboutDropdownRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
+        setIsAboutOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   // Close mobile menu when route changes
   React.useEffect(() => {
     setIsOpen(false);
+    setIsAboutOpen(false);
   }, [pathname]);
 
   const navigationLinks = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
     { href: '/referral-form', label: 'Referral Form' },
     { href: '/contact', label: 'Contact' },
   ];
+
+  const aboutServices = {
+    physiotherapy: [
+      { href: '/services/aged-care-physiotherapy', label: 'Aged Care Physiotherapy' },
+      { href: '/services/neuro-physiotherapy', label: 'Neuro Physiotherapy' },
+      { href: '/services/hydrotherapy', label: 'Hydrotherapy' },
+      { href: '/services/paediatric-physiotherapy', label: 'Paediatric Physiotherapy' },
+      { href: '/services/post-hospital-rehab', label: 'Post Hospital Rehabilitation' },
+    ],
+    occupationalTherapy: [
+      { href: '/services/daily-living-skills', label: 'Daily Living Skills' },
+      { href: '/services/school-readiness', label: 'School Readiness' },
+      { href: '/services/sensory-modulation', label: 'Sensory Modulation' },
+    ],
+  };
 
   const Logo = () => (
     <Image
@@ -63,15 +92,64 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center space-x-8">
-            {navigationLinks.map(({ href, label }) => (
-              <Link 
-                key={href}
-                href={href}
-                className={`relative hover:text-gray-600 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === href ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+            <Link 
+              href="/"
+              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+            >
+              Home
+            </Link>
+
+            {/* About Dropdown */}
+            <div ref={aboutDropdownRef} className="relative">
+              <Link
+                href="/about"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                className={`flex items-center gap-1 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname.startsWith('/about') ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
               >
-                {label}
+                About
+                <ChevronDown className={`h-4 w-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
               </Link>
-            ))}
+              
+              {isAboutOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-cardcolour rounded-lg shadow-lg py-2 z-50">
+                  <div className="px-4 py-2 font-bold text-sm text-black">Physiotherapy</div>
+                  {aboutServices.physiotherapy.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                  <div className="px-4 py-2 font-bold text-sm text-black">Occupational Therapy</div>
+                  {aboutServices.occupationalTherapy.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Other navigation links */}
+            <Link 
+              href="/referral-form"
+              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/referral-form' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+            >
+              Referral Form
+            </Link>
+
+            <Link 
+              href="/contact"
+              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/contact' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+            >
+              Contact
+            </Link>
           </div>
 
           <ContactButton />
@@ -112,21 +190,83 @@ const Navigation = () => {
         <div
           className={`md:hidden absolute w-full bg-white/95 transition-all duration-300 ease-in-out backdrop-blur-md ${
             isOpen
-              ? 'max-h-[500px] opacity-100 visible'
+              ? 'max-h-[800px] opacity-100 visible'
               : 'max-h-0 opacity-0 invisible'
           } overflow-hidden`}
         >
           <div className="px-8 py-4 space-y-4">
-            {navigationLinks.map(({ href, label }) => (
-              <Link 
-                key={href}
-                href={href}
-                className={`block hover:text-gray-600 ${pathname === href ? 'text-gray-600' : ''}`}
-                onClick={() => setIsOpen(false)}
+            <Link 
+              href="/"
+              className={`block ${pathname === '/' ? 'text-gray-600' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+
+            {/* Mobile About Section */}
+            <div>
+              <button
+                onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                className={`w-full flex items-center justify-between ${
+                  pathname.startsWith('/about') ? 'text-gray-600' : ''
+                }`}
               >
-                {label}
-              </Link>
-            ))}
+                <span>About</span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ${
+                isMobileAboutOpen ? 'max-h-[500px] mt-2' : 'max-h-0'
+              }`}>
+                <Link
+                  href="/about"
+                  className="block py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Overview
+                </Link>
+                
+                <div className="font-semibold text-sm text-gray-500 py-2">Physiotherapy</div>
+                {aboutServices.physiotherapy.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="block py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {service.label}
+                  </Link>
+                ))}
+                
+                <div className="font-semibold text-sm text-gray-500 py-2">Occupational Therapy</div>
+                {aboutServices.occupationalTherapy.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="block py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {service.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link 
+              href="/referral-form"
+              className={`block ${pathname === '/referral-form' ? 'text-gray-600' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Referral Form
+            </Link>
+
+            <Link 
+              href="/contact"
+              className={`block ${pathname === '/contact' ? 'text-gray-600' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </nav>
