@@ -24,14 +24,14 @@ const TeamCard: React.FC<TeamProps> = ({ name, role, interests, description, ima
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="max-w-[1200px] mx-auto bg-cardcolour p-8 flex flex-col lg:flex-row gap-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="max-w-[1200px] mx-auto bg-cardcolour p-4 sm:p-6 md:p-8 flex flex-col lg:flex-row gap-4 sm:gap-6 md:gap-8 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300"
         >
             <motion.div 
-                className={`lg:w-1/3 flex flex-col justify-between items-center ${switchCard ? "lg:order-1" : "lg:order-1"}`}
+                className={`lg:w-1/3 ${switchCard ? "lg:order-1" : "lg:order-1"}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className="w-full h-[400px] relative rounded-2xl overflow-hidden mb-4">
+                <div className="w-full h-[300px] lg:h-full relative rounded-2xl overflow-hidden">
                     <Image 
                         src={image}
                         alt={name}
@@ -39,13 +39,6 @@ const TeamCard: React.FC<TeamProps> = ({ name, role, interests, description, ima
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
                     />
-                </div>
-                <div className="w-full bg-[#FFF5F2] p-4 rounded-lg border border-[#FFB9A3]">
-                    <div className="flex items-center gap-2 mb-2">
-                        <FaHeart className="text-[#FFB9A3] text-xl" />
-                        <p className="font-semibold">Interests</p>
-                    </div>
-                    <p>{interests.join(", ")}</p>
                 </div>
             </motion.div>
             
@@ -73,9 +66,17 @@ const TeamCard: React.FC<TeamProps> = ({ name, role, interests, description, ima
                             <p className="italic text-gray-600">{description.personal}</p>
                         )}
                     </div>
+
+                    <div className="w-full bg-[#FFF5F2] p-4 rounded-lg border border-[#FFB9A3] mb-8">
+                        <div className="flex items-center gap-2 mb-2">
+                            <FaHeart className="text-[#FFB9A3] text-xl" />
+                            <p className="font-semibold">Interests</p>
+                        </div>
+                        <p>{interests.join(", ")}</p>
+                    </div>
                 </div>
 
-                <div className="w-full flex justify-start">
+                <div className="w-full flex justify-center md:justify-start">
                     <Link href="/referral-form">
                         <motion.button 
                             whileHover={{ scale: 1.05 }}

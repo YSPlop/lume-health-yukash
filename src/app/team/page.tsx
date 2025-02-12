@@ -3,7 +3,7 @@ import TeamCard from "@/components/TeamCard";
 const Team: React.FC = () => {
     const TeamMembers = [
         {
-            name: "Physiotherapist Han",
+            name: "Han",
             qualifications: ["Masters of Physiotherapy"],
             role: "Physiotherapist",
             interests: ["Sports Physiotherapy", "Disability Support", "Holistic Care"],
@@ -14,7 +14,7 @@ const Team: React.FC = () => {
             image: "/images/han-team-image.jpg"
         },
         {
-            name: "Occupational Therapist Natalie",
+            name: "Natalie",
             qualifications: ["Masters of Occupational Therapy Practice"],
             role: "Paediatric Occupational Therapist",
             interests: ["Paediatric Care", "Trauma-Informed Practice", "Family-Centered Care"],
@@ -27,7 +27,7 @@ const Team: React.FC = () => {
     ]
 
     return (
-        <div className="w-full min-h-screen bg-[#FDCFB4] py-24 px-6 md:px-24">
+        <div className="w-full min-h-screen bg-[#FDCFB4] py-24 px-6 md:px-3">
             <div className="max-w-7xl mx-auto space-y-24">
                 {TeamMembers.map((member, index) => (
                     <TeamCard 

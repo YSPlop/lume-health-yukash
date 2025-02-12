@@ -14,42 +14,6 @@ const ServicePage = async ({ params }: Props) => {
   // This would ideally come from a CMS or database
   const serviceContent: ServiceContentMap = {
     // Physiotherapy
-    'home-visits': {
-      title: "Home Visit Physiotherapy",
-      intro: "What are Home Visit Services?",
-      description: "Home visit physiotherapy brings professional healthcare directly to your doorstep, providing personalized treatment in the comfort and convenience of your own home. This service is particularly beneficial for individuals with mobility challenges, those recovering from surgery, or anyone who prefers receiving care in their familiar environment.",
-      benefits: [
-        {
-          title: "Personalized Care Environment",
-          content: "Our home visit service allows us to assess and treat you in your daily living environment, enabling more targeted and practical therapeutic solutions that directly address your specific needs and challenges."
-        },
-        {
-          title: "Comprehensive Assessment",
-          content: "We conduct thorough evaluations of your home environment, identifying potential challenges and opportunities for improvement in your daily activities and mobility."
-        },
-        {
-          title: "Tailored Treatment Plans",
-          content: "Based on your specific needs and home environment, we develop customized treatment programs that integrate seamlessly into your daily routine."
-        }
-      ],
-      conditions: [
-        "Post-operative Recovery",
-        "Chronic Pain Management",
-        "Mobility Issues",
-        "Balance Disorders",
-        "Neurological Conditions",
-        "Age-related Conditions",
-        "Sports Injuries",
-        "Rehabilitation Programs"
-      ],
-      imageSrc: "/services/home-visits.jpg",
-      imageAlt: "Home visits illustration",
-      contactSection: {
-        title: "Contact Us",
-        description: "Ready to schedule a home visit? Contact us today to discuss your needs and schedule a consultation.",
-        buttonText: "Contact Us"
-      }
-    },
     'neuro-physiotherapy': {
       title: "Neuro Physiotherapy",
       intro: "What is Neurological Physiotherapy?",
@@ -79,7 +43,7 @@ const ServicePage = async ({ params }: Props) => {
         "Peripheral Neuropathy",
         "Vestibular Disorders"
       ],
-      imageSrc: "/services/neuro-physiotherapy.jpg",
+      imageSrc: "/images/about-us/neuro.jpg",
       imageAlt: "Neuro physiotherapy session",
       contactSection: {
         title: "Get Started Today!",
@@ -116,7 +80,7 @@ const ServicePage = async ({ params }: Props) => {
         "Balance Disorders",
         "Pediatric Conditions"
       ],
-      imageSrc: "/services/hydrotherapy.jpg",
+      imageSrc: "/images/about-us/hydro.jpg",
       imageAlt: "Hydrotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -156,7 +120,7 @@ const ServicePage = async ({ params }: Props) => {
         "Dravert Syndrome",
         "Coordination Disorders"
       ],
-      imageSrc: "/services/_594fb1c3-ae6d-471c-b531-e19ae3f13ef7.jpeg",
+      imageSrc: "/images/about-us/paediatric.jpg",
       imageAlt: "Paediatric physiotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -193,7 +157,7 @@ const ServicePage = async ({ params }: Props) => {
         "Severe Infections",
         "Post-Intensive Care Syndrome"
       ],
-      imageSrc: "/services/post-hospital-rehab.jpg",
+      imageSrc: "/images/about-us/post-hospital.jpg",
       imageAlt: "Post hospital rehabilitation session",
       contactSection: {
         title: "Contact Us",
@@ -227,7 +191,7 @@ const ServicePage = async ({ params }: Props) => {
         "Diabetes",
         "General Decline in Strength and Mobility"
       ],
-      imageSrc: "/services/IMG_2041_edited_edited.jpg",
+      imageSrc: "/images/about-us/aged-care.jpg",
       imageAlt: "Aged care physiotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -260,7 +224,7 @@ const ServicePage = async ({ params }: Props) => {
         "Attention and focus in daily tasks",
         "Social interaction and participation in group activities",
       ],
-      imageSrc: "/images/about/occupational-therapy/sensory-modulation.png",
+      imageSrc: "/images/about-us/sensory-modulation.jpg",
       imageAlt: "Child engaging in sensory activities",
       contactSection: {
         title: "Contact Us",
@@ -326,7 +290,7 @@ const ServicePage = async ({ params }: Props) => {
         "Self-care tasks (toileting, dressing, feeding)",
         "Social interaction and communication (peer engagement, following instructions)"
       ],
-      imageSrc: "/services/school-readiness.jpg",
+      imageSrc: "/images/about-us/school-readiness.jpg",
       imageAlt: "Child engaging in school readiness activities",
       contactSection: {
         title: "Contact Us",

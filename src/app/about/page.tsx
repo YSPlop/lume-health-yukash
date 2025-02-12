@@ -71,14 +71,14 @@ const About = () => {
     {
       title: "Aged Care Physiotherapy",
       description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalized care. We treat conditions like arthritis, stroke, Parkinson's, and mobility decline to support active aging.",
-      link: "/services/home-visits",
+      link: "/services/aged-care-physiotherapy",
       imageSrc: "/images/about/physio/aged-care.png",
       imageAlt: "Aged Care Physiotherapy illustration"
     },
     {
       title: "Neuro Physiotherapy",
       description: "Neurological physiotherapy enhances mobility, function, and quality of life for those with neurological conditions. Lume Health provides home-based therapy, ensuring safe, tailored care in familiar environments while involving family support. We treat conditions like stroke, spinal cord injury, MS, and Parkinson's disease.",
-      link: "/services/rehabilitation",
+      link: "/services/neuro-physiotherapy",
       imageSrc: "/images/about/physio/neuro.png",
       imageAlt: "Neuro Physiotherapy illustration"
     },
@@ -94,7 +94,7 @@ const About = () => {
       description: "Paediatric physiotherapy supports children's movement, strength, and development through early intervention. Lume Health offers home-based therapy for comfort, real-life skill-building, and family involvement. We treat conditions like cerebral palsy, developmental delays, muscular dystrophy, and coordination disorders, helping children reach their full potential.",
       link: "/services/paediatric-physiotherapy",
       imageSrc: "/images/about/physio/paediatric.png",
-      imageAlt: "Pediatric Physiotherapy illustration"
+      imageAlt: "Paediatric Physiotherapy illustration"
     },
     {
       title: "Post Hospital Rehabilitation",
@@ -109,7 +109,7 @@ const About = () => {
     {
       title: "Daily Living skills",
       description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence and self-sufficiency in their everyday routines.",
-      link: "/services/daily-living",
+      link: "/services/daily-living-skills",
       imageSrc: "/images/about/occupational-therapy/daily-living-skills.png",
       imageAlt: "Daily living skills illustration"
     },
@@ -164,7 +164,7 @@ const About = () => {
         className="py-8 px-4 mx-auto max-w-7xl"
       >
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-body leading-tight mt-3">
+          <h1 className="text-3xl md:text-4xl font-heading leading-tight mt-3">
             About our Services
           </h1>
         </div>
