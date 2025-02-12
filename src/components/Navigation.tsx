@@ -9,7 +9,6 @@ import { usePathname } from 'next/navigation';
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isAboutOpen, setIsAboutOpen] = React.useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = React.useState(false);
   const pathname = usePathname();
   const aboutDropdownRef = React.useRef<HTMLDivElement>(null);
@@ -21,7 +20,7 @@ const Navigation = () => {
 
     const handleClickOutside = (event: MouseEvent) => {
       if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
-        setIsAboutOpen(false);
+        // Remove the setIsAboutOpen line since we don't use it anymore
       }
     };
 
@@ -37,7 +36,7 @@ const Navigation = () => {
   // Close mobile menu when route changes
   React.useEffect(() => {
     setIsOpen(false);
-    setIsAboutOpen(false);
+    // Remove the setIsAboutOpen line
   }, [pathname]);
 
   const aboutServices = {
