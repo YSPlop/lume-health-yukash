@@ -3,7 +3,7 @@
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState, useEffect, useMemo } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 interface ServiceCardProps {
   title: string;
