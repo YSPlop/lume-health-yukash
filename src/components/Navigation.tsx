@@ -40,12 +40,6 @@ const Navigation = () => {
     setIsAboutOpen(false);
   }, [pathname]);
 
-  const navigationLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/referral-form', label: 'Referral Form' },
-    { href: '/contact', label: 'Contact' },
-  ];
-
   const aboutServices = {
     physiotherapy: [
       { href: '/services/aged-care-physiotherapy', label: 'Aged Care Physiotherapy' },
