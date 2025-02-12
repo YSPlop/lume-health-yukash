@@ -57,12 +57,12 @@ const Hero = () => {
     <section className="p-2 md:p-6 lg:p-8 pt-6 md:pt-10 min-h-screen">
       <div className="max-w-7xl mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6 flex flex-col">
         <div className="px-2 md:px-12 py-3 md:py-5 flex flex-col justify-between h-full">
+          <h1 className="text-3xl md:text-7xl lg:text-7xl font-heading mb-4 md:mb-8 text-center leading-tight">
+            Quality Allied Health Services, <br /> Right at Your Door.
+          </h1>
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
             {/* Left Content */}
             <div className="px-2">
-              <h1 className="text-3xl md:text-7xl lg:text-7xl font-heading mb-4 md:mb-8 text-center md:text-left leading-tight">
-                Quality Allied Health Services, Right at Your Door.
-              </h1>
               <p className="text-gray-600 text-sm md:text-lg font-body mb-2 md:mb-4 text-center md:text-left">
                 Lume Health offers mobile allied health services throughout Melbourne, catering to all ages and stages of life.
               </p>
@@ -81,7 +81,7 @@ const Hero = () => {
           </div>
 
           {/* Buttons Section */}
-          <div className="grid md:grid-cols-3 gap-3 md:gap-8 mt-auto px-2">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-8 mt-20 px-2">
             <HeroButton href="/contact" style="contact">
               Contact Us
             </HeroButton>

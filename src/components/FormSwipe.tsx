@@ -183,7 +183,7 @@ const FormSwipe: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl">
+    <div className="max-w-2xl mx-auto p-6 bg-cardcolour rounded-xl">
         {/* Progress Bar */}
         <div className="mb-8">
             <div className="flex justify-between mb-2">
