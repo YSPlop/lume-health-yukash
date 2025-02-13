@@ -43,7 +43,7 @@ const ServicePage = async ({ params }: Props) => {
         "Peripheral Neuropathy",
         "Vestibular Disorders"
       ],
-      imageSrc: "/images/about-us/neuro.jpg",
+      imageSrc: "/images/about-us/neuro.png",
       imageAlt: "Neuro physiotherapy session",
       contactSection: {
         title: "Get Started Today!",
@@ -80,7 +80,7 @@ const ServicePage = async ({ params }: Props) => {
         "Balance Disorders",
         "Paediatric Conditions"
       ],
-      imageSrc: "/images/about-us/hydro.jpg",
+      imageSrc: "/images/about-us/hydro.png",
       imageAlt: "Hydrotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -120,7 +120,7 @@ const ServicePage = async ({ params }: Props) => {
         "Dravert Syndrome",
         "Coordination Disorders"
       ],
-      imageSrc: "/images/about-us/paediatric.jpg",
+      imageSrc: "/images/about-us/paediatric.png",
       imageAlt: "Paediatric physiotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -157,7 +157,7 @@ const ServicePage = async ({ params }: Props) => {
         "Severe Infections",
         "Post-Intensive Care Syndrome"
       ],
-      imageSrc: "/images/about-us/post-hospital.jpg",
+      imageSrc: "/images/about-us/post-hospital.png",
       imageAlt: "Post hospital rehabilitation session",
       contactSection: {
         title: "Contact Us",
@@ -191,7 +191,7 @@ const ServicePage = async ({ params }: Props) => {
         "Diabetes",
         "General Decline in Strength and Mobility"
       ],
-      imageSrc: "/images/about-us/aged-care.jpg",
+      imageSrc: "/images/about-us/aged-care.png",
       imageAlt: "Aged care physiotherapy session",
       contactSection: {
         title: "Contact Us",
@@ -224,7 +224,7 @@ const ServicePage = async ({ params }: Props) => {
         "Attention and focus in daily tasks",
         "Social interaction and participation in group activities",
       ],
-      imageSrc: "/images/about-us/sensory-modulation.jpg",
+      imageSrc: "/images/about-us/sensory-modulation.png",
       imageAlt: "Child engaging in sensory activities",
       contactSection: {
         title: "Contact Us",
@@ -257,7 +257,7 @@ const ServicePage = async ({ params }: Props) => {
         "Morning and bedtime routines (organization, transitions)",
         "Following instructions and problem-solving"
       ],
-      imageSrc: "/services/daily-living-skills.jpg",
+      imageSrc: "/services/daily-living-skills.png",
       imageAlt: "Child practicing daily living skills",
       contactSection: {
         title: "Contact Us",
@@ -290,7 +290,7 @@ const ServicePage = async ({ params }: Props) => {
         "Self-care tasks (toileting, dressing, feeding)",
         "Social interaction and communication (peer engagement, following instructions)"
       ],
-      imageSrc: "/images/about-us/school-readiness.jpg",
+      imageSrc: "/images/about-us/school-readiness.png",
       imageAlt: "Child engaging in school readiness activities",
       contactSection: {
         title: "Contact Us",
