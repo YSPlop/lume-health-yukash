@@ -41,7 +41,7 @@ const HeroButton = ({
       <motion.button 
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className={`relative w-full xl:px-5 xl:py-5 lg:px-3 lg:py-3 md:px-2 md:py-2 py-2 px-1 ${buttonStyles[style].bgColor} ${buttonStyles[style].textColor} rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group`}
+        className={`relative w-[90%] xl:py-4 lg:py-3 md:py-2 py-2 ${buttonStyles[style].bgColor} ${buttonStyles[style].textColor} rounded-full font-semibold flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden group`}
       >
         <span className={`absolute inset-0 ${buttonStyles[style].hoverBgColor} scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center`} />
         <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">

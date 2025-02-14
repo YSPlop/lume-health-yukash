@@ -20,13 +20,13 @@ interface SectionBackgrounds {
 
 const About = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFCBA9]');
 
   // Type the sectionBackgrounds object
   const sectionBackgrounds = useMemo<SectionBackgrounds>(() => ({
     0: 'bg-[#FFCBA9]',    // Hero section
     1: 'bg-[#FFB9A3]',    // Services section
-    2: 'bg-[#FFE7DF]',    // Footer section
+    2: 'bg-[#FFB9A3]',    // Footer section
   }), []);
 
   useEffect(() => {

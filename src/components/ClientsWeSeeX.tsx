@@ -15,7 +15,7 @@ const ClientCardX: React.FC<ClientCardXProps> = ({ name, description, imageSrc }
             <Image src={imageSrc} alt={name} fill className="object-cover" />
         </figure>
         <div className = "flex-1 w-full flex justify-center items-center">
-          <h1 className = "font-semibold text-xl">{name}</h1>
+          <h1 className = "font-semibold text-xl md:text-[1.75rem] ">{name}</h1>
         </div>
         {/* <div className="card__info">
             <h1>{name}</h1>
@@ -65,13 +65,13 @@ const ClientsWeSeeX: React.FC = () => {
       ];
 
   return (
-    <section className="py-8 md:py-16 px-4 max-w-7xl mx-auto">
+    <section className="py-8 md:py-16 px-4 max-w-7xl md:max-w-[70vw] mx-auto">
         <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-heading leading-tight mt-3">Clients We See</h2>
+            <h2 className="text-4xl md:text-5xl font-heading leading-tight mt-3">Clients We See</h2>
         </div>
         <div className = "w-full flex items-center justify-center flex-col gap-[80px]">
-            <div className = "w-full flex items-center justify-center flex-col">
-                <header className = "text-2xl font-heading md:text-left ml-5">Physiotherapy</header>
+            <div className = "w-full flex flex-col">
+                <header className = "text-3xl md:text-4xl font-heading text-center md:text-left md:ml-5">Physiotherapy</header>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 p-4">
                 {physioClients.map((client, index) => (
                     <div className = "flex justify-center items-center" key={index}>
@@ -85,8 +85,8 @@ const ClientsWeSeeX: React.FC = () => {
                 ))}
                 </div>
             </div>
-            <div className = "w-full flex items-center justify-center flex-col">
-                <header className = "text-2xl font-heading md:text-left ml-5">Occupational Therapy</header>
+            <div className = "w-full flex flex-col">
+                <header className = "text-3xl md:text-4xl font-heading text-center md:text-left md:ml-5">Occupational Therapy</header>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 p-4">
                 {occupationalClients.map((client, index) => (
                     <div className = "flex justify-center items-center" key = {index}>

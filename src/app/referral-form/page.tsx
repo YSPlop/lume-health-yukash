@@ -7,7 +7,7 @@ import { useRef, useState, useEffect, useMemo, Suspense } from 'react';
 
 const ReferralFormPage = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFE7DF]');
+  const [currentBgColor, setCurrentBgColor] = useState<string>('bg-[#FFCBA9]');
 
   const sectionBackgrounds: Record<number, string> = useMemo(() => ({
     0: 'bg-[#FFCBA9]',    // Form section

@@ -224,7 +224,7 @@ const ServicePage = async ({ params }: Props) => {
         "Attention and focus in daily tasks",
         "Social interaction and participation in group activities",
       ],
-      imageSrc: "/images/about-us/sensory-modulation.png",
+      imageSrc: "/images/about-us/sensory-modulation.jpg",
       imageAlt: "Child engaging in sensory activities",
       contactSection: {
         title: "Contact Us",
@@ -257,7 +257,7 @@ const ServicePage = async ({ params }: Props) => {
         "Morning and bedtime routines (organization, transitions)",
         "Following instructions and problem-solving"
       ],
-      imageSrc: "/services/daily-living-skills.png",
+      imageSrc: "/images/about-us/daily-living-skills.png",
       imageAlt: "Child practicing daily living skills",
       contactSection: {
         title: "Contact Us",

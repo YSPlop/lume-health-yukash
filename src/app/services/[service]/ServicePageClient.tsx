@@ -35,7 +35,7 @@ const ServicePageClient = ({ content }: Props) => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="w-full aspect-[21/9] relative mb-16 rounded-2xl overflow-hidden"
+          className="w-full aspect-[16/10] relative mb-16 rounded-2xl overflow-hidden"
         >
           <Image
             src={content.imageSrc}

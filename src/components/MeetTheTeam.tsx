@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 const MeetTheTeam: React.FC = () => {
   return (
-    <section className="py-8 md:py-16 px-4 max-w-7xl mx-auto">
-      <div className="grid xl:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section className="py-8 md:py-16 px-4 max-w-7xl md:max-w-[70vw] mx-auto md:pr-16">
+      <div className="grid xl:grid-cols-2 gap-8 md:gap-16 items-center">
         {/* Team Images */}
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex flex-row items-center justify-center md:justify-end">
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[280px] h-[225px] sm:h-[300px] md:h-[340px] lg:h-[380px] -mt-8 sm:-mt-12 md:-mt-16 -mr-4 sm:-mr-6 md:-mr-8">
             <Image
               src="/images/han.png"
@@ -36,7 +36,7 @@ const MeetTheTeam: React.FC = () => {
           <h2 className="text-3xl xl:text-4xl font-body leading-tight">
             Meet the team
           </h2>
-          <p className="text-gray-600 leading-relaxed font-body text-sm xl:text-base pb-10">
+          <p className="text-gray-600 leading-relaxed text-justify font-body text-sm xl:text-base pb-10">
             At Lume Health, our team is made up of experienced and dedicated allied health professionals passionate about providing personalised and evidence-based care. 
             With a focus on supporting individuals across all ages and needs, we work collaboratively to deliver high-quality, mobile services that make a positive impact 
             on your health and well-being.  

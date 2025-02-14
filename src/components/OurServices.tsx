@@ -35,7 +35,7 @@ const OurServices: React.FC = () => {
                     />
                 </div>
                 <div className="p-4 group-hover:opacity-0 transition-opacity duration-200">
-                    <h3 className="text-xl font-heading font-semibold text-center">{title}</h3>
+                    <h3 className="text-xl md:text-[2rem] font-semibold text-center md:-translate-y-12">{title}</h3>
                 </div>
                 {/* Hover view */}
                 <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 md:p-6 flex flex-col justify-center items-center">
@@ -47,7 +47,7 @@ const OurServices: React.FC = () => {
     );
 
     return (
-        <section className="py-8 md:py-16 px-4 md:px-4 max-w-7xl mx-auto">
+        <section className="py-8 md:py-16 px-4 md:px-4 max-w-7xl md:max-w-[70vw] mx-auto">
             <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-[3.5rem] font-section leading-tight mt-3">Our Services</h2>
             </div>

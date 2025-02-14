@@ -1,8 +1,8 @@
 /* From Uiverse.io by ProgramaConPid */ 
 /* Card Styles */
 .card {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     padding: 15px;
     border-radius: 10px;
     display: flex;
@@ -13,8 +13,14 @@
     text-align: center;
   }
  
-  
-  .card__hover {
+  @media (max-width: 768px) {
+    .card {
+        width: 400px;
+        height: 300px;
+    }
+}
+
+.card__hover {
     width: 95%;
     height: 90%;
     position: absolute;
