@@ -54,6 +54,18 @@ const Navigation = () => {
     ],
   };
 
+  // Shared styles
+  const styles = {
+    underlineAnimation: `relative text-base xl:text-lg 3xl:text-xl after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 after:transition-transform after:duration-300 after:origin-left`,
+    getUnderlineState: (isActive: boolean) => 
+      `${isActive ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100`,
+    contactButton: `px-6 py-2 rounded-full bg-bgcolour text-black hover:bg-opacity-90 transition-all duration-300`,
+    getContactButtonState: (isActive: boolean) =>
+      `${isActive ? 'bg-opacity-90' : ''}`,
+    mobileLink: (isActive: boolean) =>
+      `block ${isActive ? 'text-gray-600' : ''}`,
+  };
+
   const Logo = () => (
     <Image
       src="/images/logo.png"
@@ -87,7 +99,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-8">
             <Link 
               href="/"
-              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+              className={`${styles.underlineAnimation} ${styles.getUnderlineState(pathname === '/')}`}
             >
               Home
             </Link>
@@ -96,7 +108,7 @@ const Navigation = () => {
             <div ref={aboutDropdownRef} className="relative group">
               <Link
                 href="/about"
-                className={`flex items-center gap-1 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname.startsWith('/about') ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+                className={`flex items-center gap-1 ${styles.underlineAnimation} ${styles.getUnderlineState(pathname.startsWith('/about'))}`}
               >
                 About
                 <ChevronDown className={`h-4 w-4 transition-transform group-hover:rotate-180`} />
@@ -126,17 +138,16 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Other navigation links */}
             <Link 
               href="/referral-form"
-              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/referral-form' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+              className={`${styles.underlineAnimation} ${styles.getUnderlineState(pathname === '/referral-form')}`}
             >
               Referral Form
             </Link>
 
             <Link 
               href="/contact"
-              className={`relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-bgcolour after:left-0 after:bottom-0 ${pathname === '/contact' ? 'after:scale-x-100' : 'after:scale-x-0'} hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
+              className={`${styles.underlineAnimation} ${styles.getUnderlineState(pathname === '/contact')}`}
             >
               Contact
             </Link>
@@ -154,7 +165,7 @@ const Navigation = () => {
           <div className="w-1/2 flex justify-center items-center">
             <Link 
               href="/contact"
-              className={`px-6 py-2 rounded-full bg-bgcolour text-white hover:bg-opacity-90 transition-all duration-300 text-base font-medium shadow-sm ${pathname === '/contact' ? 'bg-opacity-90' : ''}`}
+              className={`${styles.contactButton} text-white text-base font-medium shadow-sm ${styles.getContactButtonState(pathname === '/contact')}`}
               onClick={() => setIsOpen(false)}
             >
               Contact Us
@@ -187,7 +198,7 @@ const Navigation = () => {
           <div className="px-8 py-4 space-y-4">
             <Link 
               href="/"
-              className={`block ${pathname === '/' ? 'text-gray-600' : ''}`}
+              className={styles.mobileLink(pathname === '/')}
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -197,9 +208,7 @@ const Navigation = () => {
             <div>
               <button
                 onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                className={`w-full flex items-center justify-between ${
-                  pathname.startsWith('/about') ? 'text-gray-600' : ''
-                }`}
+                className={`w-full flex items-center justify-between ${styles.mobileLink(pathname.startsWith('/about'))}`}
               >
                 <span>About</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`} />
@@ -244,7 +253,7 @@ const Navigation = () => {
 
             <Link 
               href="/referral-form"
-              className={`block ${pathname === '/referral-form' ? 'text-gray-600' : ''}`}
+              className={styles.mobileLink(pathname === '/referral-form')}
               onClick={() => setIsOpen(false)}
             >
               Referral Form
@@ -252,7 +261,7 @@ const Navigation = () => {
 
             <Link 
               href="/contact"
-              className={`block ${pathname === '/contact' ? 'text-gray-600' : ''}`}
+              className={styles.mobileLink(pathname === '/contact')}
               onClick={() => setIsOpen(false)}
             >
               Contact

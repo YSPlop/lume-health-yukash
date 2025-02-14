@@ -8,6 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '640px',   // Default Tailwind
+        'md': '768px',   // Default Tailwind
+        'lg': '1024px',  // Default Tailwind
+        'xl': '1280px',  // Default Tailwind
+        '2xl': '1536px', // Default Tailwind
+        '3xl': '1920px', // Custom breakpoint for Full HD
+        '4xl': '2560px', // Custom breakpoint for 2560x1440
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
