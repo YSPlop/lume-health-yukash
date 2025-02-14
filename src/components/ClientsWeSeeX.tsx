@@ -15,7 +15,7 @@ const ClientCardX: React.FC<ClientCardXProps> = ({ name, description, imageSrc }
             <Image src={imageSrc} alt={name} fill className="object-cover" />
         </figure>
         <div className = "flex-1 w-full flex justify-center items-center">
-          <h1 className = "font-semibold text-xl md:text-[1.75rem] ">{name}</h1>
+          <h1 className = "text-xl md:text-[1.5rem] ">{name}</h1>
         </div>
         {/* <div className="card__info">
             <h1>{name}</h1>

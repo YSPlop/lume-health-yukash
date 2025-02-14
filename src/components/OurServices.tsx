@@ -35,7 +35,7 @@ const OurServices: React.FC = () => {
                     />
                 </div>
                 <div className="p-4 group-hover:opacity-0 transition-opacity duration-200">
-                    <h3 className="text-xl md:text-[2rem] font-semibold text-center md:-translate-y-12">{title}</h3>
+                    <h3 className="text-xl lg:text-[1.5rem]  text-center md:-translate-y-12">{title}</h3>
                 </div>
                 {/* Hover view */}
                 <div className="absolute inset-0 bg-cardcolour rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 md:p-6 flex flex-col justify-center items-center">
