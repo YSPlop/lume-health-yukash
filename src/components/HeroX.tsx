@@ -69,7 +69,8 @@ const imageSizeClassName = `
     md:w-[60%]
     lg:w-[80%]
     xl:w-[45%]
-    2xl:w-[40%]
+    2xl:w-[35%]
+    3xl:w-[40%]
 `;
 
 
