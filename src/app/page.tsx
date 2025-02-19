@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import Hero from "@/components/Hero";
 import MeetTheTeam from "@/components/MeetTheTeam";
 import OurServices from "@/components/OurServices";
 import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import ClientsWeSeeX from "@/components/ClientsWeSeeX";
+import HeroX from "@/components/HeroX";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -73,7 +73,7 @@ export default function Home() {
           if (el) sectionRefs.current[0] = el;
         }}
       >
-        <Hero />
+        <HeroX />
       </section>
       <section 
         ref={(el: HTMLElement | null) => {
