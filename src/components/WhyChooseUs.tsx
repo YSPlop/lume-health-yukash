@@ -25,8 +25,8 @@ const WhyChooseUs: React.FC = () => {
   const reasons = [
     {
       icon: "/icons/personalized-care.svg",
-      title: "Personalized and Direct Care",
-      description: "As a sole trader and experienced physiotherapist, I offer a unique advantage of providing personalized and direct care to all clients. This means that clients receive consistent treatment from the same therapist, fostering a deeper understanding of their conditions."
+      title: "personalised and Direct Care",
+      description: "As a sole trader and experienced physiotherapist, I offer a unique advantage of providing personalised and direct care to all clients. This means that clients receive consistent treatment from the same therapist, fostering a deeper understanding of their conditions."
     },
     {
       icon: "/icons/experience.svg",

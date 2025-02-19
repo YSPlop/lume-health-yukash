@@ -58,7 +58,7 @@ const ServicePage = async ({ params }: Props) => {
       benefits: [
         {
           title: "Tailored Rehabilitation Programs",
-          content: "At Lume Health, we can develop personalized hydrotherapy programs that specifically address the unique needs and health conditions of each individual. This tailored approach ensures that the exercises and treatments are appropriate for the patient's specific rehabilitation goals, whether it's improving mobility, enhancing strength, reducing pain, or recovering from surgery. Our expertise in understanding medical histories and personal limitations allows us to adjust water-based exercises to maximize benefits safely and effectively."
+          content: "At Lume Health, we can develop personalised hydrotherapy programs that specifically address the unique needs and health conditions of each individual. This tailored approach ensures that the exercises and treatments are appropriate for the patient's specific rehabilitation goals, whether it's improving mobility, enhancing strength, reducing pain, or recovering from surgery. Our expertise in understanding medical histories and personal limitations allows us to adjust water-based exercises to maximize benefits safely and effectively."
         },
         {
           title: "Enhanced Recovery and Comfort",
@@ -91,7 +91,7 @@ const ServicePage = async ({ params }: Props) => {
     'paediatric-physiotherapy': {
       title: "Paediatric Physiotherapy",
       intro: "Why Paediatric Physiotherapy?",
-      description: "Early intervention through pediatric physiotherapy is crucial for children facing developmental challenges, providing significant lifelong benefits. By addressing physical issues early, it prevents them from becoming severe as the child grows. Tailored therapies help children reach developmental milestones like walking and fine motor skills, enhancing their independence. Moreover, these programs support families by teaching them how to assist their child's development at home, fostering an environment where children can thrive physically, emotionally, and socially. This makes pediatric physiotherapy an invaluable investment in a child's future health and quality of life.",
+      description: "Early intervention through peadiatric physiotherapy is crucial for children facing developmental challenges, providing significant lifelong benefits. By addressing physical issues early, it prevents them from becoming severe as the child grows. Tailored therapies help children reach developmental milestones like walking and fine motor skills, enhancing their independence. Moreover, these programs support families by teaching them how to assist their child's development at home, fostering an environment where children can thrive physically, emotionally, and socially. This makes peadiatric physiotherapy an invaluable investment in a child's future health and quality of life.",
       benefits: [
         {
           title: "Comfort and Convenience",
@@ -99,7 +99,7 @@ const ServicePage = async ({ params }: Props) => {
         },
         {
           title: "Real-Life Context",
-          content: "By providing therapy in the home or community, pediatric physiotherapists can tailor interventions to the child's actual living environment. This approach allows therapists to incorporate everyday objects and situations into the treatment plan, making exercises more practical and directly applicable. It also gives therapists a better understanding of the child's daily challenges and opportunities for intervention, leading to more personalized and effective care."
+          content: "By providing therapy in the home or community, peadiatric physiotherapists can tailor interventions to the child's actual living environment. This approach allows therapists to incorporate everyday objects and situations into the treatment plan, making exercises more practical and directly applicable. It also gives therapists a better understanding of the child's daily challenges and opportunities for intervention, leading to more personalised and effective care."
         },
         {
           title: "Family Involvement and Training",
@@ -139,7 +139,7 @@ const ServicePage = async ({ params }: Props) => {
         },
         {
           title: "Tailored Environment-Specific Training",
-          content: "Conducting rehabilitation in the home setting allows our physiotherapist to directly assess and integrate the patient's actual living environment into the therapy. This enables the creation of personalized treatment plans that address real-world challenges. Our physiotherapist can recommend modifications to the home to enhance safety and effectiveness and tailor exercises to specific tasks and challenges that the patient encounters in their daily life."
+          content: "Conducting rehabilitation in the home setting allows our physiotherapist to directly assess and integrate the patient's actual living environment into the therapy. This enables the creation of personalised treatment plans that address real-world challenges. Our physiotherapist can recommend modifications to the home to enhance safety and effectiveness and tailor exercises to specific tasks and challenges that the patient encounters in their daily life."
         },
         {
           title: "Family Involvement and Support",
@@ -168,14 +168,14 @@ const ServicePage = async ({ params }: Props) => {
     'aged-care-physiotherapy': {
       title: "Aged Care Physiotherapy",
       intro: "What is Aged Care Physiotherapy?",
-      description: "Homecare package physiotherapy is a service designed for older adults or individuals with chronic health conditions who receive government-subsidized support to manage their healthcare needs at home. This type of physiotherapy is part of a broader homecare package that aims to help recipients maintain their independence and quality of life by providing tailored physical therapy interventions directly in their living environments. Our physiotherapists assess and treat various conditions such as mobility issues, chronic pain, post-hospital recovery, and general physical decline associated with aging. The focus is on enhancing functionality, preventing injury, and managing pain through exercises and therapies adapted to each individual's capabilities and home setting. This service ensures ongoing, accessible care that supports aging individuals in staying active and safe in their own homes.",
+      description: "Homecare package physiotherapy is a service designed for older adults or individuals with chronic health conditions who receive government-subsidized support to manage their healthcare needs at home. This type of physiotherapy is part of a broader homecare package that aims to help recipients maintain their independence and quality of life by providing tailored physical therapy interventions directly in their living environments. Our physiotherapists assess and treat various conditions such as mobility issues, chronic pain, post-hospital recovery, and general physical decline associated with ageing. The focus is on enhancing functionality, preventing injury, and managing pain through exercises and therapies adapted to each individual's capabilities and home setting. This service ensures ongoing, accessible care that supports ageing individuals in staying active and safe in their own homes.",
       benefits: [
         {
           title: "Safety and Convenience",
           content: "Home-based physiotherapy eliminates the need for seniors to travel to a clinic, which can be particularly challenging for those with mobility issues or chronic health conditions. Receiving treatment in the comfort and safety of their own home not only reduces the risk associated with traveling—such as falls or transportation-related stress—but also ensures that they do not miss sessions due to inclement weather, transportation issues, or fatigue. This consistent access to care is crucial for effective management of chronic conditions and for steady progress in their rehabilitation goals."
         },
         {
-          title: "Personalized Care in a Familiar Environment",
+          title: "personalised Care in a Familiar Environment",
           content: "Conducting physiotherapy at home allows our therapists to tailor their approaches based on the actual living conditions and daily routines of the seniors. This personalised treatment ensures that exercises and therapeutic interventions are relevant and directly applicable to the specific challenges the senior faces in their daily environment. For example, our physiotherapist can help a senior practice getting in and out of their own bed safely, use bathroom fixtures securely, or navigate their kitchen efficiently. This context-specific training significantly improves the functional abilities of seniors within their own homes, promoting greater independence and confidence in performing daily tasks."
         }
       ],
@@ -239,7 +239,7 @@ const ServicePage = async ({ params }: Props) => {
       benefits: [
         {
           title: "Developing Age-Appropriate Independence",
-          content: "Our therapy focuses on helping children develop daily living skills suited to their age and abilities. This may include learning to dress independently, use utensils properly, brush their teeth, or organize their belongings. By practicing in their home environment, children can apply these skills where they matter most."
+          content: "Our therapy focuses on helping children develop daily living skills suited to their age and abilities. This may include learning to dress independently, use utensils properly, brush their teeth, or organise their belongings. By practicing in their home environment, children can apply these skills where they matter most."
         },
         {
           title: "Supporting Sensory and Motor Skills",
@@ -254,7 +254,7 @@ const ServicePage = async ({ params }: Props) => {
         "Dressing (buttons, zippers, shoelaces)",
         "Toileting and hygiene (toothbrushing, handwashing)",
         "Mealtime skills (using utensils, trying new foods)",
-        "Morning and bedtime routines (organization, transitions)",
+        "Morning and bedtime routines (organisation, transitions)",
         "Following instructions and problem-solving"
       ],
       imageSrc: "/images/about-us/daily-living-skills.png",

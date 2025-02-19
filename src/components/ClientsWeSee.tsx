@@ -59,7 +59,7 @@ const ClientsWeSee: React.FC = () => {
   const occupationalClients = [
     {
       title: "NDIS Occupational Therapy",
-      description: "Our occupational therapists specialize in helping individuals with disabilities achieve independence through personalized assessments, home modifications, and adaptive equipment recommendations.",
+      description: "Our occupational therapists specialize in helping individuals with disabilities achieve independence through personalised assessments, home modifications, and adaptive equipment recommendations.",
       imageSrc: "/images/dog.jpg"
     },
     {

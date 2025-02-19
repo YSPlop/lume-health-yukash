@@ -62,7 +62,7 @@ const About = () => {
   const physiotherapyServices = [
     {
       title: "Aged Care Physiotherapy",
-      description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalized care. We treat conditions like arthritis, stroke, Parkinson's, and mobility decline to support active aging.",
+      description: "Aged care physiotherapy helps older adults maintain mobility, independence, and quality of life at home. Lume Health provides home-based therapy for safety, pain management, and personalised care. We treat conditions like arthritis, stroke, Parkinson's, and mobility decline to support active ageing.",
       link: "/services/aged-care-physiotherapy",
       imageSrc: "/images/about/physio/aged-care.png",
       imageAlt: "Aged Care Physiotherapy illustration"
@@ -100,14 +100,14 @@ const About = () => {
   const occupationalTherapyServices = [
     {
       title: "Daily Living skills",
-      description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence and self-sufficiency in their everyday routines.",
+      description: "Lume Health's occupational therapy services focus on helping children develop essential daily living skills. From personal care tasks such as dressing, toileting and feeding, we prioritise independence and implement tailored interventions that support children in building confidence in their everyday routines.",
       link: "/services/daily-living-skills",
       imageSrc: "/images/about/occupational-therapy/daily-living-skills.png",
       imageAlt: "Daily living skills illustration"
     },
     {
       title: "School Readiness",
-      description: "Our occupational therapist provides school readiness skills to prepare children for school transition and developing key skills such as fine motor development, attention, social interaction, and following instructions. We provide individualized strategies to ensure children are ready to thrive in an academic setting.",
+      description: "Our occupational therapist provides school readiness skills to prepare children for school transition and developing key skills such as fine motor development, attention, social interaction, and following instructions. We provide individualised strategies to ensure children are ready to thrive in an academic setting.",
       link: "/services/school-readiness",
       imageSrc: "/images/about/occupational-therapy/school-readiness.png",
       imageAlt: "School readiness illustration"

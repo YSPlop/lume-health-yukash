@@ -45,8 +45,8 @@ const HeroButton = ({
       >
         <span className={`absolute inset-0 ${buttonStyles[style].hoverBgColor} scale-0 group-hover:scale-100 transition-transform duration-500 ease-out rounded-full origin-center`} />
         <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors duration-500 ease-out">
-          <Icon className="lg:text-[1.5vw] md:text-[1.6vw] sm:text-[2vw] text-[3vw]" />
-          <p className="lg:text-[1.2vw] md:text-[1.4vw] sm:text-[2vw] text-[3vw]">{children}</p>
+          <Icon className="lg:text-[1.5vw] md:text-[1.6vw] sm:text-[2vw] text-[4vw]" />
+          <p className="lg:text-[1.2vw] md:text-[1.4vw] sm:text-[2vw] text-[4vw]">{children}</p>
         </span>
       </motion.button>
     </Link>
@@ -62,10 +62,10 @@ const Hero = () => {
             {/* Left Content */}
             
             <div className="px-2 xl:mt-15 lg:mt-4 flex flex-col">
-              <h1 className={`lg:text-[3.7vw] md:text-[3.4vw] text-[5vw] font-heading mb-4 md:mb-11 text-center md:text-left ${styles.tagline}`}>
+              <h1 className={`lg:text-[3.7vw] md:text-[3.4vw] text-[9vw] font-heading mb-4 md:mb-11 text-center md:text-left ${styles.tagline}`}>
                 Quality Allied <span className="hidden md:inline"><br /></span> Health Services, <br /> Right at <span className="hidden md:inline"><br /></span> Your Door.
               </h1>
-              <p className="text-gray-600 lg:text-[1.2vw] text-[2.4vw] md:text-[1.5vw] leading-[1.5] font-body text-center md:text-left">
+              <p className="text-gray-600 lg:text-[1.2vw] text-[4vw] md:text-[1.5vw] leading-[1.5] font-body text-center md:text-left">
                 Lume Health offers mobile allied health services throughout Melbourne, catering to all ages and stages of life.
               </p>
             </div>
