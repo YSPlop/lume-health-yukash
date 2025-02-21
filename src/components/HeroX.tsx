@@ -28,14 +28,15 @@ const buttonStyles = {
 
 // Button padding controls
 const buttonPaddingY = `
-    py-3
+    py-2
+    sm:py-3
     md:py-2
     lg:py-4
     xl:py-5
 `;
 
 const buttonSizeClassName = `
-    text-[4.0vw]
+    text-[3.5vw]
     sm:text-[2.3vw]
     md:text-[2vw]
     lg:text-[1.6vw]
@@ -43,7 +44,7 @@ const buttonSizeClassName = `
 `;
 // This is always +0.2 of the buttonSizeClassName
 const iconSizeClassName = `
-    text-[3.5vw]
+    text-[3.2vw]
     sm:text-[2.5vw]
     md:text-[2.2vw]
     lg:text-[1.8vw]
@@ -52,19 +53,21 @@ const iconSizeClassName = `
 
 // Main component styles control
 const headingSizeClassName = `
-    text-[8.5vw]
+    text-[6vw]
     sm:text-[4.5vw]
     md:text-[5vw]
     lg:text-[4.5vw]
     xl:text-7xl
 `;
 const paragraphSizeClassName = `
-    text-base
-    md:text-xl
+    text-[3.8vw]
+    sm:text-[3.5vw]
+    md:text-[4vw]
     lg:text-2xl
+    xl:text-2xl
 `;
 const imageSizeClassName = `
-    w-[100%]
+    w-[80%]
     sm:w-[70%]
     md:w-[60%]
     lg:w-[80%]
@@ -126,8 +129,8 @@ const HeroButton = ({
 const HeroX = () => {
 
     return (
-        <section className="xl:min-h-[calc(100vh-100px)] p-2 md:p-6 pt-4 md:pt-6">
-            <div className="min-h-full max-w-[90%] mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6">
+        <section className="min-h-[calc(100vh-100px)] sm:min-h-full xl:min-h-[calc(100vh-100px)] p-2 md:p-6 pt-4 md:pt-6">
+            <div className="min-h-full lg:max-w-[90%] mx-auto rounded-[1.5rem] md:rounded-[2.5rem] bg-cardcolour backdrop-blur-sm p-3 md:p-6">
                 <div className="px-4 lg:px-8 py-2 md:py-4">
                     <div className="flex flex-col justify-center">
                         <div className="px-2 flex flex-col">
