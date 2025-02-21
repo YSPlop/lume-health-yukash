@@ -1,9 +1,10 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from '@/styles/formswipe.module.css';
+import Captcha from "react-google-recaptcha";
 
 const FormSwipe: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -58,6 +59,8 @@ const FormSwipe: React.FC = () => {
 
   const searchParams = useSearchParams();
   const typeFromParams = searchParams.get('type');
+
+  const captchaRef = useRef<Captcha>(null);
   
   useEffect(() => {
     if (typeFromParams === 'ndis') {
@@ -160,6 +163,17 @@ const FormSwipe: React.FC = () => {
 
   const onSubmit = async () => {
     if (validateStep()) {
+        try{
+            const captcha = await captchaRef.current?.executeAsync();
+            const res = await fetch("/api/recaptcha", {
+                method: "POST",
+                body: JSON.stringify({ captcha }),
+                headers: { "Content-type": "application/json" },
+            });
+        }
+        catch (error) {
+            console.error("Recaptcha error on Form", error);
+        }
         try {
             const res = await fetch("/api/sheets", {
                 method: "POST", 
@@ -224,6 +238,12 @@ const FormSwipe: React.FC = () => {
 
         {/* Multi-step Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Initialize Captcha */}
+            <Captcha
+                ref={captchaRef}
+                size="invisible"
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA!}
+            />
             {/* Step 1: Form Type Selection */}
             {currentStep === 1 && (
             <div className="w-full flex items-center justify-center flex-col">
