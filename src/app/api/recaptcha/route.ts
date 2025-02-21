@@ -1,8 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-type Response = {
-    status: string;
-    error: string;
-}
 
 const verifyEndpoint = "https://www.google.com/recaptcha/api/siteverify";
 

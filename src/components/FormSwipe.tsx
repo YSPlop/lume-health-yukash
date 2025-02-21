@@ -170,6 +170,8 @@ const FormSwipe: React.FC = () => {
                 body: JSON.stringify({ captcha }),
                 headers: { "Content-type": "application/json" },
             });
+            const data = await res.json(); // Convert response to JSON
+            console.log("Server response:", data);
         }
         catch (error) {
             console.error("Recaptcha error on Form", error);
