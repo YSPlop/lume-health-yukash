@@ -40,7 +40,8 @@ const buttonSizeClassName = `
     sm:text-[2.3vw]
     md:text-[2vw]
     lg:text-[1.6vw]
-    xl:text-[1.2vw]
+    xl:text-[1.5vw]
+    2xl:text-[1.2vw]
 `;
 // This is always +0.2 of the buttonSizeClassName
 const iconSizeClassName = `
@@ -48,7 +49,8 @@ const iconSizeClassName = `
     sm:text-[2.5vw]
     md:text-[2.2vw]
     lg:text-[1.8vw]
-    xl:text-[1.2vw]
+    xl:text-[1.7vw]
+    2xl:text-[1.2vw]
 `;
 
 // Main component styles control
@@ -57,24 +59,30 @@ const headingSizeClassName = `
     sm:text-[4.5vw]
     md:text-[5vw]
     lg:text-[4.5vw]
-    xl:text-7xl
+    xl:text-[4vw]
+    2xl:text-[4vw]
+    3xl:text-[3.5vw]
+    4xl:text-[3vw]
 `;
 const paragraphSizeClassName = `
     text-[3.3vw]
     sm:text-[3.5vw]
-    md:text-[4vw]
+    md:text-[3vw]
     lg:text-2xl
-    xl:text-2xl
-    3xl:text-[1.5vw]
+    xl:text-[1.75vw]
+    2xl:text-2xl
+    3xl:text-[1.4vw]
+    4xl:text-[1.2vw]
 `;
 const imageSizeClassName = `
-    w-[80%]
+    w-[10 0%]
     sm:w-[70%]
-    md:w-[60%]
-    lg:w-[80%]
-    xl:w-[45%]
-    2xl:w-[35%]
-    3xl:w-[40%]
+    md:w-[90%]
+    lg:w-[100%]
+    xl:w-[63%]
+    2xl:w-[55%]
+    3xl:w-[50%]
+    4xl:w-[45%]
 `;
 
 
