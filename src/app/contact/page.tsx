@@ -270,6 +270,7 @@ const ContactPage = () => {
         ref={(el: HTMLElement | null) => {
           if (el) sectionRefs.current[1] = el;
         }}
+        className = "md:fixed md:bottom-0 w-full"
       >
         <Footer />
       </section>
