@@ -36,13 +36,13 @@ const MeetTheTeam: React.FC = () => {
           <h2 className="text-3xl xl:text-4xl 4xl:text-6xl font-body">
             Meet the team
           </h2>
-          <p className="text-gray-600 leading-relaxed text-justify font-body text-sm xl:text-base 4xl:text-[1.75rem] 4xl:leading-[1.25] pb-10">
+          <p className="text-gray-600 leading-relaxed text-justify font-body text-sm xl:text-base 4xl:text-[1.5rem] 4xl:leading-[1.25] pb-10">
             At Lume Health, our team is made up of experienced and dedicated allied health professionals passionate about providing personalised and evidence-based care. 
             With a focus on supporting individuals across all ages and needs, we work collaboratively to deliver high-quality, mobile services that make a positive impact 
             on your health and well-being.  
           </p>
           <a href = "/team">
-            <button className="w-full xl:w-auto bg-cardcolour text-black px-6 4xl:px-10  py-2 4xl:py-4 rounded-full hover:bg-accentcolour hover:text-black transition-colors text-base 4xl:text-[1.75rem] 4xl:leading-[1.25]">
+            <button className="w-full xl:w-auto bg-cardcolour text-black px-6 4xl:px-10  py-2 4xl:py-4 rounded-full hover:bg-accentcolour hover:text-black transition-colors text-base 4xl:text-[1.5rem] 4xl:leading-[1.25]">
               Meet the team
             </button>
           </a>
