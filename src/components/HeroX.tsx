@@ -142,7 +142,7 @@ const HeroX = () => {
                                 Mobile allied health services throughout Melbourne, catering to all ages and stages of life.
                             </p>
                             <Image
-                                src="/images/nat-hero-cropped.png"
+                                src="/images/nat-12.png"
                                 alt="Mortgage consultation illustration"
                                 width={1000}
                                 height={1000}
