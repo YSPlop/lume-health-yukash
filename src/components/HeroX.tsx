@@ -60,11 +60,12 @@ const headingSizeClassName = `
     xl:text-7xl
 `;
 const paragraphSizeClassName = `
-    text-[3.8vw]
+    text-[3.3vw]
     sm:text-[3.5vw]
     md:text-[4vw]
     lg:text-2xl
     xl:text-2xl
+    3xl:text-[1.5vw]
 `;
 const imageSizeClassName = `
     w-[80%]
@@ -138,10 +139,10 @@ const HeroX = () => {
                                 Quality Allied Health Services, <br /> Right at Your Door.
                             </h1>
                             <p className={`pt-5 lg:pt-10 lg:pb-10 pb-5 text-gray-600 font-body text-center ${paragraphSizeClassName}`}>
-                                Lume Health offers mobile allied health services throughout Melbourne, catering to all ages and stages of life.
+                                Mobile allied health services throughout Melbourne, catering to all ages and stages of life.
                             </p>
                             <Image
-                                src="/images/nat-hero-cropped-2.PNG"
+                                src="/images/nat-hero-cropped.png"
                                 alt="Mortgage consultation illustration"
                                 width={1000}
                                 height={1000}
