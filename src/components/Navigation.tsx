@@ -104,13 +104,20 @@ const Navigation = () => {
               Home
             </Link>
 
+            <Link 
+              href="/team"
+              className={`${styles.underlineAnimation} ${styles.getUnderlineState(pathname === '/team')}`}
+            >
+              About Us
+            </Link>
+
             {/* About Dropdown */}
             <div ref={aboutDropdownRef} className="relative group">
               <Link
                 href="/about"
                 className={`flex items-center gap-1 ${styles.underlineAnimation} ${styles.getUnderlineState(pathname.startsWith('/about'))}`}
               >
-                About
+                Our Services
                 <ChevronDown className={`h-4 w-4 transition-transform group-hover:rotate-180`} />
               </Link>
               
@@ -210,7 +217,7 @@ const Navigation = () => {
                 onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
                 className={`w-full flex items-center justify-between ${styles.mobileLink(pathname.startsWith('/about'))}`}
               >
-                <span>About</span>
+                <span>Our Services</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`} />
               </button>
               
