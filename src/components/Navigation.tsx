@@ -211,6 +211,14 @@ const Navigation = () => {
               Home
             </Link>
 
+            <Link 
+              href="/team"
+              className={styles.mobileLink(pathname === '/team')}
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </Link>
+
             {/* Mobile About Section */}
             <div>
               <button
