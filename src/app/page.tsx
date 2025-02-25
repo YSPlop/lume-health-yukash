@@ -7,6 +7,7 @@ import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import ClientsWeSeeX from "@/components/ClientsWeSeeX";
 import HeroX from "@/components/HeroX";
+import TestimonialsMarquee from "@/components/TestimonialMarquee";
 
 export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -20,6 +21,7 @@ export default function Home() {
     3: 'bg-[#FFCBA9]',     // ClientsWeSee
     4: 'bg-[#FDCFB4]',     // Logos (warmer)
     5: 'bg-[#FDCFB4]',     // Footer (warmer)
+    6: 'bg-[#FDCFB4]',     // TestimonialsMarquee (warmer)
   }), []);
 
   useEffect(() => {
@@ -101,12 +103,19 @@ export default function Home() {
           if (el) sectionRefs.current[4] = el;
         }}
       >
+        <TestimonialsMarquee />
+      </section>
+      <section 
+        ref={(el: HTMLElement | null) => {
+          if (el) sectionRefs.current[5] = el;
+        }}
+      >
         <Logos />
       </section>
 
       <section 
         ref={(el: HTMLElement | null) => {
-          if (el) sectionRefs.current[5] = el;
+          if (el) sectionRefs.current[6] = el;
         }}
       >
         <Footer />
