@@ -56,16 +56,7 @@ const testimonials: Testimonial[] = [
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
     <div className="min-w-[300px] md:min-w-[400px] p-6 mx-4 bg-cardcolour rounded-2xl shadow-lg flex flex-col justify-between">
-        <div className="flex items-center mb-4">
-            <div className="flex">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400" />
-                ))}
-            </div>
-            <span className="ml-2 text-sm text-gray-500">
-                via {testimonial.source}
-            </span>
-        </div>
+        
         <p className="text-gray-700 mb-4 flex-grow">&quot;{testimonial.text}&quot;</p>
         <div className="flex justify-between items-center">
             <span className="font-semibold text-gray-800">{testimonial.name}</span>
