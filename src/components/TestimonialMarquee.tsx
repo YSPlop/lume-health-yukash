@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa";
 
 interface Testimonial {
     id: number;
@@ -75,7 +74,7 @@ const TestimonialsMarquee = () => {
         const handleResize = () => {
             const width = window.innerWidth;
             if (width < 768) { // mobile
-                setDuration(15); // faster for mobile
+                setDuration(5); // faster for mobile
             } else if (width < 1024) { // tablet
                 setDuration(18); // medium speed
             } else { // desktop
